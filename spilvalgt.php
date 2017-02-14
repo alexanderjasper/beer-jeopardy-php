@@ -31,34 +31,14 @@ if(!$kid)
 	exit();
 }
 
-$sql2 = mysqli_query($link, "SELECT tur FROM deltager WHERE deltagerid='$delt'");
-$row2 = mysqli_fetch_assoc($sql2);
-$tur = $row2['tur'];
+$sql = mysqli_query($link, "INSERT INTO spilkategori (kategoriid,spilid,deltagerid,vundet100,vundet200,vundet300,vundet400,vundet500) VALUES ('$kid','$sid','$delt',NULL,NULL,NULL,NULL,NULL)");
 
-if(!$sql2)
+if(!$sql)
 {
-	$error = 'Kunne ikke finde status.' . mysqli_error($link);
+	$error = 'Kunne ikke tildele spilkategori.' . mysqli_error($link);
 	include 'error.html.php';
 	exit();
 }
 
-// Kode til at finde status:
-$sql3 = mysqli_query($link, "SELECT status FROM spil WHERE spilid='$sid'");
-$row3 = mysqli_fetch_assoc($sql3);
-$status = $row3['status'];
-if(!$sql3)
-{
-	$error = 'Kunne ikke finde status.' . mysqli_error($link);
-	include 'error.html.php';
-	exit();
-}
-
-if ($tur == 1)
-{
-	include 'spil.output.tur.php';
-}
-else
-{
-	include 'spil.output.ntur.php';
-}
+include 'spilvalgt.output.php';
 ?>
