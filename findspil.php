@@ -33,7 +33,7 @@ if(!$result)
 $spil = Array();
 while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
 {
-  $spil[] =  $row['spilid'];
+	$spil[] =  $row['spilid'];
 }
 
 include 'findspil.output.php';

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="refresh" content="10">
-  <head>
-    <title>Kontrolpanel</title>
-  </head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="refresh" content="10">
+<head>
+  <title>Kontrolpanel</title>
+</head>
 <body>
   <p>Hej <?php echo $name ?>. Det er din tur.</p>
   <div>

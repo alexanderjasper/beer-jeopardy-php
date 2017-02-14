@@ -70,6 +70,4 @@ else
 {
 	include 'spil.output.ntur.php';
 }
-
-
 ?>

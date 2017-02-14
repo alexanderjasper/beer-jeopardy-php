@@ -32,7 +32,7 @@ if(!$result)
 
 while ($row = mysqli_fetch_array($result))
 {
-		$categories[] = array($row['navn'],$row['kategoriid']);
+	$categories[] = array($row['navn'],$row['kategoriid']);
 }
 
 include 'kontrolpanel.output.php';

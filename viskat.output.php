@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <head>
-    <title>Kontrolpanel</title>  
-  </head>  
-<body>  
-<p>Velkommen <?php echo $name ?>. Her er svarene i kategorien <b><?php print_r($row['navn']); ?></b>:</p>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+  <title>Kontrolpanel</title>
+</head>
+<body>
+  <p>Velkommen <?php echo $name ?>. Her er svarene i kategorien <b><?php print_r($row['navn']); ?></b>:</p>
   <p>
     <div><u>
       100 point:
@@ -52,5 +52,5 @@
   <div>
     <a href="index.php"><button style="height:50px;width:200px">Log ud</button></a>
   </div>
-</body>  
+</body>
 </html>

@@ -45,9 +45,9 @@ if(!$sql4)
 }
 
 while ($row = mysqli_fetch_array($sql4))
-	{
-		$categories[] = array($row['navn'],$row['kategoriid']);
-	}
+{
+	$categories[] = array($row['navn'],$row['kategoriid']);
+}
 include 'deltagspil.output.php';
 
 // Kode til at finde status:

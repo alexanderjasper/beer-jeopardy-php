@@ -64,11 +64,10 @@ if(!$sql4)
 }
 
 while ($row = mysqli_fetch_array($sql4))
-	{
-		$categories[] = array($row['navn'],$row['kategoriid']);
-	}
+{
+	$categories[] = array($row['navn'],$row['kategoriid']);
+}
 include 'nytspil.output.php';
-
 // Kode til at finde status:
 //
 // $sql3 = mysqli_query($link, "SELECT status FROM spil WHERE spilid='$sid'");
