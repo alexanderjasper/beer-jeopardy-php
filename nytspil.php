@@ -41,7 +41,7 @@ if(!$sql2)
 	exit();
 }
 
-$sql3 = mysqli_query($link, "INSERT INTO deltager (brugerid,spilid,points,tur) VALUES ('$uid','$sid',0,1)");
+$sql3 = mysqli_query($link, "INSERT INTO deltager (brugerid,spilid,point,tur) VALUES ('$uid','$sid',0,1)");
 
 if(!$sql3)
 {
