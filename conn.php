@@ -1,51 +1,45 @@
-<?php 
+<?php
 
-$link = mysqli_connect('copalex.com.mysql:3306', 'copalex_com', 'oljeopardy'); 
+$link = mysqli_connect('localhost:1864', 'bruger', 'jeopardy');
 
-if (!$link) 
+if (!$link)
 
-{ 
+{
 
-  $output = 'Unable to connect to the database server.'; 
+  $output = 'Unable to connect to the database server.';
 
-  include 'output.html.php'; 
+  include 'error.html.php';
 
-  exit(); 
+  exit();
 
-} 
+}
 
- 
 
-if (!mysqli_set_charset($link, 'utf8')) 
 
-{ 
+if (!mysqli_set_charset($link, 'utf8'))
 
-  $output = 'Unable to set database connection encoding.'; 
+{
 
-  include 'output.html.php'; 
+  $output = 'Unable to set database connection encoding.';
 
-  exit(); 
+  include 'error.html.php';
 
-} 
+  exit();
 
- 
+}
 
-if (!mysqli_select_db($link, 'copalex_com')) 
 
-{ 
 
-  $output = 'Unable to locate the joke database.'; 
+if (!mysqli_select_db($link, 'jeopardy'))
 
-  include 'output.html.php'; 
+{
 
-  exit(); 
+  $output = 'Unable to locate the database.';
 
-} 
+  include 'error.html.php';
 
- 
+  exit();
 
-$output = 'Database connection established.'; 
-
-include 'index.php'; 
+}
 
 ?>
