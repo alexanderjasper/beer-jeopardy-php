@@ -53,6 +53,19 @@ if(!$sql3)
 	exit();
 }
 
+$sql4 = mysqli_query($link, "SELECT kategoriid FROM spilkategori WHERE spilid='$sid'");
+if(!$sql4)
+{
+	$error = 'Kunne ikke finde spilkategorier.' . mysqli_error($link);
+	include 'error.html.php';
+	exit();
+}
+
+while ($row = mysqli_fetch_array($sql4, MYSQLI_ASSOC))
+{
+	$categories[] =  $row['kategoriid'];
+}
+
 if ($tur == 1)
 {
 	include 'spil.output.tur.php';
