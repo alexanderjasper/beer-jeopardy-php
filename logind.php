@@ -6,7 +6,7 @@
 	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
 </head>
 <body>
-	<form action="kontrolpanel.php" method="get">
+	<form action="kontrolpanel.php" method="post">
 		<div>
 			<label for="brugernavn">Brugernavn:</label>
 		</div>

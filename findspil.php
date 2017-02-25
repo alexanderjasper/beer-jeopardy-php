@@ -21,7 +21,7 @@ if(!$result1 || $uid == 0)
 	exit();
 }
 
-$result = mysqli_query($link, "SELECT spilid FROM spil WHERE status='aktiv'");
+$result = mysqli_query($link, "SELECT spilid FROM spil WHERE status='aktiv' AND aktivtidspunkt > NOW() - INTERVAL 2 HOUR");
 
 if(!$result)
 {

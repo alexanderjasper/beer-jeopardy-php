@@ -1,7 +1,12 @@
 <?php
 include('conn.php');
 
-$name = mysqli_real_escape_string($link, $_GET['brugernavn']);
+if (isset($_POST['brugernavn']))
+{
+	$_SESSION['brugernavn'] = $_POST['brugernavn'];
+}
+
+$name = mysqli_real_escape_string($link, $_SESSION['brugernavn']);
 
 if(!$name)
 {
