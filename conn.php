@@ -1,4 +1,5 @@
 <?php
+session_start();
 $link = mysqli_connect('localhost:1864', 'bruger', 'jeopardy');
 
 if (!$link)

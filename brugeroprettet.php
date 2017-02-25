@@ -6,9 +6,7 @@ $name = mysqli_real_escape_string($link, $_POST['brugernavn']);
 $sql = "INSERT INTO bruger (navn) VALUES ('$name')";
 if(mysqli_query($link, $sql))
 {
-  echo 'Brugeren er oprettet. <p><a href="kontrolpanel.php?brugernavn=';
-  echo $name;
-  echo '"><button style="height:50px;width:200px">Gå til kontrolpanel</button></a></p>';
+  include 'brugeroprettet.output.php';
 }
 else
 {
