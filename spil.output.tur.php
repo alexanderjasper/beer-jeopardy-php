@@ -8,10 +8,8 @@
 <body>
   <p>Hej <?php echo $name ?>. Det er din tur. Vælg en kategori.</p>
     <?php foreach ($categories as $cat): ?>
-      <p>
+      <div>
         <?php
-          echo htmlspecialchars($cat[2].':', ENT_QUOTES, 'UTF-8');
-
           $sql100 = mysqli_query($link, "SELECT vundet100 FROM spilkategori WHERE spilkategoriid='$cat[1]'");
           $row1 = mysqli_fetch_array($sql100);
 
@@ -27,52 +25,31 @@
           $sql500 = mysqli_query($link, "SELECT vundet500 FROM spilkategori WHERE spilkategoriid='$cat[1]'");
           $row5 = mysqli_fetch_array($sql500);
         ?>
-
-        <?php if($row1['vundet100']='NULL') : ?>
-          <div>
-            <form action=spil.php method=post>
-              <input type='hidden' name='spilkategoriselect' value=<?php echo htmlspecialchars($cat[1], ENT_QUOTES, 'UTF-8') ?>>
-            	<input type=submit name='pointsvalue' value="100" style="height:50px;width:100px">
-            </form>
-          </div>
-        <?php endif; ?>
-
-        <?php if($row1['vundet200']='NULL') : ?>
-          <div>
-            <form action=spil.php method=post>
-              <input type='hidden' name='spilkategoriselect' value=<?php echo htmlspecialchars($cat[1], ENT_QUOTES, 'UTF-8') ?>>
-            	<input type=submit name='pointsvalue' value="200" style="height:50px;width:100px">
-            </form>
-          </div>
-        <?php endif; ?>
-
-        <?php if($row1['vundet300']='NULL') : ?>
-          <div>
-            <form action=spil.php method=post>
-              <input type='hidden' name='spilkategoriselect' value=<?php echo htmlspecialchars($cat[1], ENT_QUOTES, 'UTF-8') ?>>
-            	<input type=submit name='pointsvalue' value="300" style="height:50px;width:100px">
-            </form>
-          </div>
-        <?php endif; ?>
-
-        <?php if($row1['vundet400']='NULL') : ?>
-          <div>
-            <form action=spil.php method=post>
-              <input type='hidden' name='spilkategoriselect' value=<?php echo htmlspecialchars($cat[1], ENT_QUOTES, 'UTF-8') ?>>
-            	<input type=submit name='pointsvalue' value="400" style="height:50px;width:100px">
-            </form>
-          </div>
-        <?php endif; ?>
-
-        <?php if($row1['vundet500']='NULL') : ?>
-          <div>
-            <form action=spil.php method=post>
-              <input type='hidden' name='spilkategoriselect' value=<?php echo htmlspecialchars($cat[1], ENT_QUOTES, 'UTF-8') ?>>
-            	<input type=submit name='pointsvalue' value="500" style="height:50px;width:100px">
-            </form>
-          </div>
-        <?php endif; ?>
-      </p>
+        <form action=spil.php method=post>
+          <p>
+            <div>
+              <?php echo htmlspecialchars($cat[2].':', ENT_QUOTES, 'UTF-8'); ?>
+            </div>
+            <select name="catchoice[]" style="width: 200px"> <!- 0 is selected spilkategori, 1 is the points value ->
+              <?php if ($row1['vundet100']='NULL') : ?>
+                <option value=[<?php echo htmlspecialchars($cat[1], ENT_QUOTES, 'UTF-8'); ?>, 100] > 100 </option>
+              <?php endif; ?>
+              <?php if ($row1['vundet200']='NULL') : ?>
+                <option value=[<?php echo htmlspecialchars($cat[1], ENT_QUOTES, 'UTF-8'); ?>, 200] > 200 </option>
+              <?php endif; ?>
+              <?php if ($row1['vundet300']='NULL') : ?>
+                <option value=[<?php echo htmlspecialchars($cat[1], ENT_QUOTES, 'UTF-8'); ?>, 300] > 300 </option>
+              <?php endif; ?>
+              <?php if ($row1['vundet400']='NULL') : ?>
+                <option value=[<?php echo htmlspecialchars($cat[1], ENT_QUOTES, 'UTF-8'); ?>, 400] > 400 </option>
+              <?php endif; ?>
+              <?php if ($row1['vundet500']='NULL') : ?>
+                <option value=[<?php echo htmlspecialchars($cat[1], ENT_QUOTES, 'UTF-8'); ?>, 500] > 500 </option>
+              <?php endif; ?>
+            </select>
+          </p>
+        </form>
+      </div>
     <?php endforeach; ?>
   <div
     <a href="index.php"><button style="height:50px;width:200px">Log ud</button></a>
