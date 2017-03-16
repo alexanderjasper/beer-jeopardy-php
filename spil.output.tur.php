@@ -20,8 +20,8 @@
 				}
 			});
 		}
-		//Every 20 sec check if there is new update
-		setInterval(check,200);
+		//Every 2 sec check if there is new update
+		setInterval(check,2000);
 	</script>
 </head>
 <body>
