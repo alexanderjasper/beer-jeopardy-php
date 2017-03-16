@@ -8,10 +8,7 @@
 <body>
   <p>Hej <?php echo $name ?>. Det er ikke din tur.</p>
   <div>
-    <a href="spil.php?spilid=<?php echo $sid ?>&bruger=<?php echo $name ?>"><button style="height:50px;width:200px">Start spil</button></a>
-  </div>
-  <div>
-    <a href="index.php"><button style="height:50px;width:200px">Log ud</button></a>
+    <a href="index.php"><button style="height:50px;width:200px">Til startsiden</button></a>
   </div>
 </body>
 </html>
