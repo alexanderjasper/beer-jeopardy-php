@@ -59,6 +59,7 @@ if (isset($_POST['spilkategoriselect']))
 $sql2 = mysqli_query($link, "SELECT tur FROM deltager WHERE deltagerid='$delt'");
 $row2 = mysqli_fetch_assoc($sql2);
 $tur = $row2['tur'];
+$_SESSION['tur'] = $tur;
 
 if(!$sql2)
 {

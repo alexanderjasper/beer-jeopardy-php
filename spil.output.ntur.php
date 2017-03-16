@@ -4,6 +4,25 @@
 <meta http-equiv="refresh" content="10">
 <head>
   <title>Kontrolpanel</title>
+  <script src="jquery-1.10.2.min.js"></script>
+  <script>
+		/* AJAX request to checker */
+		function check(){
+			$.ajax({
+				type: 'POST',
+				url: 'turcheck.php',
+				dataType: 'json',
+				data: data
+			}).done(function( response ) {
+				/* update counter */
+				if(response == true){
+					window.location.reload();
+				}
+			});
+		}
+		//Every 20 sec check if there is new update
+		setInterval(check,200);
+	</script>
 </head>
 <body>
   <p>Hej <?php echo $name ?>. Det er ikke din tur.</p>
