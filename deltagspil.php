@@ -44,6 +44,7 @@ if(!$sql4)
 	exit();
 }
 
+$categories = array();
 while ($row = mysqli_fetch_array($sql4))
 {
 	$categories[] = array($row['navn'],$row['kategoriid']);
