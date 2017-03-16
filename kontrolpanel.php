@@ -21,6 +21,7 @@ $uid = $row['brugerid'];
 
 if(!$result1 || $uid == 0)
 {
+	unset($_SESSION['brugernavn']);
 	$error = 'Fejl. Brugernavnet findes ikke. ' . mysqli_error($link);
 	include 'error.html.php';
 	exit();
