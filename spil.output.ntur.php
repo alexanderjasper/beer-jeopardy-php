@@ -15,7 +15,7 @@
 	</script>
 </head>
 <body>
-  <p>Hej <?php echo $name ?>. Det er ikke din tur.</p>
+  <p>Hej <?php echo $name ?>. Det er ikke din tur. Du har <?php echo $userpoints ?> point.</p>
   <div>
     <a href="index.php"><button style="height:50px;width:200px">Til startsiden</button></a>
   </div>

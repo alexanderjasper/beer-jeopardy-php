@@ -15,7 +15,7 @@
 	</script>
 </head>
 <body>
-  <p>Hej <?php echo $name ?>. Det er din tur. Vælg en kategori.</p>
+  <p>Hej <?php echo $name ?>. Du har <?php echo $userpoints ?> point. Det er din tur. Vælg en kategori.</p>
     <?php foreach ($categories as $cat): ?>
       <div>
         <?php
@@ -34,6 +34,7 @@
           $sql500 = mysqli_query($link, "SELECT vundet500 FROM spilkategori WHERE spilkategoriid='$cat[1]'");
           $row5 = mysqli_fetch_array($sql500);
         ?>
+        <?php if ($row1['vundet100'] == NULL or $row2['vundet200'] == NULL or $row3['vundet300'] == NULL or $row4['vundet400'] == NULL or $row5['vundet500'] == NULL) : ?>
         <form action=spil.php method=post>
           <p>
             <div>
@@ -60,10 +61,11 @@
             <input type="submit" value="Vælg">
           </p>
         </form>
+      <?php endif ?>
       </div>
     <?php endforeach; ?>
   <div
-    <a href="index.php"><button style="height:50px;width:200px">Log ud</button></a>
+    <a href="index.php"><button style="height:50px;width:200px">Til startsiden</button></a>
   </div>
 </body>
 </html>

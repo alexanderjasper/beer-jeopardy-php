@@ -52,6 +52,25 @@ if($isnew == true)
 	$sql = mysqli_query($link, "INSERT INTO spilkategori (kategoriid,spilid,deltagerid,vundet100,vundet200,vundet300,vundet400,vundet500) VALUES ('$kid','$sid','$delt',NULL,NULL,NULL,NULL,NULL)");
 }
 
+//Points calculation:
+$sql100points = mysqli_query($link, "SELECT COUNT(*) as count FROM spilkategori WHERE spilid='$sid' AND vundet100='$delt'");
+$row100p = mysqli_fetch_assoc($sql100points);
+$p100 = $row100p['count'];
+$sql200points = mysqli_query($link, "SELECT COUNT(*) as count FROM spilkategori WHERE spilid='$sid' AND vundet200='$delt'");
+$row200p = mysqli_fetch_assoc($sql200points);
+$p200 = $row200p['count'];
+$sql300points = mysqli_query($link, "SELECT COUNT(*) as count FROM spilkategori WHERE spilid='$sid' AND vundet300='$delt'");
+$row300p = mysqli_fetch_assoc($sql300points);
+$p300 = $row300p['count'];
+$sql400points = mysqli_query($link, "SELECT COUNT(*) as count FROM spilkategori WHERE spilid='$sid' AND vundet400='$delt'");
+$row400p = mysqli_fetch_assoc($sql400points);
+$p400 = $row400p['count'];
+$sql500points = mysqli_query($link, "SELECT COUNT(*) as count FROM spilkategori WHERE spilid='$sid' AND vundet500='$delt'");
+$row500p = mysqli_fetch_assoc($sql500points);
+$p500 = $row500p['count'];
+$userpoints = 100*$p100+200*$p200+300*$p300+400*$p400+500*$p500;
+
+
 if (isset($_POST['spilcatchoice']) and isset($_POST['pointchoice']))
 {
 	$spilcatchoice = $_POST['spilcatchoice'];
@@ -147,8 +166,8 @@ if (isset($_POST['roundwinner']))
 	if ($pointswon == 500) {$sqlpoints = 'vundet500';}
 
 	$sqlregisterwinner = mysqli_query($link, "UPDATE spilkategori SET $sqlpoints='$roundwinner' WHERE spilkategoriid='$categorywon'");
-	$sqlchangewinnertur = mysqli_query($link, "UPDATE deltager SET tur=1 WHERE spilid='$sid' AND brugerid='$roundwinner'");
-	$sqlchangeplayertur = mysqli_query($link, "UPDATE deltager SET tur=0 WHERE spilid='$sid' AND brugerid='$uid'");
+	$sqlchangewinnertur = mysqli_query($link, "UPDATE deltager SET tur=1 WHERE deltagerid='$roundwinner'");
+	$sqlchangeplayertur = mysqli_query($link, "UPDATE deltager SET tur=0 WHERE deltagerid='$delt'");
 	$tur = 0;
 }
 
@@ -217,14 +236,14 @@ if ($tur == 2)
 	$jeopardyspilcatid = $rowjeopardyans['spilcatid'];
 
 	$sqlplayers = mysqli_query($link,
-		"SELECT deltager.brugerid as brugerid, bruger.navn as navn
+		"SELECT deltager.deltagerid as deltagerid, bruger.navn as navn
 		FROM deltager JOIN bruger ON deltager.brugerid=bruger.brugerid
 		WHERE deltager.spilid='$sid'
 		AND deltager.brugerid != '$uid'");
 	$players = array();
 	while ($row = mysqli_fetch_array($sqlplayers, MYSQLI_ASSOC))
 	{
-		$players[] =  array($row['brugerid'],$row['navn']);
+		$players[] =  array($row['deltagerid'],$row['navn']);
 	}
 
 	include 'spil.output.read.php';
