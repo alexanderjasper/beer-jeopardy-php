@@ -13,6 +13,7 @@ $delt = mysqli_real_escape_string($link, $_SESSION['deltager']);
 $name = mysqli_real_escape_string($link, $_SESSION['bruger']);
 $sid = mysqli_real_escape_string($link, $_SESSION['spilid']);
 $kid = mysqli_real_escape_string($link, $_SESSION['katid']);
+$uid = mysqli_real_escape_string($link, $_SESSION['userid']);
 if(!$delt)
 {
 	$error = 'Kunne ikke finde deltagerid: ' . mysqli_error($link);
@@ -59,8 +60,16 @@ if (isset($_POST['spilcatchoice']) and isset($_POST['pointchoice']))
 	$catchoicerow = mysqli_fetch_assoc($catchoicesql);
 	$catchoice = $catchoicerow['kategoriid'];
 
-	$sqlupd1 = mysqli_query($link, "UPDATE spil SET kategoriid='$catchoice', point='$pointchoice', aktivtidspunkt=NOW() WHERE spilid='$sid'"); // Der mangler en måde at vise, hvilken kategori der er valgt, og præsentere den for oplæseren.
-	// Lav query, der registrerer, at kategorien og pointværdien er valgt, og giver turen videre til den pågældende spiller
+	$sqlupd1 = mysqli_query($link, "UPDATE spil SET spilkategoriid='$spilcatchoice', point='$pointchoice', aktivtidspunkt=NOW() WHERE spilid='$sid'");
+	$sqlupd2 = mysqli_query($link, "UPDATE deltager SET tur='0' WHERE deltagerid='$delt'");
+	$catdeltagersql = mysqli_query($link,
+		"SELECT deltagerid
+		FROM kategori JOIN deltager
+			ON kategori.brugerid=deltager.brugerid
+		WHERE kategori.kategoriid='$catchoice'");
+	$catdeltagerrow = mysqli_fetch_assoc($catdeltagersql);
+	$catdeltager = $catdeltagerrow['deltagerid'];
+	$updatecatdeltagersql = mysqli_query($link, "UPDATE deltager SET tur='2' where deltagerid='$catdeltager'");
 }
 
 $sql2 = mysqli_query($link, "SELECT tur FROM deltager WHERE deltagerid='$delt'");
@@ -125,12 +134,100 @@ foreach ($categories as $cat)
 	$vundet500 = $row5['vundet500'];
 }
 
+if (isset($_POST['roundwinner']))
+{
+	$roundwinner = $_POST['roundwinner'];
+	$pointswon = $_POST['pointswon'];
+	$categorywon = $_POST['categorywon'];
+
+	if ($pointswon == 100) {$sqlpoints = 'vundet100';}
+	if ($pointswon == 200) {$sqlpoints = 'vundet200';}
+	if ($pointswon == 300) {$sqlpoints = 'vundet300';}
+	if ($pointswon == 400) {$sqlpoints = 'vundet400';}
+	if ($pointswon == 500) {$sqlpoints = 'vundet500';}
+
+	$sqlregisterwinner = mysqli_query($link, "UPDATE spilkategori SET $sqlpoints='$roundwinner' WHERE spilkategoriid='$categorywon'");
+	$sqlchangewinnertur = mysqli_query($link, "UPDATE deltager SET tur=1 WHERE spilid='$sid' AND brugerid='$roundwinner'");
+	$sqlchangeplayertur = mysqli_query($link, "UPDATE deltager SET tur=0 WHERE spilid='$sid' AND brugerid='$uid'");
+	$tur = 0;
+}
+
+if($tur == 0)
+{
+	include 'spil.output.ntur.php';
+}
 if ($tur == 1)
 {
 	include 'spil.output.tur.php';
 }
-else
+if ($tur == 2)
 {
-	include 'spil.output.ntur.php';
+	$sqljeopardypoint = mysqli_query($link, "SELECT point FROM spil WHERE spilid='$sid'");
+	$rowjeopardypoint = mysqli_fetch_assoc($sqljeopardypoint);
+	$jeopardypoint = $rowjeopardypoint['point'];
+
+	if ($jeopardypoint == 100)
+	{
+		$sqljeopardyans = mysqli_query($link,
+		"SELECT kategori.100point as answer, kategori.navn as name, spilkategori.spilkategoriid as spilcatid
+		FROM kategori
+			JOIN spilkategori ON kategori.kategoriid=spilkategori.kategoriid
+			JOIN spil ON spilkategori.spilkategoriid=spil.spilkategoriid
+		WHERE spil.spilid='$sid'");
+	}
+	if ($jeopardypoint == 200)
+	{
+		$sqljeopardyans = mysqli_query($link,
+		"SELECT kategori.200point as answer, kategori.navn as name, spilkategori.spilkategoriid as spilcatid
+		FROM kategori
+			JOIN spilkategori ON kategori.kategoriid=spilkategori.kategoriid
+			JOIN spil ON spilkategori.spilkategoriid=spil.spilkategoriid
+		WHERE spil.spilid='$sid'");
+	}
+	if ($jeopardypoint == 300)
+	{
+		$sqljeopardyans = mysqli_query($link,
+		"SELECT kategori.300point as answer, kategori.navn as name, spilkategori.spilkategoriid as spilcatid
+		FROM kategori
+			JOIN spilkategori ON kategori.kategoriid=spilkategori.kategoriid
+			JOIN spil ON spilkategori.spilkategoriid=spil.spilkategoriid
+		WHERE spil.spilid='$sid'");
+	}
+	if ($jeopardypoint == 400)
+	{
+		$sqljeopardyans = mysqli_query($link,
+		"SELECT kategori.400point as answer, kategori.navn as name, spilkategori.spilkategoriid as spilcatid
+		FROM kategori
+			JOIN spilkategori ON kategori.kategoriid=spilkategori.kategoriid
+			JOIN spil ON spilkategori.spilkategoriid=spil.spilkategoriid
+		WHERE spil.spilid='$sid'");
+	}
+	if ($jeopardypoint == 500)
+	{
+		$sqljeopardyans = mysqli_query($link,
+		"SELECT kategori.500point as answer, kategori.navn as name, spilkategori.spilkategoriid as spilcatid
+		FROM kategori
+			JOIN spilkategori ON kategori.kategoriid=spilkategori.kategoriid
+			JOIN spil ON spilkategori.spilkategoriid=spil.spilkategoriid
+		WHERE spil.spilid='$sid'");
+	}
+	$rowjeopardyans = mysqli_fetch_assoc($sqljeopardyans);
+	$jeopardyans = $rowjeopardyans['answer'];
+	$jeopardycatname = $rowjeopardyans['name'];
+	$jeopardyspilcatid = $rowjeopardyans['spilcatid'];
+
+	$sqlplayers = mysqli_query($link,
+		"SELECT deltager.brugerid as brugerid, bruger.navn as navn
+		FROM deltager JOIN bruger ON deltager.brugerid=bruger.brugerid
+		WHERE deltager.spilid='$sid'
+		AND deltager.brugerid != '$uid'");
+	$players = array();
+	while ($row = mysqli_fetch_array($sqlplayers, MYSQLI_ASSOC))
+	{
+		$players[] =  array($row['brugerid'],$row['navn']);
+	}
+
+	include 'spil.output.read.php';
 }
+
 ?>

@@ -18,6 +18,7 @@ if(!$name)
 $result1 = mysqli_query($link, "SELECT brugerid FROM bruger WHERE navn='$name'");
 $row = mysqli_fetch_assoc($result1);
 $uid = $row['brugerid'];
+$_SESSION['userid'] = $uid;
 
 if(!$result1 || $uid == 0)
 {

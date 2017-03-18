@@ -9,8 +9,8 @@
   <p>
     <form action="kontrolpanel.php" method="post">
       <button style="height:50px;width:200px">Gå til kontrolpanel</button>
-      <input type="hidden" name="brugernavn" value="<?php echo $name?>"
-    </a>
+      <input type="hidden" name="brugernavn" value="<?php echo $name?>">
+    </form>
   </p>
 </body>
 </html>

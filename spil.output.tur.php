@@ -8,7 +8,7 @@
 		setInterval(function() {
       $.getJSON("turcheck.php", function(data) {
         if (data) {
-          window.location.reload();
+          window.location.href = "spil.php";
         }
       })
     }, 2000);
