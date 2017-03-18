@@ -40,19 +40,19 @@
               <?php echo htmlspecialchars($cat[2].':', ENT_QUOTES, 'UTF-8'); ?>
             </div>
             <select name="pointchoice" style="width: 200px">
-              <?php if ($row1['vundet100']='NULL') : ?>
+              <?php if ($row1['vundet100'] == NULL) : ?>
                 <option value='100'> 100 </option>
               <?php endif; ?>
-              <?php if ($row1['vundet200']='NULL') : ?>
+              <?php if ($row2['vundet200'] == NULL) : ?>
                 <option value='200'> 200 </option>
               <?php endif; ?>
-              <?php if ($row1['vundet300']='NULL') : ?>
+              <?php if ($row3['vundet300'] == NULL) : ?>
                 <option value='300'> 300 </option>
               <?php endif; ?>
-              <?php if ($row1['vundet400']='NULL') : ?>
+              <?php if ($row4['vundet400'] == NULL) : ?>
                 <option value='400'> 400 </option>
               <?php endif; ?>
-              <?php if ($row1['vundet500']='NULL') : ?>
+              <?php if ($row5['vundet500'] == NULL) : ?>
                 <option value='500'> 500 </option>
               <?php endif; ?>
             </select>
