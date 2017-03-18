@@ -10,10 +10,10 @@
     echo "<p>Der er ingen aktive spil i øjeblikket.</p>";
   }
   else {
-    echo "<p>Her er de spil, der er aktive i øjeblikket.</p>";
+    echo "<p>Her er de spil, der er aktive i øjeblikket. Tryk på et spil for at deltage.</p>";
     foreach ($spil as $sp): ?>
     <p>
-      <a href="deltagspil.php?spilid=<?php echo $sp?>&bruger=<?php echo $name?>"><?php echo htmlspecialchars($sp[0], ENT_QUOTES, 'UTF-8'); ?></a>
+      <a href="deltagspil.php?spilid=<?php echo $sp[0]?>&bruger=<?php echo $name?>"><?php echo htmlspecialchars($sp[1], ENT_QUOTES, 'UTF-8'); ?></a>
     </p>
   <?php endforeach;
 }

@@ -1,27 +1,15 @@
 <?php
 include('conn.php');
 
-$name = mysqli_real_escape_string($link, $_GET['bruger']);
+$name = mysqli_real_escape_string($link, $_SESSION['bruger']);
+$uid = mysqli_real_escape_string($link, $_SESSION['userid']);
 
-if(!$name)
+if (isset($_POST['gamename']))
 {
-	$error = 'Kunne ikke finde brugernavn: ' . mysqli_error($link);
-	include 'error.html.php';
-	exit();
+	$gamename = $_POST['gamename'];
 }
 
-$result1 = mysqli_query($link, "SELECT brugerid FROM bruger WHERE navn='$name'");
-$row = mysqli_fetch_assoc($result1);
-$uid = $row['brugerid'];
-
-if(!$result1 || $uid == 0)
-{
-	$error = 'Fejl. Brugernavnet findes ikke. ' . mysqli_error($link);
-	include 'error.html.php';
-	exit();
-}
-
-$sql = mysqli_query($link, "INSERT INTO spil (brugerid,status,aktivtidspunkt) VALUES ('$uid','aktiv',NOW())");
+$sql = mysqli_query($link, "INSERT INTO spil (brugerid,status,aktivtidspunkt,navn) VALUES ('$uid','aktiv',NOW(),'$gamename')");
 
 if(!$sql)
 {

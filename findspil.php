@@ -21,7 +21,7 @@ if(!$result1 || $uid == 0)
 	exit();
 }
 
-$result = mysqli_query($link, "SELECT spilid FROM spil WHERE status='aktiv' AND aktivtidspunkt > NOW() - INTERVAL 2 HOUR");
+$result = mysqli_query($link, "SELECT spilid, navn FROM spil WHERE status='aktiv' AND aktivtidspunkt > NOW() - INTERVAL 2 HOUR");
 
 if(!$result)
 {
@@ -30,10 +30,10 @@ if(!$result)
 	exit();
 }
 
-$spil = Array();
+$spil = array();
 while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
 {
-	$spil[] =  $row['spilid'];
+	$spil[] =  array($row['spilid'], $row['navn']);
 }
 
 include 'findspil.output.php';

@@ -27,7 +27,7 @@
   <a href="nykategori.php?bruger=<?php echo $name ?>"><button style="height:50px;width:200px">Opret ny kategori</button></a>
 </div>
 <div>
-  <a href="nytspil.php?bruger=<?php echo $name ?>"><button style="height:50px;width:200px">Opret nyt spil</button></a>
+  <a href="opretspil.php"><button style="height:50px;width:200px">Opret nyt spil</button></a>
 </div>
 <div>
   <a href="logout.php"><button style="height:50px;width:200px">Log ud</button></a>
