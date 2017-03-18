@@ -51,29 +51,15 @@ if($isnew == true)
 	$sql = mysqli_query($link, "INSERT INTO spilkategori (kategoriid,spilid,deltagerid,vundet100,vundet200,vundet300,vundet400,vundet500) VALUES ('$kid','$sid','$delt',NULL,NULL,NULL,NULL,NULL)");
 }
 
-if (isset($_POST['catchoice']))
+if (isset($_POST['spilcatchoice']) and isset($_POST['pointchoice']))
 {
-	$catchoice = $_POST['catchoice'];
-	if ($catchoice[1] == '100')
-	{
-		$sqlupd1 = mysqli_query($link, "UPDATE spilkategori SET "); // Der mangler en måde at vise, hvilken kategori, der er valgt, og præsentere den for oplæseren.
-	}
-	if ($catchoice[1] == '200')
-	{
+	$spilcatchoice = $_POST['spilcatchoice'];
+	$pointchoice = $_POST['pointchoice'];
+	$catchoicesql = mysqli_query($link, "SELECT kategoriid FROM spilkategori WHERE spilkategoriid='$spilcatchoice'");
+	$catchoicerow = mysqli_fetch_assoc($catchoicesql);
+	$catchoice = $catchoicerow['kategoriid'];
 
-	}
-	if ($catchoice[1] == '300')
-	{
-
-	}
-	if ($catchoice[1] == '400')
-	{
-
-	}
-	if ($catchoice[1] == '500')
-	{
-
-	}
+	$sqlupd1 = mysqli_query($link, "UPDATE spil SET kategoriid='$catchoice', point='$pointchoice', aktivtidspunkt=NOW() WHERE spilid='$sid'"); // Der mangler en måde at vise, hvilken kategori der er valgt, og præsentere den for oplæseren.
 	// Lav query, der registrerer, at kategorien og pointværdien er valgt, og giver turen videre til den pågældende spiller
 }
 

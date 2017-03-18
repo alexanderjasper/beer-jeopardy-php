@@ -39,23 +39,25 @@
             <div>
               <?php echo htmlspecialchars($cat[2].':', ENT_QUOTES, 'UTF-8'); ?>
             </div>
-            <select name="catchoice[]" style="width: 200px"> <!- 0 is selected spilkategori, 1 is the points value ->
+            <select name="pointchoice" style="width: 200px">
               <?php if ($row1['vundet100']='NULL') : ?>
-                <option value=[<?php echo htmlspecialchars($cat[1], ENT_QUOTES, 'UTF-8'); ?>, 100] > 100 </option>
+                <option value='100'> 100 </option>
               <?php endif; ?>
               <?php if ($row1['vundet200']='NULL') : ?>
-                <option value=[<?php echo htmlspecialchars($cat[1], ENT_QUOTES, 'UTF-8'); ?>, 200] > 200 </option>
+                <option value='200'> 200 </option>
               <?php endif; ?>
               <?php if ($row1['vundet300']='NULL') : ?>
-                <option value=[<?php echo htmlspecialchars($cat[1], ENT_QUOTES, 'UTF-8'); ?>, 300] > 300 </option>
+                <option value='300'> 300 </option>
               <?php endif; ?>
               <?php if ($row1['vundet400']='NULL') : ?>
-                <option value=[<?php echo htmlspecialchars($cat[1], ENT_QUOTES, 'UTF-8'); ?>, 400] > 400 </option>
+                <option value='400'> 400 </option>
               <?php endif; ?>
               <?php if ($row1['vundet500']='NULL') : ?>
-                <option value=[<?php echo htmlspecialchars($cat[1], ENT_QUOTES, 'UTF-8'); ?>, 500] > 500 </option>
+                <option value='500'> 500 </option>
               <?php endif; ?>
             </select>
+            <input type='hidden' name='spilcatchoice' value=<?php echo htmlspecialchars($cat[1], ENT_QUOTES, 'UTF-8'); ?>>
+            <input type="submit" value="Vælg">
           </p>
         </form>
       </div>
