@@ -16,13 +16,13 @@
     </p>
     <p>
       <form action="redigerkategori.php" method=post>
-        <select name="editcat" class="category-dropdown">
+        <select name="editcat" class="dropdown category-dropdown">
           <?php foreach ($categories as $cat): ?>
             <div>
               <option value='<?php echo $cat[1] ?>'> <?php echo htmlspecialchars($cat[0], ENT_QUOTES, 'UTF-8'); ?> </option>
             </div>
           <?php endforeach ?>
-          <input type="submit" value="Vælg">
+          <input type="submit" value="Rediger">
         </select>
       </form>
     </p>
