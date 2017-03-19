@@ -24,10 +24,10 @@
   <a href="findspil.php?bruger=<?php echo $name ?>"><button style="height:50px;width:200px">Deltag i et spil</button></a>
 </div>
 <div>
-  <a href="nykategori.php?bruger=<?php echo $name ?>"><button style="height:50px;width:200px">Opret ny kategori</button></a>
+  <a href="opretspil.php"><button style="height:50px;width:200px">Opret nyt spil</button></a>
 </div>
 <div>
-  <a href="opretspil.php"><button style="height:50px;width:200px">Opret nyt spil</button></a>
+  <a href="kategorier.php"><button style="height:50px;width:200px">Mine kategorier</button></a>
 </div>
 <div>
   <a href="logout.php"><button style="height:50px;width:200px">Log ud</button></a>
