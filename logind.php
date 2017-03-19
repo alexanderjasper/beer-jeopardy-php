@@ -12,7 +12,7 @@
 			<label for="brugernavn">Brugernavn:</label>
 		</div>
 		<div>
-			<textarea id="brugernavn" name="brugernavn" rows="1" cols="28"></textarea><input type="submit" value="Log ind"/>
+			<textarea id="brugernavn" name="brugernavn" class="answer-edit-field"></textarea><input type="submit" value="Log ind"/>
 		</div>
 	</form>
 	<div>

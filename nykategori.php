@@ -17,17 +17,17 @@
 	</p>
 	<form action="kategorioprettet.php?bruger=<?php echo $name ?>" method="post">
 		Kategoriens navn:<br>
-		<textarea name="kategorinavn" rows="1" cols="28"></textarea><br>
+		<textarea name="kategorinavn" class="name-field"></textarea><br>
 		Svaret til 100 point:<br>
-		<textarea name="100pt" rows="3" cols="28"></textarea><br>
+		<textarea name="100pt" class="answer-edit-field"></textarea><br>
 		Svaret til 200 point:<br>
-		<textarea name="200pt" rows="3" cols="28"></textarea><br>
+		<textarea name="200pt" class="answer-edit-field"></textarea><br>
 		Svaret til 300 point:<br>
-		<textarea name="300pt" rows="3" cols="28"></textarea><br>
+		<textarea name="300pt" class="answer-edit-field"></textarea><br>
 		Svaret til 400 point:<br>
-		<textarea name="400pt" rows="3" cols="28"></textarea><br>
+		<textarea name="400pt" class="answer-edit-field"></textarea><br>
 		Svaret til 500 point:<br>
-		<textarea name="500pt" rows="3" cols="28"></textarea><br>
+		<textarea name="500pt" class="answer-edit-field"></textarea><br>
 		<input type="submit" value="Gem"/>
 	</form>
 	<p>

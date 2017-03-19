@@ -12,7 +12,7 @@
 			<label for="spilnavn">Vælg et navn til spillet:</label>
 		</div>
 		<div>
-			<textarea id="spilnavn" name="gamename" rows="1" cols="28"></textarea><input type="submit" value="Opret spil"/>
+			<textarea id="spilnavn" name="gamename" class="name-field"></textarea><input type="submit" value="Opret spil"/>
 		</div>
 	</form>
 	<div>

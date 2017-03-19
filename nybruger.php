@@ -12,7 +12,7 @@
 			<label for="brugernavn">Skriv det ønskede brugernavn her:</label>
 		</div>
 		<div>
-			<textarea id="brugernavn" name="brugernavn" rows="1" cols="28"></textarea><input type="submit" value="Opret"/>
+			<input type="text" id="brugernavn" name="brugernavn" class="name-field"></textarea><input type="submit" value="Opret"/>
 		</div>
 	</form>
 	<div>
