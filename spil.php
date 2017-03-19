@@ -176,6 +176,10 @@ if($tur == 0)
 }
 if ($tur == 1)
 {
+	$sql = mysqli_query($link, "SELECT count(*) as count FROM spilkategori WHERE spilid='$sid'");
+	$row = mysqli_fetch_array($sql);
+	$count = $row['count'];
+	$_SESSION['count'] = $count;
 	include 'spil.output.tur.php';
 }
 if ($tur == 2)
