@@ -1,7 +1,7 @@
 <?php
 include('conn.php');
 
-$name = mysqli_real_escape_string($link, $_SESSION['bruger']);
+$name = mysqli_real_escape_string($link, $_SESSION['brugernavn']);
 $uid = mysqli_real_escape_string($link, $_SESSION['userid']);
 
 if (isset($_POST['gamename']))

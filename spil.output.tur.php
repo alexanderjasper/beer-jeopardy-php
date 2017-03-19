@@ -61,11 +61,11 @@
             <input type="submit" value="Vælg">
           </p>
         </form>
-      <?php endif ?>
+      <?php endif; ?>
       </div>
     <?php endforeach; ?>
-  <div
-    <a href="index.php"><button style="height:50px;width:200px">Til startsiden</button></a>
+  <div>
+    <a href="kontrolpanel.php"><button style="height:50px;width:200px">Til startsiden</button></a>
   </div>
 </body>
 </html>

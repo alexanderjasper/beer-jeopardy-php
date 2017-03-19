@@ -83,9 +83,8 @@ if (isset($_POST['spilcatchoice']) and isset($_POST['pointchoice']))
 	$sqlupd2 = mysqli_query($link, "UPDATE deltager SET tur='0' WHERE deltagerid='$delt'");
 	$catdeltagersql = mysqli_query($link,
 		"SELECT deltagerid
-		FROM kategori JOIN deltager
-			ON kategori.brugerid=deltager.brugerid
-		WHERE kategori.kategoriid='$catchoice'");
+		FROM spilkategori
+		WHERE spilkategoriid='$spilcatchoice'");
 	$catdeltagerrow = mysqli_fetch_assoc($catdeltagersql);
 	$catdeltager = $catdeltagerrow['deltagerid'];
 	$updatecatdeltagersql = mysqli_query($link, "UPDATE deltager SET tur='2' where deltagerid='$catdeltager'");
