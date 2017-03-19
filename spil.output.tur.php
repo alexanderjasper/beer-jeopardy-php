@@ -2,6 +2,7 @@
 <html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <head>
+  <link rel="stylesheet" type="text/css" href="styles.css">
   <title>Kontrolpanel</title>
   <script src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
   <script>
@@ -40,7 +41,7 @@
             <div>
               <?php echo htmlspecialchars($cat[2].':', ENT_QUOTES, 'UTF-8'); ?>
             </div>
-            <select name="pointchoice" style="width: 200px">
+            <select name="pointchoice" class="points-dropdown">
               <?php if ($row1['vundet100'] == NULL) : ?>
                 <option value='100'> 100 </option>
               <?php endif; ?>
@@ -65,7 +66,7 @@
       </div>
     <?php endforeach; ?>
   <div>
-    <a href="kontrolpanel.php"><button style="height:50px;width:200px">Til startsiden</button></a>
+    <a href="kontrolpanel.php"><button class="menubutton">Til startsiden</button></a>
   </div>
 </body>
 </html>

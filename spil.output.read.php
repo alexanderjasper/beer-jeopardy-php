@@ -2,6 +2,7 @@
 <html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <head>
+  <link rel="stylesheet" type="text/css" href="styles.css">
   <title>Kontrolpanel</title>
   <script src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
   <script>
@@ -22,7 +23,7 @@
       <div>
         Hvilken bruger vandt runden?
       </div>
-      <select name="roundwinner" style="width: 200px">
+      <select name="roundwinner" class="player-dropdown">
         <?php foreach ($players as $player): ?>
           <option value='<?php echo $player[0] ?>'> <?php echo $player[1] ?> </option>
         <?php endforeach; ?>
@@ -33,7 +34,7 @@
     </form>
   </p>
   <div>
-    <a href="index.php"><button style="height:50px;width:200px">Log ud</button></a>
+    <a href="index.php"><button class="menubutton">Log ud</button></a>
   </div>
 </body>
 </html>

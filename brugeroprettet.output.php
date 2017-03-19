@@ -2,13 +2,14 @@
 <html>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <head>
+    <link rel="stylesheet" type="text/css" href="styles.css">
     <title>Bruger oprettet</title>
   </head>
 <body>
   Brugeren er oprettet.
   <p>
     <form action="kontrolpanel.php" method="post">
-      <button style="height:50px;width:200px">Gå til kontrolpanel</button>
+      <button class="menubutton">Gå til kontrolpanel</button>
       <input type="hidden" name="brugernavn" value="<?php echo $name?>">
     </form>
   </p>

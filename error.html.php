@@ -2,6 +2,7 @@
 <html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <head>
+  <link rel="stylesheet" type="text/css" href="styles.css">
   <title>
     PHP Error
   </title>
@@ -12,6 +13,6 @@
   </p>
 </body>
 <div>
-  <a href="index.php"><button style="height:50px;width:200px">Tilbage til forsiden</button></a>
+  <a href="index.php"><button class="menubutton">Tilbage til forsiden</button></a>
 </div>
 </html>

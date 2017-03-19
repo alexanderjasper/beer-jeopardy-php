@@ -2,6 +2,7 @@
 <html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <head>
+  <link rel="stylesheet" type="text/css" href="styles.css">
   <title>Kontrolpanel</title>
   <script src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
   <script>
@@ -17,7 +18,7 @@
 <body>
   <p>Hej <?php echo $name ?>. Det er ikke din tur. Du har <?php echo $userpoints ?> point.</p>
   <div>
-    <a href="index.php"><button style="height:50px;width:200px">Til startsiden</button></a>
+    <a href="index.php"><button class="menubutton">Til startsiden</button></a>
   </div>
 </body>
 </html>

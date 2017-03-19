@@ -2,6 +2,7 @@
 <html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <head>
+  <link rel="stylesheet" type="text/css" href="styles.css">
   <title>Aktive spil</title>
 </head>
 <body>
@@ -19,13 +20,13 @@
 }
 ?>
 <div>
-  <a href="nykategori.php?bruger=<?php echo $name ?>"><button style="height:50px;width:200px">Opret ny kategori</button></a>
+  <a href="nykategori.php?bruger=<?php echo $name ?>"><button class="menubutton">Opret ny kategori</button></a>
 </div>
 <div>
-  <a href="nytspil.php?bruger=<?php echo $name ?>"><button style="height:50px;width:200px">Opret nyt spil</button></a>
+  <a href="opretspil.php?bruger=<?php echo $name ?>"><button class="menubutton">Opret nyt spil</button></a>
 </div>
 <div>
-  <a href="index.php"><button style="height:50px;width:200px">Log ud</button></a>
+  <a href="index.php"><button class="menubutton">Log ud</button></a>
 </div>
 </body>
 </html>

@@ -10,7 +10,7 @@ if(mysqli_query($link, $sql))
 }
 else
 {
-  echo '<p>Fejl. Brugernavnet eksisterer allerede.</p><div><a href="nybruger.php"><button style="height:50px;width:200px">Prøv igen</button></a></div>';
+  echo '<p>Fejl. Brugernavnet eksisterer allerede.</p><div><a href="nybruger.php"><button class="menubutton">Prøv igen</button></a></div>';
 }
 // close connection
 mysqli_close($link);

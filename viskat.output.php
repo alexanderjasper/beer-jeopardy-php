@@ -2,6 +2,7 @@
 <html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <head>
+  <link rel="stylesheet" type="text/css" href="styles.css">
   <title>Kontrolpanel</title>
 </head>
 <body>
@@ -47,10 +48,10 @@
     </div>
   </p>
   <div>
-    <a href="kontrolpanel.php?brugernavn=<?php echo $name ?>"><button style="height:50px;width:200px">Tilbage til kontrolpanel</button></a>
+    <a href="kontrolpanel.php?brugernavn=<?php echo $name ?>"><button class="menubutton">Tilbage til kontrolpanel</button></a>
   </div>
   <div>
-    <a href="index.php"><button style="height:50px;width:200px">Log ud</button></a>
+    <a href="index.php"><button class="menubutton">Log ud</button></a>
   </div>
 </body>
 </html>

@@ -2,6 +2,7 @@
 <html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <head>
+	<link rel="stylesheet" type="text/css" href="styles.css">
 	<title>Øljeopardy</title>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
 </head>
@@ -44,7 +45,7 @@
 		<input type="hidden" name="editcat" value="<?php echo $editcat ?>">
 	</form>
 	<p>
-		<a href="kategorier.php"><button style="height:50px;width:200px">Tilbage til Mine kategorier</button></a>
+		<a href="kategorier.php"><button class="menubutton">Tilbage til Mine kategorier</button></a>
 	</p>
 </body>
 </html>

@@ -2,6 +2,7 @@
 <html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <head>
+  <link rel="stylesheet" type="text/css" href="styles.css">
   <title>Øljeopardy - Kategorier</title>
 </head>
 <body>
@@ -15,7 +16,7 @@
     </p>
     <p>
       <form action="redigerkategori.php" method=post>
-        <select name="editcat" style="width: 200px">
+        <select name="editcat" class="category-dropdown">
           <?php foreach ($categories as $cat): ?>
             <div>
               <option value='<?php echo $cat[1] ?>'> <?php echo htmlspecialchars($cat[0], ENT_QUOTES, 'UTF-8'); ?> </option>
@@ -27,10 +28,10 @@
     </p>
   <?php } ?>
   <div>
-    <a href="nykategori.php?bruger=<?php echo $name ?>"><button style="height:50px;width:200px">Opret ny kategori</button></a>
+    <a href="nykategori.php?bruger=<?php echo $name ?>"><button class="menubutton">Opret ny kategori</button></a>
   </div>
   <div>
-    <a href="kontrolpanel.php"><button style="height:50px;width:200px">Tilbage til kontrolpanel</button></a>
+    <a href="kontrolpanel.php"><button class="menubutton">Tilbage til kontrolpanel</button></a>
   </div>
 </body>
 </html>

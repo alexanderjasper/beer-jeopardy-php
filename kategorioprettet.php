@@ -15,9 +15,9 @@ $uid = $row['brugerid'];
 $sql = "INSERT INTO kategori (navn,100point,200point,300point,400point,500point,brugerid) VALUES ('$kategorinavn','$svA','$svB','$svC','$svD','$svE','$uid')";
 
 if(mysqli_query($link, $sql)){
-	echo 'Kategorien er oprettet. <p><a href="kategorier.php"><button style="height:50px;width:200px">Tilbage til Mine kategorier</button></a></p>';
+	echo 'Kategorien er oprettet. <p><a href="kategorier.php"><button class="menubutton">Tilbage til Mine kategorier</button></a></p>';
 } else{
-	echo '<p>Fejl. Brugernavnet eksisterer allerede.</p><div><a href="nybruger.php"><button style="height:50px;width:200px">Prøv igen $sql</button></a></div>'  . mysqli_error($link);
+	echo '<p>Fejl. Brugernavnet eksisterer allerede.</p><div><a href="nybruger.php"><button class="menubutton">Prøv igen $sql</button></a></div>'  . mysqli_error($link);
 }
 
 // close connection
