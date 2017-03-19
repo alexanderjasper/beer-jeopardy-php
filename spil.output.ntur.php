@@ -16,9 +16,13 @@
 	</script>
 </head>
 <body>
-  <p>Hej <?php echo $name ?>. Det er ikke din tur. Du har <?php echo $userpoints ?> point.</p>
-  <div>
-    <a href="index.php"><button class="menubutton">Til startsiden</button></a>
+  <div class="screen-text">
+    <p>
+      Hej <?php echo $name ?>. Det er ikke din tur. Du har <?php echo $userpoints ?> point.
+    </p>
+    <p>
+      <a href="index.php"><button class="menubutton">Til startsiden</button></a>
+    </p>
   </div>
 </body>
 </html>

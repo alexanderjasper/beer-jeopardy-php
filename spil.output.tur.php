@@ -16,7 +16,10 @@
 	</script>
 </head>
 <body>
-  <p>Hej <?php echo $name ?>. Du har <?php echo $userpoints ?> point. Det er din tur. Vælg en kategori.</p>
+  <div class="screen-text">
+    <p>
+      Hej <?php echo $name ?>. Du har <?php echo $userpoints ?> point. Det er din tur. Vælg en kategori.
+    </p>
     <?php foreach ($categories as $cat): ?>
       <div>
         <?php
@@ -38,7 +41,7 @@
         <?php if ($row1['vundet100'] == NULL or $row2['vundet200'] == NULL or $row3['vundet300'] == NULL or $row4['vundet400'] == NULL or $row5['vundet500'] == NULL) : ?>
         <form action=spil.php method=post>
           <p>
-            <div>
+            <div style="text-align: left; margin-left: 10px">
               <?php echo htmlspecialchars($cat[2].':', ENT_QUOTES, 'UTF-8'); ?>
             </div>
             <select name="pointchoice" class="points-dropdown">
@@ -59,14 +62,15 @@
               <?php endif; ?>
             </select>
             <input type='hidden' name='spilcatchoice' value=<?php echo htmlspecialchars($cat[1], ENT_QUOTES, 'UTF-8'); ?>>
-            <input type="submit" value="Vælg">
+            <input type="submit" value="Vælg" class="menubutton smallbutton">
           </p>
         </form>
       <?php endif; ?>
       </div>
     <?php endforeach; ?>
-  <div>
-    <a href="kontrolpanel.php"><button class="menubutton">Til startsiden</button></a>
+    <div>
+      <a href="kontrolpanel.php"><button class="menubutton">Til startsiden</button></a>
+    </div>
   </div>
 </body>
 </html>

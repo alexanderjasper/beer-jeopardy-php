@@ -9,11 +9,10 @@
     <title>Logget ud</title>
   </head>
 <body>
-  Du er nu logget ud.
-  <p>
-    <a href="index.php">
-      <button class="menubutton">Gå til startside</button>
-    </a>
-  </p>
+	<div class="screen-text">
+		Du er nu logget ud.
+  	<p>
+    	<a href="index.php"><button class="menubutton">Gå til forsiden</button></a>
+  	</p>
 </body>
 </html>

@@ -6,12 +6,14 @@
     <title>Bruger oprettet</title>
   </head>
 <body>
-  Brugeren er oprettet.
-  <p>
+  <div class="screen-text">
+    Brugeren er oprettet.
+  </div>
+  <div>
     <form action="kontrolpanel.php" method="post">
       <button class="menubutton">Gå til kontrolpanel</button>
       <input type="hidden" name="brugernavn" value="<?php echo $name?>">
     </form>
-  </p>
+  </div>
 </body>
 </html>

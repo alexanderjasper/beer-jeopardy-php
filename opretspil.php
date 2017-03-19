@@ -7,16 +7,17 @@
 	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
 </head>
 <body>
-	<form action="nytspil.php" method="post">
+	<div class="screen-text">
+		<form action="nytspil.php" method="post">
+			<p>Vælg et navn til spillet:</p>
+			<p>
+				<input type="text" name="gamename" class="name-field">
+				<input type="submit" value="Opret" class="menubutton smallbutton">
+			</p>
+		</form>
 		<div>
-			<label for="spilnavn">Vælg et navn til spillet:</label>
+			<a href="index.php"><button class="menubutton">Tilbage til forsiden</button></a>
 		</div>
-		<div>
-			<textarea id="spilnavn" name="gamename" class="name-field"></textarea><input type="submit" value="Opret spil"/>
-		</div>
-	</form>
-	<div>
-		<a href="index.php"><button class="menubutton">Tilbage til forsiden</button></a>
 	</div>
 </body>
 </html>

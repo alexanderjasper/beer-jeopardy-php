@@ -8,17 +8,11 @@ $svC = mysqli_real_escape_string($link, $_POST['300pt']);
 $svD = mysqli_real_escape_string($link, $_POST['400pt']);
 $svE = mysqli_real_escape_string($link, $_POST['500pt']);
 
-$name = $_GET['bruger'];
-$result1 = mysqli_query($link, "SELECT brugerid FROM bruger WHERE navn='$name'");
-$row = mysqli_fetch_assoc($result1);
-$uid = $row['brugerid'];
+$name = $_SESSION['brugernavn'];
+$uid = $_SESSION['userid'];
 $sql = "INSERT INTO kategori (navn,100point,200point,300point,400point,500point,brugerid) VALUES ('$kategorinavn','$svA','$svB','$svC','$svD','$svE','$uid')";
 
-if(mysqli_query($link, $sql)){
-	echo 'Kategorien er oprettet. <p><a href="kategorier.php"><button class="menubutton">Tilbage til Mine kategorier</button></a></p>';
-} else{
-	echo '<p>Fejl. Brugernavnet eksisterer allerede.</p><div><a href="nybruger.php"><button class="menubutton">Prøv igen $sql</button></a></div>'  . mysqli_error($link);
-}
+include 'kategorioprettet.output.php';
 
 // close connection
 mysqli_close($link);

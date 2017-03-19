@@ -7,16 +7,19 @@
 	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
 </head>
 <body>
-	<form action="kontrolpanel.php" method="post">
-		<div>
-			<label for="brugernavn">Brugernavn:</label>
-		</div>
-		<div>
-			<textarea id="brugernavn" name="brugernavn" class="answer-edit-field"></textarea><input type="submit" value="Log ind"/>
-		</div>
-	</form>
-	<div>
-		<a href="index.php"><button class="menubutton">Tilbage til forsiden</button></a>
+	<div class="screen-text">
+		<form action="kontrolpanel.php" method="post">
+			<p style="text-align: left; margin-left: 10px;">
+				Brugernavn:
+			</p>
+			<div>
+				<input type="text" name="brugernavn" class="name-field"></textarea>
+				<input type="submit" value="Log ind" class="menubutton smallbutton">
+			</div>
+		</form>
+		<p>
+			<a href="index.php"><button class="menubutton">Tilbage til forsiden</button></a>
+		</p>
 	</div>
 </body>
 </html>

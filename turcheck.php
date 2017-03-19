@@ -14,7 +14,7 @@ $_SESSION['tur'] = $dbtur;
 $sql = mysqli_query($link, "SELECT count(*) as count FROM spilkategori WHERE spilid='$sid'");
 $row = mysqli_fetch_assoc($sql);
 $dbcount = $row['count'];
-$_SESSION['count'] = $dbtur;
+$_SESSION['count'] = $dbcount;
 
 if ($tur == $dbtur && $count == $dbcount)
 {
