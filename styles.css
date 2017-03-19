@@ -1,6 +1,14 @@
 .menubutton {
   height: 50px;
   width: 200px;
+  font-family: Century Gothic, sans-serif;
+}
+
+.dropdown {
+  color: #FFFFFF;
+  background-color: #FFFFFF;
+  color: #FF0000;
+  font-style: italic;
 }
 .category-dropdown {
   width: 200px;
@@ -17,4 +25,24 @@
 .answer-edit-field {
   width: 200px;
   height: 50px;
+}
+html, body {
+    height: 100%;
+}
+
+html {
+    display: table;
+    margin: auto;
+}
+body {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	font-style: normal;
+	font-variant: normal;
+  color: #FFFFFF;
+	font-weight: 400;
+	line-height: 20px;
+  background: linear-gradient(to bottom, #FF0000, #FF6347);
+  display: table-cell;
+  vertical-align: middle;
 }
