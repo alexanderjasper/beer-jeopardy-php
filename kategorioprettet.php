@@ -10,7 +10,7 @@ $svE = mysqli_real_escape_string($link, $_POST['500pt']);
 
 $name = $_SESSION['brugernavn'];
 $uid = $_SESSION['userid'];
-$sql = "INSERT INTO kategori (navn,100point,200point,300point,400point,500point,brugerid) VALUES ('$kategorinavn','$svA','$svB','$svC','$svD','$svE','$uid')";
+$sql = mysqli_query($link, "INSERT INTO kategori (navn,100point,200point,300point,400point,500point,brugerid) VALUES ('$kategorinavn','$svA','$svB','$svC','$svD','$svE','$uid')");
 
 include 'kategorioprettet.output.php';
 

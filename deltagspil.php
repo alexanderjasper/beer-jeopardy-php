@@ -1,8 +1,8 @@
 <?php
 include('conn.php');
 
-$name = mysqli_real_escape_string($link, $_GET['bruger']);
-$sid = mysqli_real_escape_string($link, $_GET['spilid']);
+$name = mysqli_real_escape_string($link, $_SESSION['brugernavn']);
+$sid = mysqli_real_escape_string($link, $_POST['spilid']);
 
 if(!$name)
 {

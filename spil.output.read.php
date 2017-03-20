@@ -28,7 +28,7 @@
         <div>
           Hvilken bruger vandt runden?
         </div>
-        <select name="roundwinner" class="player-dropdown">
+        <select name="roundwinner" class="dropdown player-dropdown">
           <?php foreach ($players as $player): ?>
             <option value='<?php echo $player[0] ?>'> <?php echo $player[1] ?> </option>
           <?php endforeach; ?>

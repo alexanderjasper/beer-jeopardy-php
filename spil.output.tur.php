@@ -44,7 +44,7 @@
             <div style="text-align: left; margin-left: 10px">
               <?php echo htmlspecialchars($cat[2].':', ENT_QUOTES, 'UTF-8'); ?>
             </div>
-            <select name="pointchoice" class="points-dropdown">
+            <select name="pointchoice" class="dropdown points-dropdown">
               <?php if ($row1['vundet100'] == NULL) : ?>
                 <option value='100'> 100 </option>
               <?php endif; ?>

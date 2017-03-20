@@ -43,4 +43,6 @@ while ($row = mysqli_fetch_array($result))
 }
 
 include 'kontrolpanel.output.php';
+
+$_SESSION['pagemem'] = 'front';
 ?>

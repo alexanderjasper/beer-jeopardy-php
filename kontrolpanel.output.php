@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
 <head>
   <link rel="stylesheet" type="text/css" href="styles.css">
   <title>Kontrolpanel</title>

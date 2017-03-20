@@ -7,13 +7,24 @@
   </head>
 <body>
   <div class="screen-text">
-    Brugeren er oprettet.
-  </div>
-  <div>
-    <form action="kontrolpanel.php" method="post">
-      <button class="menubutton">Gå til kontrolpanel</button>
-      <input type="hidden" name="brugernavn" value="<?php echo $name?>">
-    </form>
+    <?php if(mysqli_query($link, $sql)) { ?>
+      <p>
+        Brugeren er oprettet.
+      </p>
+    <?php } else { ?>
+      <p>
+        Fejl. Brugernavnet eksisterer allerede.
+      </p>
+      <div>
+        <a href="nybruger.php"><button class="menubutton">Prøv igen</button></a>
+      </div>
+    <?php } ?>
+    <div>
+      <form action="kontrolpanel.php" method="post">
+        <button class="menubutton">Gå til kontrolpanel</button>
+        <input type="hidden" name="brugernavn" value="<?php echo $name?>">
+      </form>
+    </div>
   </div>
 </body>
 </html>

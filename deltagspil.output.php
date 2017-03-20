@@ -13,7 +13,7 @@
     <p>
       <form action='spil.php' method='post'>
         <div>
-          <select name="katid" class="category-dropdown">
+          <select name="katid" class="dropdown category-dropdown">
             <?php foreach ($categories as $cat): ?>
               <option value=<?php echo $cat[1] ?>><?php echo htmlspecialchars($cat[0], ENT_QUOTES, 'UTF-8'); ?></option>
             <?php endforeach; ?>
@@ -25,9 +25,11 @@
         <input type='hidden' name='newgame' value=false>
         <p>
           <input type=submit name='Submit' class="menubutton" value="Deltag i spil">
-          <a href="kontrolpanel.php"><button class="menubutton">Til startsiden</button></a>
         </p>
       </form>
+      <div>
+        <a href="kontrolpanel.php"><button class="menubutton">Til startsiden</button></a>
+      </div>
     </p>
   </div>
 </body>

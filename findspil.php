@@ -1,7 +1,7 @@
 <?php
 include('conn.php');
 
-$name = mysqli_real_escape_string($link, $_GET['bruger']);
+$name = mysqli_real_escape_string($link, $_SESSION['brugernavn']);
 
 if(!$name)
 {
@@ -36,5 +36,11 @@ while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
 	$spil[] =  array($row['spilid'], $row['navn']);
 }
 
+$sql = mysqli_query($link, "SELECT COUNT(*) AS count FROM kategori WHERE brugerid='$uid'");
+$row = mysqli_fetch_assoc($sql);
+$catcount = $row['count'];
+
 include 'findspil.output.php';
+
+$_SESSION['pagemem'] = 'findspil';
 ?>
