@@ -9,11 +9,13 @@
 <body>
 	<div class="screen-text">
 		<form action="kontrolpanel.php" method="post">
-			<p style="text-align: left; margin-left: 10px;">
+			<p>
 				Brugernavn:
 			</p>
 			<div>
 				<input type="text" name="brugernavn" class="name-field"></textarea>
+			</div>
+			<div>
 				<input type="submit" value="Log ind" class="menubutton smallbutton">
 			</div>
 		</form>

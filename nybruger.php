@@ -14,7 +14,9 @@
 			</p>
 			<div>
 				<input type="text" id="brugernavn" name="brugernavn" class="name-field"></textarea>
-				<input type="submit" value="Opret" class="menubutton smallbutton">
+				<div>
+					<input type="submit" value="Opret" class="menubutton smallbutton">
+				</div>
 			</div>
 		</form>
 		<p>

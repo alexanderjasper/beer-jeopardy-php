@@ -35,7 +35,9 @@
         </select>
         <input type="hidden" name="pointswon" value="<?php echo $jeopardypoint ?>">
         <input type="hidden" name="categorywon" value="<?php echo $jeopardyspilcatid ?>">
-        <input type="submit" value="Vælg" class="menubutton smallbutton">
+        <div>
+          <input type="submit" value="Vælg" class="menubutton smallbutton">
+        </div>
       </form>
     </p>
     <p>

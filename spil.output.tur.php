@@ -62,7 +62,9 @@
               <?php endif; ?>
             </select>
             <input type='hidden' name='spilcatchoice' value=<?php echo htmlspecialchars($cat[1], ENT_QUOTES, 'UTF-8'); ?>>
-            <input type="submit" value="Vælg" class="menubutton smallbutton">
+            <div>
+              <input type="submit" value="Vælg" class="menubutton smallbutton">
+            </div>
           </p>
         </form>
       <?php endif; ?>

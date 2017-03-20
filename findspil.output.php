@@ -21,17 +21,19 @@
         </p>
       <?php } else { ?>
         Vælg et spil for at deltage.
-      <?php } ?>
-      <form action="deltagspil.php" method=post>
-        <select name="spilid" class="dropdown game-dropdown">
-          <?php foreach ($spil as $sp): ?>
+        <form action="deltagspil.php" method=post>
+          <select name="spilid" class="dropdown game-dropdown">
+            <?php foreach ($spil as $sp): ?>
+              <div>
+                <option value="<?php echo $sp[0]?>"><?php echo htmlspecialchars($sp[1], ENT_QUOTES, 'UTF-8'); ?></option>
+              </div>
+            <?php endforeach; ?>
             <div>
-              <option value="<?php echo $sp[0]?>"><?php echo htmlspecialchars($sp[1], ENT_QUOTES, 'UTF-8'); ?></option>
+              <input type="submit" value="Deltag" class="menubutton smallbutton">
             </div>
-          <?php endforeach; ?>
-          <input type="submit" value="Deltag" class="menubutton smallbutton">
-        </select>
-      </form>
+          </select>
+        </form>
+      <?php } ?>
     <?php } ?>
   </p>
 </div>

@@ -42,7 +42,9 @@
 			<div>
 				<textarea name="500pt" class="answer-edit-field"><?php echo $category[5] ?></textarea>
 			</div>
-			<input type="submit" value="Gem" class="menubutton smallbutton">
+			<div>
+				<input type="submit" value="Gem" class="menubutton smallbutton">
+			</div>
 			<input type="hidden" name="editcat" value="<?php echo $editcat ?>">
 		</form>
 		<p>

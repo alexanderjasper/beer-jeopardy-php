@@ -8,13 +8,17 @@
 </head>
 <body>
 	<div class="screen-text">
-		<form action="nytspil.php" method="post">
-			<p>Vælg et navn til spillet:</p>
-			<p>
-				<input type="text" name="gamename" class="name-field">
-				<input type="submit" value="Opret" class="menubutton smallbutton">
-			</p>
-		</form>
+		<p>
+			<form action="nytspil.php" method="post">
+				<p>Vælg et navn til spillet:</p>
+				<div>
+					<input type="text" name="gamename" class="name-field">
+					<div>
+						<input type="submit" value="Opret" class="menubutton smallbutton">
+					</div>
+				</div>
+			</form>
+		</p>
 		<div>
 			<a href="index.php"><button class="menubutton">Tilbage til forsiden</button></a>
 		</div>

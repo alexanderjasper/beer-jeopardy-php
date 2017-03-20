@@ -19,7 +19,9 @@
           <input type='hidden' name='spilid' value=<?php echo $sid ?>>
           <input type='hidden' name='bruger' value=<?php echo $name ?>>
           <input type='hidden' name='newgame' value=true>
-        	<input type=submit name='Submit' class="menubutton smallbutton" value="Opret">
+          <div>
+        	  <input type=submit name='Submit' class="menubutton smallbutton" value="Opret">
+          </div>
         </form>
     </p>
     <div>
