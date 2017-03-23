@@ -3,21 +3,11 @@ include('conn.php');
 
 $name = mysqli_real_escape_string($link, $_SESSION['brugernavn']);
 $sid = mysqli_real_escape_string($link, $_POST['spilid']);
+$uid = mysqli_real_escape_string($link, $_SESSION['userid']);
 
 if(!$name)
 {
 	$error = 'Kunne ikke finde brugernavn: ' . mysqli_error($link);
-	include 'error.html.php';
-	exit();
-}
-
-$result1 = mysqli_query($link, "SELECT brugerid FROM bruger WHERE navn='$name'");
-$row = mysqli_fetch_assoc($result1);
-$uid = $row['brugerid'];
-
-if(!$result1 || $uid == 0)
-{
-	$error = 'Fejl. Brugernavnet findes ikke. ' . mysqli_error($link);
 	include 'error.html.php';
 	exit();
 }
