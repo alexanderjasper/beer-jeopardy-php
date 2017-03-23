@@ -12,18 +12,23 @@ if(!$name)
 	exit();
 }
 
-$sql3 = mysqli_query($link, "INSERT INTO deltager (brugerid,spilid,point,tur) VALUES ('$uid','$sid',0,0)");
-
-if(!$sql3)
+$sql = mysqli_query($link, "SELECT count(*) AS count FROM deltager WHERE spilid='$sid' and brugerid='$uid'");
+$row = mysqli_fetch_array($sql);
+$deltagercheck = $row['count'];
+if ($deltagercheck == 0)
 {
-	$error = 'Kunne ikke oprette dig som deltager.' . mysqli_error($link);
-	include 'error.html.php';
-	exit();
+	$sql3 = mysqli_query($link, "INSERT INTO deltager (brugerid,spilid,point,tur) VALUES ('$uid','$sid',0,0)");
+	if(!$sql3)
+	{
+		$error = 'Kunne ikke oprette dig som deltager.' . mysqli_error($link);
+		include 'error.html.php';
+		exit();
+	}
 }
 
-$sql5 = mysqli_query($link, "SELECT MAX(deltagerid) as max FROM deltager");
+$sql5 = mysqli_query($link, "SELECT deltagerid FROM deltager WHERE brugerid='$uid'");
 $row5 = mysqli_fetch_array($sql5);
-$did = $row5['max'];
+$did = $row5['deltagerid'];
 
 $sql4 = mysqli_query($link, "SELECT * FROM kategori WHERE brugerid='$uid'");
 
