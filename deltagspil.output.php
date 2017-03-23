@@ -23,13 +23,13 @@
         <input type='hidden' name='spilid' value=<?php echo $sid ?>>
         <input type='hidden' name='bruger' value=<?php echo $name ?>>
         <input type='hidden' name='newgame' value=false>
-        <p>
-          <input type=submit name='Submit' class="menubutton" value="Deltag i spil">
-        </p>
+        <div>
+          <input type=submit name='Submit' class="menubutton smallbutton" value="Deltag i spil">
+        </div>
       </form>
-      <div>
-        <a href="kontrolpanel.php"><button class="menubutton">Til startsiden</button></a>
-      </div>
+    </p>
+    <p>
+      <a href="kontrolpanel.php"><button class="menubutton">Til startsiden</button></a>
     </p>
   </div>
 </body>

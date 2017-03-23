@@ -27,10 +27,8 @@
 	transition: none;
 
   border-radius: 0 0 5px 5px;
-}
-.menubutton:hover {
-  box-shadow: 0 4px #ab3c3c;
-	top: 2px;
+
+  -webkit-appearance: none;
 }
 .menubutton:active {
   box-shadow: 0 0 #ab3c3c;
@@ -45,11 +43,6 @@
   vertical-align: top;
 	box-shadow: 0 2px #ab3c3c;
   margin-right: 0px;
-  -webkit-appearance: none;
-}
-.smallbutton:hover {
-  box-shadow: 0 1px #ab3c3c;
-	top: 1px;
 }
 .smallbutton:active {
   box-shadow: 0 0 #ab3c3c;
