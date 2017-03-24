@@ -22,23 +22,32 @@
           <a href="opretspil.php"><button class="menubutton">Opret nyt spil</button></a>
         </p>
       <?php } else { ?>
-        <p>
-          Vælg et spil for at deltage.
-        </p>
-        <p>
-          <form action="deltagspil.php" method=post>
-            <select name="spilid" class="dropdown">
-              <?php foreach ($spil as $sp): ?>
-                <div>
-                  <option value="<?php echo $sp[0]?>"><?php echo htmlspecialchars($sp[1], ENT_QUOTES, 'UTF-8'); ?></option>
-                </div>
-              <?php endforeach; ?>
-            </select>
+        <?php if ($gamecount > 0) { ?>
+          <p>
+            Du deltager allerede i et spil.
             <div>
-              <input type="submit" value="Deltag" class="menubutton smallbutton">
+              <a href="spil.php"><button class="menubutton">Gå til spillet</button></a>
             </div>
-          </form>
-        </p>
+          </p>
+        <?php } else { ?>
+          <p>
+            Vælg et spil for at deltage.
+          </p>
+          <p>
+            <form action="deltagspil.php" method=post>
+              <select name="spilid" class="dropdown">
+                <?php foreach ($spil as $sp): ?>
+                  <div>
+                    <option value="<?php echo $sp[0]?>"><?php echo htmlspecialchars($sp[1], ENT_QUOTES, 'UTF-8'); ?></option>
+                  </div>
+                <?php endforeach; ?>
+              </select>
+              <div>
+                <input type="submit" value="Deltag" class="menubutton smallbutton">
+              </div>
+            </form>
+          </p>
+        <?php } ?>
       <?php } ?>
     <?php } ?>
   </div>
