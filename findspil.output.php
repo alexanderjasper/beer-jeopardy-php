@@ -15,24 +15,30 @@
       </p>
     <?php } else { ?>
       <?php if (empty($spil)) { ?>
-        Der er ingen aktive spil i øjeblikket.
+        <p>
+          Der er ingen aktive spil i øjeblikket.
+        </p>
         <p>
           <a href="opretspil.php"><button class="menubutton">Opret nyt spil</button></a>
         </p>
       <?php } else { ?>
-        Vælg et spil for at deltage.
-        <form action="deltagspil.php" method=post>
-          <select name="spilid" class="dropdown">
-            <?php foreach ($spil as $sp): ?>
-              <div>
-                <option value="<?php echo $sp[0]?>"><?php echo htmlspecialchars($sp[1], ENT_QUOTES, 'UTF-8'); ?></option>
-              </div>
-            <?php endforeach; ?>
-          </select>
-          <div>
-            <input type="submit" value="Deltag" class="menubutton smallbutton">
-          </div>
-        </form>
+        <p>
+          Vælg et spil for at deltage.
+        </p>
+        <p>
+          <form action="deltagspil.php" method=post>
+            <select name="spilid" class="dropdown">
+              <?php foreach ($spil as $sp): ?>
+                <div>
+                  <option value="<?php echo $sp[0]?>"><?php echo htmlspecialchars($sp[1], ENT_QUOTES, 'UTF-8'); ?></option>
+                </div>
+              <?php endforeach; ?>
+            </select>
+            <div>
+              <input type="submit" value="Deltag" class="menubutton smallbutton">
+            </div>
+          </form>
+        </p>
       <?php } ?>
     <?php } ?>
   </div>
