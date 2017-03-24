@@ -1,25 +1,48 @@
-<!DOCTYPE html>
-<html>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<head>
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	<title>Øljeopardy</title>
-	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-</head>
-<body>
-	<div class="screen-text">
-		<p>
-			Velkommen til Øljeopardy! Du har nu følgende valgmuligheder:
-		</p>
-		<div>
-			<a href="regler.php"><button class="menubutton">Se reglerne</button></a>
-		</div>
-		<div>
-			<a href="logind.php"><button class="menubutton">Log ind</button></a>
-		</div>
-		<div>
-			<a href="nybruger.php"><button class="menubutton">Ny bruger</button></a>
-		</div>
-	</div>
-</body>
-</html>
+<?php
+include('conn.php');
+
+if (isset($_POST['brugernavn']))
+{
+	$_SESSION['brugernavn'] = $_POST['brugernavn'];
+}
+
+$name = mysqli_real_escape_string($link, $_SESSION['brugernavn']);
+
+if(!$name)
+{
+	$error = 'Kunne ikke finde brugernavn: ' . mysqli_error($link);
+	include 'error.html.php';
+	exit();
+}
+
+$result1 = mysqli_query($link, "SELECT brugerid FROM bruger WHERE navn='$name'");
+$row = mysqli_fetch_assoc($result1);
+$uid = $row['brugerid'];
+$_SESSION['userid'] = $uid;
+
+if(!$result1 || $uid == 0)
+{
+	unset($_SESSION['brugernavn']);
+	$error = 'Fejl. Brugernavnet findes ikke. ' . mysqli_error($link);
+	include 'error.html.php';
+	exit();
+}
+
+$result = mysqli_query($link, "SELECT * FROM kategori WHERE brugerid='$uid'");
+
+if(!$result)
+{
+	$error = 'Kunne ikke hente kategorier: ' . mysqli_error($link);
+	include 'error.html.php';
+	exit();
+}
+
+while ($row = mysqli_fetch_array($result))
+{
+	$categories[] = array($row['navn'],$row['kategoriid']);
+}
+
+include 'startside.output.php';
+
+$_SESSION['pagemem'] = 'front';
+?>

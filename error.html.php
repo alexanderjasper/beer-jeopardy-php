@@ -13,6 +13,6 @@
   </p>
 </body>
 <div>
-  <a href="index.php"><button class="menubutton">Tilbage til forsiden</button></a>
+  <a href="index.php"><button class="menubutton">Til startsiden</button></a>
 </div>
 </html>

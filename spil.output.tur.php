@@ -3,7 +3,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <head>
   <link rel="stylesheet" type="text/css" href="styles.css">
-  <title>Kontrolpanel</title>
+  <title>Øljeopardy</title>
   <script src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
   <script>
 		setInterval(function() {
@@ -44,7 +44,7 @@
             <div style="text-align: left; margin-left: 10px">
               <?php echo htmlspecialchars($cat[2].':', ENT_QUOTES, 'UTF-8'); ?>
             </div>
-            <select name="pointchoice" class="dropdown points-dropdown">
+            <select name="pointchoice" class="dropdown">
               <?php if ($row1['vundet100'] == NULL) : ?>
                 <option value='100'> 100 </option>
               <?php endif; ?>
@@ -71,7 +71,7 @@
       </div>
     <?php endforeach; ?>
     <div>
-      <a href="kontrolpanel.php"><button class="menubutton">Til startsiden</button></a>
+      <a href="startside.php"><button class="menubutton">Til startsiden</button></a>
     </div>
   </div>
 </body>

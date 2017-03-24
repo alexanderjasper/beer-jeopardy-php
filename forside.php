@@ -9,18 +9,16 @@
 <body>
 	<div class="screen-text">
 		<p>
-			<form action="nytspil.php" method="post">
-				<p>Vælg et navn til spillet:</p>
-				<div>
-					<input type="text" name="gamename" class="name-field">
-					<div>
-						<input type="submit" value="Opret" class="menubutton smallbutton">
-					</div>
-				</div>
-			</form>
+			Velkommen til Øljeopardy! Du har nu følgende valgmuligheder:
 		</p>
 		<div>
-			<a href="index.php"><button class="menubutton">Til startsiden</button></a>
+			<a href="regler.php"><button class="menubutton">Se reglerne</button></a>
+		</div>
+		<div>
+			<a href="logind.php"><button class="menubutton">Log ind</button></a>
+		</div>
+		<div>
+			<a href="nybruger.php"><button class="menubutton">Ny bruger</button></a>
 		</div>
 	</div>
 </body>

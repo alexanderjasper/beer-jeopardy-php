@@ -20,7 +20,7 @@
 			</div>
 		</form>
 		<p>
-			<a href="index.php"><button class="menubutton">Tilbage til forsiden</button></a>
+			<a href="index.php"><button class="menubutton">Til startsiden</button></a>
 		</p>
 </body>
 </html>

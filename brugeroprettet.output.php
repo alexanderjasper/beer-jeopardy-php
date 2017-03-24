@@ -3,7 +3,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <head>
     <link rel="stylesheet" type="text/css" href="styles.css">
-    <title>Bruger oprettet</title>
+    <title>Øljeopardy</title>
   </head>
 <body>
   <div class="screen-text">
@@ -20,8 +20,8 @@
       </div>
     <?php } ?>
     <div>
-      <form action="kontrolpanel.php" method="post">
-        <button class="menubutton">Gå til kontrolpanel</button>
+      <form action="startside.php" method="post">
+        <button class="menubutton">Til startsiden</button>
         <input type="hidden" name="brugernavn" value="<?php echo $name?>">
       </form>
     </div>

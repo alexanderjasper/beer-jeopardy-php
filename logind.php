@@ -8,7 +8,7 @@
 </head>
 <body>
 	<div class="screen-text">
-		<form action="kontrolpanel.php" method="post">
+		<form action="startside.php" method="post">
 			<p>
 				Brugernavn:
 			</p>
@@ -19,9 +19,9 @@
 				<input type="submit" value="Log ind" class="menubutton smallbutton">
 			</div>
 		</form>
-		<p>
-			<a href="index.php"><button class="menubutton">Tilbage til forsiden</button></a>
-		</p>
+		<div>
+			<a href="index.php"><button class="menubutton">Til startsiden</button></a>
+		</div>
 	</div>
 </body>
 </html>

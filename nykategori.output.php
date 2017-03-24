@@ -26,11 +26,11 @@
 			Svaret til 500 point:<br>
 			<textarea name="500pt" class="answer-edit-field"></textarea><br>
 			<div>
-				<input type="submit" value="Gem" class="menubutton smallbutton">
+				<input type="submit" value="Opret" class="menubutton smallbutton">
 			</div>
 		</form>
 		<p>
-			<a href="kontrolpanel.php"><button class="menubutton">Til startsiden</button></a>
+			<a href="startside.php"><button class="menubutton">Til startsiden</button></a>
 		</p>
 	</div>
 </body>

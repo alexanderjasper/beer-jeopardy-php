@@ -3,7 +3,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <head>
   <link rel="stylesheet" type="text/css" href="styles.css">
-  <title>Kontrolpanel</title>
+  <title>Øljeopardy</title>
   <script src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
   <script>
 		setInterval(function() {
@@ -28,7 +28,7 @@
         <div>
           Hvilken bruger vandt runden?
         </div>
-        <select name="roundwinner" class="dropdown player-dropdown">
+        <select name="roundwinner" class="dropdown">
           <?php foreach ($players as $player): ?>
             <option value='<?php echo $player[0] ?>'> <?php echo $player[1] ?> </option>
           <?php endforeach; ?>

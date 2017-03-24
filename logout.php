@@ -6,13 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <head>
 		<link rel="stylesheet" type="text/css" href="styles.css">
-    <title>Logget ud</title>
+    <title>Øljeopardy</title>
   </head>
 <body>
 	<div class="screen-text">
 		Du er nu logget ud.
   	<p>
-    	<a href="index.php"><button class="menubutton">Gå til forsiden</button></a>
+    	<a href="index.php"><button class="menubutton">Til startsiden</button></a>
   	</p>
 </body>
 </html>

@@ -3,7 +3,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <head>
     <link rel="stylesheet" type="text/css" href="styles.css">
-    <title>Kontrolpanel</title>
+    <title>Øljeopardy</title>
   </head>
 <body>
   <div class="screen-text">
@@ -13,7 +13,7 @@
     <p>
       <form action='spil.php' method='post'>
         <div>
-          <select name="katid" class="dropdown category-dropdown">
+          <select name="katid" class="dropdown">
             <?php foreach ($categories as $cat): ?>
               <option value=<?php echo $cat[1] ?>><?php echo htmlspecialchars($cat[0], ENT_QUOTES, 'UTF-8'); ?></option>
             <?php endforeach; ?>
@@ -29,7 +29,7 @@
       </form>
     </p>
     <p>
-      <a href="kontrolpanel.php"><button class="menubutton">Til startsiden</button></a>
+      <a href="startside.php"><button class="menubutton">Til startsiden</button></a>
     </p>
   </div>
 </body>

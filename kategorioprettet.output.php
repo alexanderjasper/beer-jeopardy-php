@@ -3,7 +3,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <head>
   <link rel="stylesheet" type="text/css" href="styles.css">
-  <title>Øljeopardy - Kategori oprettet</title>
+  <title>Øljeopardy</title>
 </head>
 <body>
   <div class="screen-text">
