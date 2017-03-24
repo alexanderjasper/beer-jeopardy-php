@@ -22,26 +22,19 @@
 	color: #fff;
 	box-shadow: 0 6px #553F00;
 
-  border-radius: 0 0 5px 5px;
+  border-radius: 10px;
 
   -webkit-appearance: none;
 }
-.menubutton:active {
-  box-shadow: 0 0 #553F00;
-	top: 6px;
-}
 
 .smallbutton {
-  font-size: 12px;
+  font-size: 15px;
   width: inherit;
   padding: 0px 10px;
   height: 20px;
   vertical-align: top;
 	box-shadow: 0 2px #553F00;
-}
-.smallbutton:active {
-  box-shadow: 0 0 #ab3c3c;
-	top: 2px;
+  border-radius: 5px;
 }
 
 .center-div {
@@ -80,14 +73,15 @@ html {
 }
 body {
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-	font-size: 16px;
+	font-size: 20px;
 	font-style: oblique;
 	font-variant: normal;
   color: #553F00;
 	font-weight: 400;
 	line-height: 20px;
   background-color: #000000;
-  background-image: url("beer.jpg");
+  background-image: url("beer2.jpg");
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   display: table-cell;
