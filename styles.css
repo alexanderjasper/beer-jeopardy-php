@@ -53,17 +53,20 @@
   color: #806415;
   background-color: #D4B96A;
   font-style: italic;
-  font-size: 16px;
+  font-size: inherit;
   width: 80%;
 }
 .name-field {
-  width: 65%;
+  font-size: inherit;
+  width: 80%;
 }
 .category-name-field {
-  width: 65%;
+  font-size: inherit;
+  width: 80%;
 }
 .answer-edit-field {
-  width: 65%;
+  font-size: inherit;
+  width: 80%;
   height: 50px;
 }
 html, body {

@@ -12,12 +12,14 @@
 			<p>
 				Brugernavn:
 			</p>
-			<div>
-				<input type="text" name="brugernavn" class="name-field"></textarea>
-			</div>
-			<div>
-				<input type="submit" value="Log ind" class="menubutton smallbutton">
-			</div>
+			<p>
+				<div>
+					<input type="text" name="brugernavn" class="name-field"></textarea>
+				</div>
+				<div>
+					<input type="submit" value="Log ind" class="menubutton smallbutton">
+				</div>
+			</p>
 		</form>
 		<div>
 			<a href="index.php"><button class="menubutton">Til startsiden</button></a>

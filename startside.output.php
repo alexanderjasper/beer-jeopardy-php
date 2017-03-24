@@ -13,7 +13,7 @@
   </p>
   <p>
     <div>
-      <a href="findspil.php?bruger=<?php echo $name ?>"><button class="menubutton">Deltag i et spil</button></a>
+      <a href="findspil.php"><button class="menubutton">Deltag i et spil</button></a>
     </div>
     <div>
       <a href="opretspil.php"><button class="menubutton">Opret nyt spil</button></a>
