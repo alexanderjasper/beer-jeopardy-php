@@ -26,7 +26,7 @@ if ($deltagercheck == 0)
 	}
 }
 
-$sql5 = mysqli_query($link, "SELECT deltagerid FROM deltager WHERE brugerid='$uid'");
+$sql5 = mysqli_query($link, "SELECT deltagerid FROM deltager WHERE brugerid='$uid' AND spilid='$sid'");
 $row5 = mysqli_fetch_array($sql5);
 $did = $row5['deltagerid'];
 
