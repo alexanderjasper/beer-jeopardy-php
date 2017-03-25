@@ -79,10 +79,12 @@ body {
   color: #553F00;
 	font-weight: normal;
 	line-height: 20px;
-  background-color: #000000;
-  background-image: url("beer.jpg");
+  background: url(beer.jpg) no-repeat center center fixed;
+  background-attachment: fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: cover;
-  background-repeat: no-repeat;
   display: table-cell;
   vertical-align: middle;
 }
