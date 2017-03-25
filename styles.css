@@ -18,9 +18,9 @@
 	transition: all 0.3s;
   font-size: 14px;
 
-  background: #806415;
+  background: #368015;
 	color: #fff;
-	box-shadow: 0 6px #553F00;
+	box-shadow: 0 6px #0D3E0F;
 
   border-radius: 10px;
 
@@ -73,17 +73,16 @@ html {
 }
 body {
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-	font-size: 20px;
-	font-style: oblique;
+	font-size: 16px;
+	font-style: normal;
 	font-variant: normal;
   color: #553F00;
-	font-weight: 400;
+	font-weight: 500;
 	line-height: 20px;
   background-color: #000000;
   background-image: url("beer2.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center;
   display: table-cell;
   vertical-align: middle;
 }
