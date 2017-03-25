@@ -24,7 +24,7 @@
       <?php } else { ?>
         <?php if ($gamecount > 0) { ?>
           <p>
-            Du deltager allerede i et spil.
+            Du deltager allerede i spillet <b><?php echo $gamename ?></b>.
             <div>
               <a href="spil.php"><button class="menubutton">Gå til spillet</button></a>
             </div>
