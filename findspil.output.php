@@ -28,6 +28,9 @@
             <div>
               <a href="spil.php"><button class="menubutton">Gå til spillet</button></a>
             </div>
+            <div>
+              <a href="forladspil.php"><button class="menubutton">Forlad spillet</button></a>
+            </div>
           </p>
         <?php } else { ?>
           <p>
