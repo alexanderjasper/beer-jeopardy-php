@@ -28,7 +28,7 @@
         </p>
       <?php } else { ?>
         <p>
-          Hej <?php echo $name ?>. Du har <?php echo $userpoints ?> point. Det er din tur. Vælg en kategori.
+          Hej <?php echo $name ?>. Du har <?php echo $userpoints ?> point. Det er din tur. Vælg en kategori og et pointtal.
         </p>
       <?php } ?>
     <?php } ?>
@@ -53,8 +53,8 @@
         <?php if ($row1['vundet100'] == NULL or $row2['vundet200'] == NULL or $row3['vundet300'] == NULL or $row4['vundet400'] == NULL or $row5['vundet500'] == NULL) : ?>
         <form action=spil.php method=post>
           <p>
-            <div style="text-align: left; margin-left: 10px">
-              <?php echo htmlspecialchars($cat[2].':', ENT_QUOTES, 'UTF-8'); ?>
+            <div>
+              <b><?php echo htmlspecialchars($cat[2].':', ENT_QUOTES, 'UTF-8'); ?></b>
             </div>
             <select name="pointchoice" class="dropdown">
               <?php if ($row1['vundet100'] == NULL) : ?>

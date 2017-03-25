@@ -24,7 +24,7 @@
         <input type='hidden' name='bruger' value=<?php echo $name ?>>
         <input type='hidden' name='newgame' value=false>
         <div>
-          <input type=submit name='Submit' class="menubutton smallbutton" value="Deltag i spil">
+          <input type=submit name='Submit' class="menubutton smallbutton" value="Start spillet">
         </div>
       </form>
     </p>

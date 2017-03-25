@@ -20,7 +20,7 @@
           <input type='hidden' name='bruger' value=<?php echo $name ?>>
           <input type='hidden' name='newgame' value=true>
           <div>
-        	  <input type=submit name='Submit' class="menubutton smallbutton" value="Opret">
+        	  <input type=submit name='Submit' class="menubutton smallbutton" value="Start spillet">
           </div>
         </form>
     </p>
