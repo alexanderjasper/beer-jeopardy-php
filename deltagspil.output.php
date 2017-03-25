@@ -8,7 +8,7 @@
 <body>
   <div class="screen-text">
     <p>
-      Hej <?php echo $name ?>. Du deltager nu i spillet. Vælg den kategori, som du vil bruge.
+      Du deltager nu i spillet. Vælg den kategori, som du vil bruge.
     </p>
     <p>
       <form action='spil.php' method='post'>

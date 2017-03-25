@@ -9,8 +9,7 @@
 <body>
 	<div class="screen-text">
 		<p>
-			Hej
-			<?php echo $name; ?>. Her kan du oprette en ny kategori.
+			Her kan du oprette en ny kategori.
 		</p>
 		<form action="kategorioprettet.php" method="post">
 			Kategoriens navn:<br>

@@ -7,7 +7,7 @@
 </head>
 <body>
   <div class="screen-text">
-    <p>Hej <?php echo $name ?>. Vælg den kategori, som du vil bruge i spillet.</p>
+    <p>Vælg den kategori, som du vil bruge i spillet.</p>
     	<p>
         <form action=spil.php method=post>
           <select name="katid" class="dropdown">

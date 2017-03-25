@@ -9,7 +9,7 @@
 <body>
 	<div class="screen-text">
 		<p>
-			Velkommen til Øljeopardy! Du har nu følgende valgmuligheder:
+			Velkommen til Øljeopardy!
 		</p>
 		<p>
 			<div>

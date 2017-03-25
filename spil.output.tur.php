@@ -19,16 +19,16 @@
   <div class="screen-text">
     <?php if ($lastcatowner == true) { ?>
       <p>
-        Hej <?php echo $name ?>. Du har <?php echo $userpoints ?> point. Det er din tur, og der er kun din egen kategori tilbage. Vælg et pointantal.
+        Du har <?php echo $userpoints ?> point. Det er din tur, og der er kun din egen kategori tilbage. Vælg et pointantal.
       </p>
     <?php } else { ?>
       <?php if ($count == 1) { ?>
         <p>
-          Hej <?php echo $name ?>. Du er i øjeblikket den eneste deltager i spillet. Vent, indtil nogen tilmelder sig.
+          Du er i øjeblikket den eneste deltager i spillet. Vent, indtil nogen tilmelder sig.
         </p>
       <?php } else { ?>
         <p>
-          Hej <?php echo $name ?>. Du har <?php echo $userpoints ?> point. Det er din tur. Vælg en kategori og et pointtal.
+          Du har <?php echo $userpoints ?> point. Det er din tur. Vælg en kategori og et pointtal.
         </p>
       <?php } ?>
     <?php } ?>

@@ -9,7 +9,7 @@
 <body>
 	<div class="screen-text">
 		<p>
-			Hej <?php echo $name ?>. Her kan du redigere i kategorien <?php echo $category[0] ?>.
+			Her kan du redigere i kategorien <?php echo $category[0] ?>.
 		</p>
 		<form action="kategoriredigeret.php" method="post">
 			<div>

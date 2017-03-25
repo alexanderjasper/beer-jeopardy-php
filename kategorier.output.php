@@ -8,9 +8,9 @@
 <body>
 <div class="screen-text">
   <?php if (empty($categories)) { ?>
-    <p>Hej <?php echo $name; ?>. Du har endnu ikke oprettet nogen kategorier.</p>
+    <p>Du har endnu ikke oprettet nogen kategorier.</p>
   <?php } else { ?>
-    <p>Hej <?php echo $name; ?>. Vælg en kategori, som du vil redigere.</p>
+    <p>Vælg en kategori, som du vil redigere.</p>
     <form action="redigerkategori.php" method=post>
       <select name="editcat" class="dropdown">
         <?php foreach ($categories as $cat): ?>

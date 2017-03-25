@@ -18,7 +18,7 @@
 <body>
   <div class="screen-text">
     <p>
-      Hej <?php echo $name ?>. Du har <?php echo $userpoints ?> point. Din kategori <i><?php echo $jeopardycatname ?></i> er blevet valgt til <?php echo $jeopardypoint ?> point. Svaret er:
+      Du har <?php echo $userpoints ?> point. Din kategori, <i><?php echo $jeopardycatname ?></i>, er blevet valgt til <?php echo $jeopardypoint ?> point. Svaret er:
     </p>
     <p>
       <b><?php echo $jeopardyans ?></b>
