@@ -232,16 +232,19 @@ else{
 			{
 				$lastcatowner = true;
 			}
-			$sql = mysqli_query($link,
-				"SELECT spilkategori.kategoriid,spilkategori.spilkategoriid,kategori.navn
-				FROM spilkategori
-				INNER JOIN kategori
-				ON spilkategori.kategoriid=kategori.kategoriid
-				WHERE spilkategori.spilid='$sid'
-				AND deltagerid=$delt");
-			$row = mysqli_fetch_assoc($sql);
-			$categories = array();
-			$categories[0] = array($row['kategoriid'],$row['spilkategoriid'],$row['navn']);
+			if ($lastcatowner == true)
+			{
+				$sql = mysqli_query($link,
+					"SELECT spilkategori.kategoriid,spilkategori.spilkategoriid,kategori.navn
+					FROM spilkategori
+					INNER JOIN kategori
+					ON spilkategori.kategoriid=kategori.kategoriid
+					WHERE spilkategori.spilid='$sid'
+					AND deltagerid=$delt");
+				$row = mysqli_fetch_assoc($sql);
+				$categories = array();
+				$categories[0] = array($row['kategoriid'],$row['spilkategoriid'],$row['navn']);
+			}
 		}
 		include 'spil.output.tur.php';
 	}
