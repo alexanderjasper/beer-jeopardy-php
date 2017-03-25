@@ -9,8 +9,10 @@
   <div class="screen-text">
   	Kategorien er oprettet.
     <p>
-      <?php if ($_SESSION['pagemem'] == 'findspil') { ?>
+      <?php if ($pagemem == 'findspil') { ?>
         <a href="findspil.php"><button class="menubutton">Deltag i et spil</button></a>
+      <?php } elseif ($pagemem == 'opretspil') { ?>
+        <a href="opretspil.php"><button class="menubutton">Opret nyt spil</button></a>
       <?php } else { ?>
         <a href="kategorier.php"><button class="menubutton">Tilbage til Mine kategorier</button></a>
       <?php } ?>
