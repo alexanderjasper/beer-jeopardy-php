@@ -87,7 +87,7 @@ body {
   background-size: cover;
   display: table-cell;
   vertical-align: middle;
-  overflow: hidden;
+  overflow: scroll;
   padding: 10px;
 }
 .screen-text {
