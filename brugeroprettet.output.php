@@ -19,12 +19,12 @@
         <a href="nybruger.php"><button class="menubutton">Prøv igen</button></a>
       </div>
     <?php } ?>
-    <div>
+    <p>
       <form action="startside.php" method="post">
         <button class="menubutton">Til startsiden</button>
         <input type="hidden" name="brugernavn" value="<?php echo $name?>">
       </form>
-    </div>
+    </p>
   </div>
 </body>
 </html>

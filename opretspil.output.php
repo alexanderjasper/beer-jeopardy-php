@@ -40,9 +40,9 @@
 				<?php } ?>
 			<?php } ?>
 		</p>
-		<div>
+		<p>
 			<a href="index.php"><button class="menubutton">Til startsiden</button></a>
-		</div>
+		</p>
 	</div>
 </body>
 </html>

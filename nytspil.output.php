@@ -24,9 +24,9 @@
           </div>
         </form>
     </p>
-    <div>
+    <p>
       <a href="startside.php"><button class="menubutton">Til startsiden</button></a>
-    </div>
+    </p>
   </div>
 </body>
 </html>

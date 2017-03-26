@@ -10,9 +10,9 @@
     <p>
       Spillet er slut. Du fik <?php echo $userpoints ?> point.
     </p>
-    <div>
+    <p>
       <a href="startside.php"><button class="menubutton">Til startsiden</button></a>
-    </div>
+    </p>
   </div>
 </body>
 </html>
