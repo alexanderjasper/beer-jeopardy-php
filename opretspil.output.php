@@ -35,7 +35,7 @@
 						Du skal oprette en kategori, før du kan oprette et spil.
 					</p>
 					<p>
-						<a href="nykategori.php"><button class="menubutton">Opret ny kategori</button></a>
+						<a href="nykategori.php"><button class="menubutton">Opret en kategori</button></a>
 					</p>
 				<?php } ?>
 			<?php } ?>
