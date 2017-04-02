@@ -7,6 +7,7 @@
 	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
 </head>
 <body>
+	<?php include 'menubar.php';?>
 	<div class="screen-text">
 		<p>
 			Her kan du redigere i kategorien <?php echo $category[0] ?>.
@@ -43,13 +44,10 @@
 				<textarea name="500pt" class="answer-edit-field"><?php echo $category[5] ?></textarea>
 			</div>
 			<div>
-				<input type="submit" value="Gem" class="menubutton smallbutton">
+				<input type="submit" value="Gem" class="menubutton">
 			</div>
 			<input type="hidden" name="editcat" value="<?php echo $editcat ?>">
 		</form>
-		<p>
-			<a href="kategorier.php"><button class="menubutton">Tilbage til Mine kategorier</button></a>
-		</p>
 	</div>
 </body>
 </html>

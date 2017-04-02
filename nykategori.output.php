@@ -7,6 +7,7 @@
 	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
 </head>
 <body>
+	<?php include 'menubar.php';?>
 	<div class="screen-text">
 		<p>
 			Her kan du oprette en ny kategori.
@@ -25,12 +26,9 @@
 			Svaret til 500 point:<br>
 			<textarea name="500pt" class="answer-edit-field"></textarea><br>
 			<div>
-				<input type="submit" value="Opret" class="menubutton smallbutton">
+				<input type="submit" value="Opret" class="menubutton">
 			</div>
 		</form>
-		<p>
-			<a href="startside.php"><button class="menubutton">Til startsiden</button></a>
-		</p>
 	</div>
 </body>
 </html>

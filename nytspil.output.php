@@ -6,6 +6,7 @@
   <title>Øljeopardy</title>
 </head>
 <body>
+  <?php include 'menubar.php';?>
   <div class="screen-text">
     <p>Vælg den kategori, som du vil bruge i spillet.</p>
     	<p>
@@ -20,12 +21,9 @@
           <input type='hidden' name='bruger' value=<?php echo $name ?>>
           <input type='hidden' name='newgame' value=true>
           <div>
-        	  <input type=submit name='Submit' class="menubutton smallbutton" value="Start spillet">
+        	  <input type=submit name='Submit' class="menubutton" value="Start spillet">
           </div>
         </form>
-    </p>
-    <p>
-      <a href="startside.php"><button class="menubutton">Til startsiden</button></a>
     </p>
   </div>
 </body>

@@ -16,12 +16,10 @@
 	</script>
 </head>
 <body>
+  <?php include 'menubar.php';?>
   <div class="screen-text">
     <p>
       Det er ikke din tur. Du har <?php echo $userpoints ?> point.
-    </p>
-    <p>
-      <a href="index.php"><button class="menubutton">Til startsiden</button></a>
     </p>
   </div>
 </body>

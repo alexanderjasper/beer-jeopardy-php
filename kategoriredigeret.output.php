@@ -6,10 +6,11 @@
   <title>Øljeopardy</title>
 </head>
 <body>
+  <?php include 'menubar.php';?>
   <div class="screen-text">
   	Kategorien er redigeret.
     <p>
-      <a href="kategorier.php"><button class="menubutton">Tilbage til Mine kategorier</button></a>
+      <a href="startside.php"><button class="menubutton">Til startsiden</button></a>
     </p>
   </div>
 </body>

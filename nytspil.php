@@ -55,6 +55,8 @@ while ($row = mysqli_fetch_array($sql4))
 {
 	$categories[] = array($row['navn'],$row['kategoriid']);
 }
+
+$showgamelink = false;
 include 'nytspil.output.php';
 // Kode til at finde status:
 //

@@ -6,6 +6,7 @@
     <title>Øljeopardy</title>
   </head>
 <body>
+  <?php include 'menubar.php';?>
   <div class="screen-text">
     <?php if(mysqli_query($link, $sql)) { ?>
       <p>
@@ -19,12 +20,6 @@
         <a href="nybruger.php"><button class="menubutton">Prøv igen</button></a>
       </div>
     <?php } ?>
-    <p>
-      <form action="startside.php" method="post">
-        <button class="menubutton">Til startsiden</button>
-        <input type="hidden" name="brugernavn" value="<?php echo $name?>">
-      </form>
-    </p>
   </div>
 </body>
 </html>

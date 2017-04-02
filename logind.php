@@ -17,7 +17,7 @@
 					<input type="text" name="brugernavn" class="name-field"></textarea>
 				</div>
 				<div>
-					<input type="submit" value="Log ind" class="menubutton smallbutton">
+					<input type="submit" value="Log ind" class="menubutton">
 				</div>
 			</p>
 		</form>

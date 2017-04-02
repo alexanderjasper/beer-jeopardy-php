@@ -7,6 +7,7 @@
 	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
 </head>
 <body>
+	<?php include 'menubar.php';?>
 	<div class="screen-text">
 		<p>
 			<?php if ($gamecount > 0) { ?>
@@ -26,7 +27,7 @@
 						<div>
 							<input type="text" name="gamename" class="name-field">
 							<div>
-								<input type="submit" value="Opret" class="menubutton smallbutton">
+								<input type="submit" value="Opret" class="menubutton">
 							</div>
 						</div>
 					</form>
@@ -39,9 +40,6 @@
 					</p>
 				<?php } ?>
 			<?php } ?>
-		</p>
-		<p>
-			<a href="index.php"><button class="menubutton">Til startsiden</button></a>
 		</p>
 	</div>
 </body>

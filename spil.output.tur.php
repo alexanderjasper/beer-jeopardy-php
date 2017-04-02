@@ -16,6 +16,7 @@
 	</script>
 </head>
 <body>
+  <?php include 'menubar.php';?>
   <div class="screen-text">
     <?php if ($lastcatowner == true) { ?>
       <p>
@@ -75,16 +76,13 @@
             </select>
             <input type='hidden' name='spilcatchoice' value=<?php echo htmlspecialchars($cat[1], ENT_QUOTES, 'UTF-8'); ?>>
             <div>
-              <input type="submit" value="Vælg" class="menubutton smallbutton">
+              <input type="submit" value="Vælg" class="menubutton">
             </div>
           </p>
         </form>
       <?php endif; ?>
       </div>
     <?php endforeach; ?>
-    <p>
-      <a href="startside.php"><button class="menubutton">Til startsiden</button></a>
-    </p>
   </div>
 </body>
 </html>

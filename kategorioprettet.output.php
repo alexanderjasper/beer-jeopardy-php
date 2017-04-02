@@ -6,6 +6,7 @@
   <title>Øljeopardy</title>
 </head>
 <body>
+  <?php include 'menubar.php';?>
   <div class="screen-text">
   	Kategorien er oprettet.
     <p>
@@ -14,7 +15,7 @@
       <?php } elseif ($pagemem == 'opretspil') { ?>
         <a href="opretspil.php"><button class="menubutton">Opret nyt spil</button></a>
       <?php } else { ?>
-        <a href="kategorier.php"><button class="menubutton">Tilbage til Mine kategorier</button></a>
+        <a href="startside.php"><button class="menubutton">Til startsiden</button></a>
       <?php } ?>
     </p>
   </div>

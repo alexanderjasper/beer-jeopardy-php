@@ -6,12 +6,10 @@
   <title>Øljeopardy</title>
 </head>
 <body>
+  <?php include 'menubar.php';?>
   <div class="screen-text">
     <p>
       Spillet er slut. Du fik <?php echo $userpoints ?> point.
-    </p>
-    <p>
-      <a href="startside.php"><button class="menubutton">Til startsiden</button></a>
     </p>
   </div>
 </body>

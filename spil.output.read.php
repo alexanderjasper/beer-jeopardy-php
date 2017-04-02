@@ -16,6 +16,7 @@
 	</script>
 </head>
 <body>
+  <?php include 'menubar.php';?>
   <div class="screen-text">
     <p>
       Du har <?php echo $userpoints ?> point. Din kategori, <i><?php echo $jeopardycatname ?></i>, er blevet valgt til <?php echo $jeopardypoint ?> point. Svaret er:
@@ -36,12 +37,9 @@
         <input type="hidden" name="pointswon" value="<?php echo $jeopardypoint ?>">
         <input type="hidden" name="categorywon" value="<?php echo $jeopardyspilcatid ?>">
         <div>
-          <input type="submit" value="Vælg" class="menubutton smallbutton">
+          <input type="submit" value="Vælg" class="menubutton">
         </div>
       </form>
-    </p>
-    <p>
-      <a href="index.php"><button class="menubutton">Til startsiden</button></a>
     </p>
   </div>
 </body>

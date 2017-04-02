@@ -6,14 +6,12 @@
   <title>Øljeopardy</title>
 </head>
 <body>
+  <?php include 'menubar.php';?>
   <div class="screen-text">
   	Du har nu forladt spillet
     <p>
       <a href="findspil.php"><button class="menubutton">Deltag i et spil</button></a>
       <a href="opretspil.php"><button class="menubutton">Opret nyt spil</button></a>
-    </p>
-    <p>
-      <a href="startside.php"><button class="menubutton">Til startsiden</button></a>
     </p>
   </div>
 </body>

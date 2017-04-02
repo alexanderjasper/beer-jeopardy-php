@@ -44,17 +44,8 @@ while ($row = mysqli_fetch_array($sql4))
 {
 	$categories[] = array($row['navn'],$row['kategoriid']);
 }
+
+$showgamelink = false;
 include 'deltagspil.output.php';
 
-// Kode til at finde status:
-//
-// $sql3 = mysqli_query($link, "SELECT status FROM spil WHERE spilid='$sid'");
-// $row3 = mysqli_fetch_assoc($sql3);
-// $status = $row3['status'];
-// if(!$sql3)
-// {
-// 	$error = 'Kunne ikke finde status.' . mysqli_error($link);
-// 	include 'error.html.php';
-// 	exit();
-// }
 ?>

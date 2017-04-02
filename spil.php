@@ -207,6 +207,7 @@ $sql = mysqli_query($link, "SELECT count(*) as count FROM spilkategori WHERE spi
 $row = mysqli_fetch_assoc($sql);
 $catcount = $row['count'];
 
+$showgamelink = false;
 if ($catcount == 0) {
 	mysqli_query($link, "UPDATE spil SET status='inaktiv' WHERE spilid='$sid'");
 	include 'spil.output.slut.php';
@@ -314,7 +315,6 @@ else{
 		{
 			$players[] =  array($row['deltagerid'],$row['navn']);
 		}
-
 		include 'spil.output.read.php';
 	}
 }
