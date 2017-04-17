@@ -10,12 +10,22 @@
 	<div class="screen-text">
 		<form action="startside.php" method="post">
 			<p>
-				Brugernavn:
+				<div>
+					Brugernavn:
+				</div>
+				<div>
+					<input type="text" name="brugernavn" class="name-field">
+				</div>
 			</p>
 			<p>
 				<div>
-					<input type="text" name="brugernavn" class="name-field"></textarea>
+					Adgangskode:
 				</div>
+				<div>
+					<input type="password" name="adgangskode" class="name-field">
+				</div>
+			</p>
+			<p>
 				<div>
 					<input type="submit" value="Log ind" class="menubutton">
 				</div>

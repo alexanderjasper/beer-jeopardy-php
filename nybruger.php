@@ -10,10 +10,22 @@
 	<div class="screen-text">
 		<form action="brugeroprettet.php" method="post">
 			<p>
-				<label for="brugernavn">Skriv det ønskede brugernavn:</label>
+				<div>
+					<label for="brugernavn">Ønsket brugernavn:</label>
+				</div>
+				<div>
+					<input type="text" id="brugernavn" name="brugernavn" class="name-field">
+				</div>
+			</p>
+			<p>
+				<div>
+					<label for="brugernavn">Ønsket adgangskode:</label>
+				</div>
+				<div>
+					<input type="password" id="adgangskode" name="adgangskode" class="name-field">
+				</div>
 			</p>
 			<div>
-				<input type="text" id="brugernavn" name="brugernavn" class="name-field"></textarea>
 				<div>
 					<input type="submit" value="Opret" class="menubutton">
 				</div>

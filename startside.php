@@ -28,6 +28,20 @@ if(!$result1 || $uid == 0)
 	exit();
 }
 
+if (isset($_POST['adgangskode']))
+{
+	$result2 = mysqli_query($link, "SELECT pwhash FROM bruger WHERE brugerid='$uid'");
+	$row = mysqli_fetch_assoc($result2);
+	$pwhash = $row['pwhash'];
+	if (!password_verify($_POST['adgangskode'], $pwhash))
+	{
+		unset($_SESSION['brugernavn']);
+		$error = 'Adgangskoden er forkert.';
+		include 'error.html.php';
+		exit();
+	}
+}
+
 $result = mysqli_query($link, "SELECT * FROM kategori WHERE brugerid='$uid'");
 
 if(!$result)
