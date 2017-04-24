@@ -5,6 +5,7 @@
     <link rel="stylesheet" type="text/css" href="styles.css">
     <title>Øljeopardy</title>
   </head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
 <body>
   <?php include 'menubar.php';?>
   <div class="screen-text">

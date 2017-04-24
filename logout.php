@@ -8,6 +8,7 @@
 		<link rel="stylesheet" type="text/css" href="styles.css">
     <title>Øljeopardy</title>
   </head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
 <body>
 	<div class="screen-text">
 		Du er nu logget ud.

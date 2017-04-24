@@ -4,6 +4,7 @@
 <head>
   <link rel="stylesheet" type="text/css" href="styles.css">
   <title>Øljeopardy</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
   <script src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
   <script>
 		setInterval(function() {
