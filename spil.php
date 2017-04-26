@@ -130,12 +130,12 @@ $_SESSION['tur'] = $tur;
 
 if(!$sql2)
 {
-	$error = 'Kunne ikke finde status.' . mysqli_error($link);
+	$error = 'Kunne ikke finde tur.' . mysqli_error($link);
 	include 'error.html.php';
 	exit();
 }
 
-// Kode til at finde status:
+// Determine status:
 $sql3 = mysqli_query($link, "SELECT status FROM spil WHERE spilid='$sid'");
 $row3 = mysqli_fetch_assoc($sql3);
 $status = $row3['status'];
@@ -146,6 +146,7 @@ if(!$sql3)
 	exit();
 }
 
+// Determine game categories
 $sql4 = mysqli_query($link,
 	"SELECT spilkategori.kategoriid,spilkategori.spilkategoriid,kategori.navn
 	FROM spilkategori
@@ -159,7 +160,6 @@ if(!$sql4)
 	include 'error.html.php';
 	exit();
 }
-
 $categories = array();
 while ($row = mysqli_fetch_array($sql4, MYSQLI_ASSOC))
 {
