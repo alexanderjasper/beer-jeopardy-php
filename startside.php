@@ -37,7 +37,7 @@ if (isset($_POST['adgangskode']))
 	{
 		unset($_SESSION['brugernavn']);
 		$error = 'Adgangskoden er forkert.';
-		include 'error.html.php';
+		include 'loginerror.html.php';
 		exit();
 	}
 }
