@@ -13,7 +13,7 @@
           window.location.href = "spil.php";
         }
       })
-    }, 2000);
+    }, 1000);
 	</script>
 </head>
 <body>
