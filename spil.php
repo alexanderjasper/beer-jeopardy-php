@@ -112,7 +112,7 @@ if (isset($_POST['spilcatchoice']) and isset($_POST['pointchoice']))
 	$catchoicerow = mysqli_fetch_assoc($catchoicesql);
 	$catchoice = $catchoicerow['kategoriid'];
 
-	$sqlupd1 = mysqli_query($link, "UPDATE spil SET spilkategoriid='$spilcatchoice', point='$pointchoice', aktivtidspunkt=NOW() WHERE spilid='$sid'");
+	$sqlupd1 = mysqli_query($link, "UPDATE spil SET spilkategoriid='$spilcatchoice', latestchooser='$name', point='$pointchoice', aktivtidspunkt=NOW() WHERE spilid='$sid'");
 	$sqlupd2 = mysqli_query($link, "UPDATE deltager SET tur='0' WHERE deltagerid='$delt'");
 	$catdeltagersql = mysqli_query($link,
 		"SELECT deltagerid
@@ -123,6 +123,7 @@ if (isset($_POST['spilcatchoice']) and isset($_POST['pointchoice']))
 	$updatecatdeltagersql = mysqli_query($link, "UPDATE deltager SET tur='2' where deltagerid='$catdeltager'");
 }
 
+// Determine turn
 $sql2 = mysqli_query($link, "SELECT tur FROM deltager WHERE deltagerid='$delt'");
 $row2 = mysqli_fetch_assoc($sql2);
 $tur = $row2['tur'];
@@ -134,6 +135,34 @@ if(!$sql2)
 	include 'error.html.php';
 	exit();
 }
+
+// Get turn holder
+$sql = mysqli_query($link,
+	"SELECT bruger.navn,spil.latestchooser,kategori.navn as kategorinavn,deltager.tur
+	FROM deltager
+		JOIN spil ON deltager.spilid=spil.spilid
+		JOIN bruger ON deltager.brugerid=bruger.brugerid
+		JOIN spilkategori ON spilkategori.deltagerid=deltager.deltagerid
+		JOIN kategori ON spilkategori.kategoriid=kategori.kategoriid
+	WHERE spil.spilid='$sid' AND deltager.tur!='0'");
+$row = mysqli_fetch_assoc($sql);
+$turnholder = $row['navn'];
+$latestchooser = $row['latestchooser'];
+$turnholdercategory = $row['kategorinavn'];
+$turntype = $row['tur'];
+
+// Get selected category and owner
+$sql = mysqli_query($link,
+	"SELECT kategori.navn,spil.point,bruger.navn as brugernavn
+	FROM spil
+		JOIN spilkategori ON spil.spilkategoriid=spilkategori.spilkategoriid
+		JOIN kategori ON spilkategori.kategoriid=kategori.kategoriid
+		JOIN bruger ON kategori.brugerid=bruger.brugerid
+	WHERE spil.spilid='$sid'");
+$row = mysqli_fetch_assoc($sql);
+$selectedcategory = $row['navn'];
+$selectedcategoryowner = $row['brugernavn'];
+$selectedpoint = $row['point'];
 
 // Determine status:
 $sql3 = mysqli_query($link, "SELECT status FROM spil WHERE spilid='$sid'");
