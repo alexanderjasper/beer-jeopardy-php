@@ -64,7 +64,7 @@
           $row5 = mysqli_fetch_array($sql500);
         ?>
         <?php if ($row1['vundet100'] == NULL or $row2['vundet200'] == NULL or $row3['vundet300'] == NULL or $row4['vundet400'] == NULL or $row5['vundet500'] == NULL) : ?>
-        <form action=spil.php method=post">
+        <form action="spil.php" method="post">
           <p>
             <div>
               <b><?php echo htmlspecialchars($cat[2].':', ENT_QUOTES, 'UTF-8'); ?></b>
