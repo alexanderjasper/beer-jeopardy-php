@@ -13,7 +13,18 @@
           window.location.href = "spil.php";
         }
       })
-    }, 2000);
+    }, 1000);
+
+    $(document).ready(function()
+    {
+      $('#selectbutton').click(function()
+      {
+        var e = document.getElementById("selectform");
+        var value = e.options[e.selectedIndex].value;
+        var text = e.options[e.selectedIndex].text;
+        confirm('Er du sikker på, at du vil vælge '.concat("<?php echo htmlspecialchars($cat[2], ENT_QUOTES, 'UTF-8'); ?>").concat(' til ').concat(value).concat(' point?'));
+        });
+      })
 	</script>
 </head>
 <body>
@@ -53,12 +64,12 @@
           $row5 = mysqli_fetch_array($sql500);
         ?>
         <?php if ($row1['vundet100'] == NULL or $row2['vundet200'] == NULL or $row3['vundet300'] == NULL or $row4['vundet400'] == NULL or $row5['vundet500'] == NULL) : ?>
-        <form action=spil.php method=post>
+        <form action="spil.php" method="post">
           <p>
             <div>
               <b><?php echo htmlspecialchars($cat[2].':', ENT_QUOTES, 'UTF-8'); ?></b>
             </div>
-            <select name="pointchoice" class="dropdown">
+            <select name="pointchoice" class="dropdown" id="selectform">
               <?php if ($row1['vundet100'] == NULL) : ?>
                 <option value='100'> 100 </option>
               <?php endif; ?>
@@ -77,7 +88,7 @@
             </select>
             <input type='hidden' name='spilcatchoice' value=<?php echo htmlspecialchars($cat[1], ENT_QUOTES, 'UTF-8'); ?>>
             <div>
-              <input type="submit" value="Vælg" class="menubutton">
+              <input type="submit" value="Vælg" class="menubutton" id="selectbutton">
             </div>
           </p>
         </form>

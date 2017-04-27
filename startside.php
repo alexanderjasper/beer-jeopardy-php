@@ -10,8 +10,7 @@ $name = mysqli_real_escape_string($link, $_SESSION['brugernavn']);
 
 if(!$name)
 {
-	$error = 'Kunne ikke finde brugernavn: ' . mysqli_error($link);
-	include 'error.html.php';
+	include 'forside.php';
 	exit();
 }
 
@@ -37,7 +36,7 @@ if (isset($_POST['adgangskode']))
 	{
 		unset($_SESSION['brugernavn']);
 		$error = 'Adgangskoden er forkert.';
-		include 'error.html.php';
+		include 'loginerror.html.php';
 		exit();
 	}
 }
