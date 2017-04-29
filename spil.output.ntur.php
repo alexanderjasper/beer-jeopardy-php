@@ -20,14 +20,14 @@
   <?php include 'menubar.php';?>
   <div class="screen-text">
     <p>
+      Point: <?php echo $userpoints ?>
+    </p>
+    <p>
       <?php if ($turntype == 1) { ?>
         Det er <?php echo $turnholder; if (substr($turnholder, -1)=='s') echo "'";?>s tur til at vælge kategori.
       <?php } else { ?>
         <?php echo $latestchooser; ?> har valgt <?php echo $selectedcategoryowner; if (substr($selectedcategoryowner, -1)=='s') echo "'";?>s kategori <?php echo $selectedcategory ?> til <?php echo $selectedpoint ?> point.
       <?php } ?>
-    </p>
-    <p>
-      Du har <?php echo $userpoints ?> point.
     </p>
   </div>
 </body>
