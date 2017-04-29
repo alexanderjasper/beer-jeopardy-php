@@ -20,7 +20,7 @@
       $('#selectbutton').click(function()
       {
         var e = document.getElementById("selectform");
-        var value = e.options[e.selectedIndex].value;
+        var value = e.options[e.selectedIndex].text;
         var text = e.options[e.selectedIndex].text;
         confirm('Er du sikker på, at '.concat(value).concat(' vandt runden?'));
         });
