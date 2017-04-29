@@ -241,11 +241,13 @@ $showgamelink = false;
 if ($catcount == 0) {
 	mysqli_query($link, "UPDATE spil SET status='inaktiv' WHERE spilid='$sid'");
 	include 'spil.output.slut.php';
+	exit();
 }
 else{
 	if($tur == 0)
 	{
 		include 'spil.output.ntur.php';
+		exit();
 	}
 	if ($tur == 1)
 	{
@@ -278,6 +280,7 @@ else{
 			}
 		}
 		include 'spil.output.tur.php';
+		exit();
 	}
 	if ($tur == 2)
 	{
@@ -346,6 +349,7 @@ else{
 			$players[] =  array($row['deltagerid'],$row['navn']);
 		}
 		include 'spil.output.read.php';
+		exit();
 	}
 }
 
