@@ -103,6 +103,19 @@ $row500p = mysqli_fetch_assoc($sql500points);
 $p500 = $row500p['count'];
 $userpoints = 100*$p100+200*$p200+300*$p300+400*$p400+500*$p500;
 
+// Determine turn
+$sql2 = mysqli_query($link, "SELECT tur FROM deltager WHERE deltagerid='$delt'");
+$row2 = mysqli_fetch_assoc($sql2);
+$tur = $row2['tur'];
+$_SESSION['tur'] = $tur;
+
+if(!$sql2)
+{
+	$error = 'Kunne ikke finde tur.' . mysqli_error($link);
+	include 'error.html.php';
+	exit();
+}
+
 
 if (isset($_POST['spilcatchoice']) and isset($_POST['pointchoice']))
 {
@@ -121,48 +134,8 @@ if (isset($_POST['spilcatchoice']) and isset($_POST['pointchoice']))
 	$catdeltagerrow = mysqli_fetch_assoc($catdeltagersql);
 	$catdeltager = $catdeltagerrow['deltagerid'];
 	$updatecatdeltagersql = mysqli_query($link, "UPDATE deltager SET tur='2' where deltagerid='$catdeltager'");
+	$tur=0;
 }
-
-// Determine turn
-$sql2 = mysqli_query($link, "SELECT tur FROM deltager WHERE deltagerid='$delt'");
-$row2 = mysqli_fetch_assoc($sql2);
-$tur = $row2['tur'];
-$_SESSION['tur'] = $tur;
-
-if(!$sql2)
-{
-	$error = 'Kunne ikke finde tur.' . mysqli_error($link);
-	include 'error.html.php';
-	exit();
-}
-
-// Get turn holder
-$sql = mysqli_query($link,
-	"SELECT bruger.navn,spil.latestchooser,kategori.navn as kategorinavn,deltager.tur
-	FROM deltager
-		JOIN spil ON deltager.spilid=spil.spilid
-		JOIN bruger ON deltager.brugerid=bruger.brugerid
-		JOIN spilkategori ON spilkategori.deltagerid=deltager.deltagerid
-		JOIN kategori ON spilkategori.kategoriid=kategori.kategoriid
-	WHERE spil.spilid='$sid' AND deltager.tur!='0'");
-$row = mysqli_fetch_assoc($sql);
-$turnholder = $row['navn'];
-$latestchooser = $row['latestchooser'];
-$turnholdercategory = $row['kategorinavn'];
-$turntype = $row['tur'];
-
-// Get selected category and owner
-$sql = mysqli_query($link,
-	"SELECT kategori.navn,spil.point,bruger.navn as brugernavn
-	FROM spil
-		JOIN spilkategori ON spil.spilkategoriid=spilkategori.spilkategoriid
-		JOIN kategori ON spilkategori.kategoriid=kategori.kategoriid
-		JOIN bruger ON kategori.brugerid=bruger.brugerid
-	WHERE spil.spilid='$sid'");
-$row = mysqli_fetch_assoc($sql);
-$selectedcategory = $row['navn'];
-$selectedcategoryowner = $row['brugernavn'];
-$selectedpoint = $row['point'];
 
 // Determine status:
 $sql3 = mysqli_query($link, "SELECT status FROM spil WHERE spilid='$sid'");
@@ -231,6 +204,34 @@ if (isset($_POST['roundwinner']))
 	$sqlchangeplayertur = mysqli_query($link, "UPDATE deltager SET tur=0 WHERE deltagerid='$delt'");
 	$tur = 0;
 }
+
+// Get turn holder
+$sql = mysqli_query($link,
+	"SELECT bruger.navn,spil.latestchooser,kategori.navn as kategorinavn,deltager.tur
+	FROM deltager
+		JOIN spil ON deltager.spilid=spil.spilid
+		JOIN bruger ON deltager.brugerid=bruger.brugerid
+		JOIN spilkategori ON spilkategori.deltagerid=deltager.deltagerid
+		JOIN kategori ON spilkategori.kategoriid=kategori.kategoriid
+	WHERE spil.spilid='$sid' AND deltager.tur!='0'");
+$row = mysqli_fetch_assoc($sql);
+$turnholder = $row['navn'];
+$latestchooser = $row['latestchooser'];
+$turnholdercategory = $row['kategorinavn'];
+$turntype = $row['tur'];
+
+// Get selected category and owner
+$sql = mysqli_query($link,
+	"SELECT kategori.navn,spil.point,bruger.navn as brugernavn
+	FROM spil
+		JOIN spilkategori ON spil.spilkategoriid=spilkategori.spilkategoriid
+		JOIN kategori ON spilkategori.kategoriid=kategori.kategoriid
+		JOIN bruger ON kategori.brugerid=bruger.brugerid
+	WHERE spil.spilid='$sid'");
+$row = mysqli_fetch_assoc($sql);
+$selectedcategory = $row['navn'];
+$selectedcategoryowner = $row['brugernavn'];
+$selectedpoint = $row['point'];
 
 $sql = mysqli_query($link, "SELECT count(*) as count FROM spilkategori WHERE spilid='$sid' AND (vundet100 IS NULL OR vundet200 IS NULL OR vundet300 IS NULL OR vundet400 IS NULL OR vundet500 IS NULL)");
 $row = mysqli_fetch_assoc($sql);
