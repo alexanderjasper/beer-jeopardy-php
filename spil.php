@@ -103,26 +103,7 @@ $row500p = mysqli_fetch_assoc($sql500points);
 $p500 = $row500p['count'];
 $userpoints = 100*$p100+200*$p200+300*$p300+400*$p400+500*$p500;
 
-
-if (isset($_POST['spilcatchoice']) and isset($_POST['pointchoice']))
-{
-	$spilcatchoice = $_POST['spilcatchoice'];
-	$pointchoice = $_POST['pointchoice'];
-	$catchoicesql = mysqli_query($link, "SELECT kategoriid FROM spilkategori WHERE spilkategoriid='$spilcatchoice'");
-	$catchoicerow = mysqli_fetch_assoc($catchoicesql);
-	$catchoice = $catchoicerow['kategoriid'];
-
-	$sqlupd1 = mysqli_query($link, "UPDATE spil SET spilkategoriid='$spilcatchoice', point='$pointchoice', aktivtidspunkt=NOW() WHERE spilid='$sid'");
-	$sqlupd2 = mysqli_query($link, "UPDATE deltager SET tur='0' WHERE deltagerid='$delt'");
-	$catdeltagersql = mysqli_query($link,
-		"SELECT deltagerid
-		FROM spilkategori
-		WHERE spilkategoriid='$spilcatchoice'");
-	$catdeltagerrow = mysqli_fetch_assoc($catdeltagersql);
-	$catdeltager = $catdeltagerrow['deltagerid'];
-	$updatecatdeltagersql = mysqli_query($link, "UPDATE deltager SET tur='2' where deltagerid='$catdeltager'");
-}
-
+// Determine turn
 $sql2 = mysqli_query($link, "SELECT tur FROM deltager WHERE deltagerid='$delt'");
 $row2 = mysqli_fetch_assoc($sql2);
 $tur = $row2['tur'];
@@ -133,6 +114,27 @@ if(!$sql2)
 	$error = 'Kunne ikke finde tur.' . mysqli_error($link);
 	include 'error.html.php';
 	exit();
+}
+
+
+if (isset($_POST['spilcatchoice']) and isset($_POST['pointchoice']))
+{
+	$spilcatchoice = $_POST['spilcatchoice'];
+	$pointchoice = $_POST['pointchoice'];
+	$catchoicesql = mysqli_query($link, "SELECT kategoriid FROM spilkategori WHERE spilkategoriid='$spilcatchoice'");
+	$catchoicerow = mysqli_fetch_assoc($catchoicesql);
+	$catchoice = $catchoicerow['kategoriid'];
+
+	$sqlupd1 = mysqli_query($link, "UPDATE spil SET spilkategoriid='$spilcatchoice', latestchooser='$name', point='$pointchoice', aktivtidspunkt=NOW() WHERE spilid='$sid'");
+	$sqlupd2 = mysqli_query($link, "UPDATE deltager SET tur='0' WHERE deltagerid='$delt'");
+	$catdeltagersql = mysqli_query($link,
+		"SELECT deltagerid
+		FROM spilkategori
+		WHERE spilkategoriid='$spilcatchoice'");
+	$catdeltagerrow = mysqli_fetch_assoc($catdeltagersql);
+	$catdeltager = $catdeltagerrow['deltagerid'];
+	$updatecatdeltagersql = mysqli_query($link, "UPDATE deltager SET tur='2' where deltagerid='$catdeltager'");
+	$tur=0;
 }
 
 // Determine status:
@@ -203,6 +205,34 @@ if (isset($_POST['roundwinner']))
 	$tur = 0;
 }
 
+// Get turn holder
+$sql = mysqli_query($link,
+	"SELECT bruger.navn,spil.latestchooser,kategori.navn as kategorinavn,deltager.tur
+	FROM deltager
+		JOIN spil ON deltager.spilid=spil.spilid
+		JOIN bruger ON deltager.brugerid=bruger.brugerid
+		JOIN spilkategori ON spilkategori.deltagerid=deltager.deltagerid
+		JOIN kategori ON spilkategori.kategoriid=kategori.kategoriid
+	WHERE spil.spilid='$sid' AND deltager.tur!='0'");
+$row = mysqli_fetch_assoc($sql);
+$turnholder = $row['navn'];
+$latestchooser = $row['latestchooser'];
+$turnholdercategory = $row['kategorinavn'];
+$turntype = $row['tur'];
+
+// Get selected category and owner
+$sql = mysqli_query($link,
+	"SELECT kategori.navn,spil.point,bruger.navn as brugernavn
+	FROM spil
+		JOIN spilkategori ON spil.spilkategoriid=spilkategori.spilkategoriid
+		JOIN kategori ON spilkategori.kategoriid=kategori.kategoriid
+		JOIN bruger ON kategori.brugerid=bruger.brugerid
+	WHERE spil.spilid='$sid'");
+$row = mysqli_fetch_assoc($sql);
+$selectedcategory = $row['navn'];
+$selectedcategoryowner = $row['brugernavn'];
+$selectedpoint = $row['point'];
+
 $sql = mysqli_query($link, "SELECT count(*) as count FROM spilkategori WHERE spilid='$sid' AND (vundet100 IS NULL OR vundet200 IS NULL OR vundet300 IS NULL OR vundet400 IS NULL OR vundet500 IS NULL)");
 $row = mysqli_fetch_assoc($sql);
 $catcount = $row['count'];
@@ -211,11 +241,13 @@ $showgamelink = false;
 if ($catcount == 0) {
 	mysqli_query($link, "UPDATE spil SET status='inaktiv' WHERE spilid='$sid'");
 	include 'spil.output.slut.php';
+	exit();
 }
 else{
 	if($tur == 0)
 	{
 		include 'spil.output.ntur.php';
+		exit();
 	}
 	if ($tur == 1)
 	{
@@ -248,6 +280,7 @@ else{
 			}
 		}
 		include 'spil.output.tur.php';
+		exit();
 	}
 	if ($tur == 2)
 	{
@@ -316,6 +349,7 @@ else{
 			$players[] =  array($row['deltagerid'],$row['navn']);
 		}
 		include 'spil.output.read.php';
+		exit();
 	}
 }
 

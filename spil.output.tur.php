@@ -32,7 +32,10 @@
   <div class="screen-text">
     <?php if ($lastcatowner == true) { ?>
       <p>
-        Du har <?php echo $userpoints ?> point. Det er din tur, og der er kun din egen kategori tilbage. Vælg et pointantal.
+        Point: <?php echo $userpoints ?>
+      </p>
+      <p>
+        Det er din tur, og der er kun din egen kategori tilbage. Vælg et pointantal.
       </p>
     <?php } else { ?>
       <?php if ($count == 1) { ?>
@@ -41,7 +44,10 @@
         </p>
       <?php } else { ?>
         <p>
-          Du har <?php echo $userpoints ?> point. Det er din tur. Vælg en kategori og et pointtal.
+          Point: <?php echo $userpoints ?>
+        </p>
+        <p>
+          Det er din tur. Vælg en kategori og et pointtal.
         </p>
       <?php } ?>
     <?php } ?>

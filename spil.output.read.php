@@ -31,7 +31,10 @@
   <?php include 'menubar.php';?>
   <div class="screen-text">
     <p>
-      Du har <?php echo $userpoints ?> point. Din kategori, <i><?php echo $jeopardycatname ?></i>, er blevet valgt til <?php echo $jeopardypoint ?> point. Svaret er:
+      Point: <?php echo $userpoints ?>
+    </p>
+    <p>
+      Din kategori, <i><?php echo $jeopardycatname ?></i>, er blevet valgt til <?php echo $jeopardypoint ?> point. Svaret er:
     </p>
     <p>
       <b><?php echo $jeopardyans ?></b>
