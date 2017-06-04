@@ -13,14 +13,21 @@
           window.location.href = "spil.php";
         }
       })
-    }, 2000);
+    }, 1000);
 	</script>
 </head>
 <body>
   <?php include 'menubar.php';?>
   <div class="screen-text">
     <p>
-      Det er ikke din tur. Du har <?php echo $userpoints ?> point.
+      Point: <?php echo $userpoints; ?>
+    </p>
+    <p>
+      <?php if ($turntype == 1) { ?>
+        Det er <?php echo $turnholder; if (substr($turnholder, -1)=='s') echo "'";?>s tur til at vælge kategori.
+      <?php } else { ?>
+        <?php echo $latestchooser; ?> har valgt <?php echo $selectedcategoryowner; if (substr($selectedcategoryowner, -1)=='s') echo "'";?>s kategori <?php echo $selectedcategory; ?> til <?php echo $selectedpoint; ?> point.
+      <?php } ?>
     </p>
   </div>
 </body>
