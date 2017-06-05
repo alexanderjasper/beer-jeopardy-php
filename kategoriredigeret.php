@@ -2,14 +2,10 @@
 include('conn.php');
 
 $editcat = mysqli_real_escape_string($link, $_POST['editcat']);
-$svA = mysqli_real_escape_string($link, $_POST['100pt']);
-$svB = mysqli_real_escape_string($link, $_POST['200pt']);
-$svC = mysqli_real_escape_string($link, $_POST['300pt']);
-$svD = mysqli_real_escape_string($link, $_POST['400pt']);
-$svE = mysqli_real_escape_string($link, $_POST['500pt']);
+$answers = $_POST['answers'];
 
 
-$sql = mysqli_query($link, "UPDATE kategori SET 100point='$svA', 200point='$svB', 300point='$svC', 400point='$svD', 500point='$svE' WHERE kategoriid='$editcat'");
+$sql = mysqli_query($link, "UPDATE kategori SET 100point='$answers[0]', 200point='$answers[1]', 300point='$answers[2]', 400point='$answers[3]', 500point='$answers[4]' WHERE kategoriid='$editcat'");
 
 include 'kategoriredigeret.output.php';
 

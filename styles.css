@@ -57,11 +57,44 @@
   font-size: inherit;
   width: 80%;
 }
+
 .answer-edit-field {
   font-size: inherit;
-  width: 80%;
-  height: 50px;
+  width: 85%;
+  height: 70%;
+  vertical-align: middle;
+  display: inline-block;
+  margin-top: 9px;
+  margin-bottom: 9px;
 }
+.answer-image {
+  max-width: 10%;
+  max-height: 25px;
+  vertical-align: middle;
+  display: inline-block;
+}
+.sortableDiv, .contentDiv {
+    float: left;
+}
+.clean-list {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+}
+.answer-container {
+  height: 80px;
+}
+.answer-value {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  border: solid;
+  border-width: 1px;
+  padding: 19px 5px 19px 5px;
+  background: wheat;
+  border-radius: 5px;
+}
+
 html, body {
     height: 100%;
     width: 100%;

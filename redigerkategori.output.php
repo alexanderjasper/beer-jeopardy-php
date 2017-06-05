@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="sortable.js"></script>
+<script src="jquery.ui.touch-punch.js"></script>
 <html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <head>
@@ -13,35 +17,60 @@
 			Her kan du redigere i kategorien <?php echo $category[0] ?>.
 		</p>
 		<form action="kategoriredigeret.php" method="post">
-			<div>
-				Svaret til 100 point:
+			<div class="sortableDiv" style="width: 85%">
+				<ul id='sortable' class="clean-list">
+					<li class="answer-container">
+						<img src="move-icon.png" class="answer-image">
+						<textarea name="answers[]" class="answer-edit-field"><?php echo $category[1] ?></textarea>
+					</li>
+					<li class="answer-container">
+						<img src="move-icon.png" class="answer-image">
+						<textarea name="answers[]" class="answer-edit-field"><?php echo $category[2] ?></textarea>
+					</li>
+					<li class="answer-container">
+						<img src="move-icon.png" class="answer-image">
+						<textarea name="answers[]" class="answer-edit-field"><?php echo $category[3] ?></textarea>
+					</li>
+					<li class="answer-container">
+						<img src="move-icon.png" class="answer-image">
+						<textarea name="answers[]" class="answer-edit-field"><?php echo $category[4] ?></textarea>
+					</li>
+					<li class="answer-container">
+						<img src="move-icon.png" class="answer-image">
+						<textarea name="answers[]" class="answer-edit-field"><?php echo $category[5] ?></textarea>
+					</li>
+				</ul>
 			</div>
-			<div>
-				<textarea name="100pt" class="answer-edit-field"><?php echo $category[1] ?></textarea>
-			</div>
-			<div>
-				Svaret til 200 point:
-			</div>
-			<div>
-				<textarea name="200pt" class="answer-edit-field"><?php echo $category[2] ?></textarea>
-			</div>
-			<div>
-				Svaret til 300 point:
-			</div>
-			<div>
-				<textarea name="300pt" class="answer-edit-field"><?php echo $category[3] ?></textarea>
-			</div>
-			<div>
-				Svaret til 400 point:
-			</div>
-			<div>
-				<textarea name="400pt" class="answer-edit-field"><?php echo $category[4] ?></textarea>
-			</div>
-			<div>
-				Svaret til 500 point:
-			</div>
-			<div>
-				<textarea name="500pt" class="answer-edit-field"><?php echo $category[5] ?></textarea>
+			<div class="contentDiv" style="width: 15%">
+				<ul class="clean-list">
+					<li>
+						<div class="answer-container">
+							<div class="answer-value">
+								100
+							</div>
+						</div>
+					</li>
+					<li class="answer-container">
+						<div class="answer-value">
+							200
+						</div>
+					</li>
+					<li class="answer-container">
+						<div class="answer-value">
+							300
+						</div>
+					</li>
+					<li class="answer-container">
+						<div class="answer-value">
+							400
+						</div>
+					</li>
+					<li class="answer-container">
+						<div class="answer-value">
+							500
+						</div>
+					</li>
+				</ul>
 			</div>
 			<div>
 				<input type="submit" value="Gem" class="menubutton">
