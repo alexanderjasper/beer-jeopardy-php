@@ -9,7 +9,7 @@ $svD = mysqli_real_escape_string($link, $_POST['400pt']);
 $svE = mysqli_real_escape_string($link, $_POST['500pt']);
 
 
-$sql = mysqli_query($link, "UPDATE kategori SET 100point='$svA', 200point='$svB', 300point='$svC', 400point='$svD', 500point='$svD' WHERE kategoriid='$editcat'");
+$sql = mysqli_query($link, "UPDATE kategori SET 100point='$svA', 200point='$svB', 300point='$svC', 400point='$svD', 500point='$svE' WHERE kategoriid='$editcat'");
 
 include 'kategoriredigeret.output.php';
 
