@@ -13,11 +13,15 @@
 <body>
 	<?php include 'menubar.php';?>
 	<div class="screen-text">
-		<p>
-			Her kan du redigere i kategorien <?php echo $category[0] ?>.
-		</p>
+		<h1>
+			Rediger kategori
+		</h1>
 		<form action="kategoriredigeret.php" method="post">
-			<div class="sortableDiv" style="width: 85%">
+			<div>
+				Kategoriens navn:<br>
+				<textarea name="categoryname" class="category-edit-name-field"><?php echo $category[0] ?></textarea><br>
+			</div>
+			<div class="sortableDiv" style="width: 80%">
 				<ul id='sortable' class="clean-list">
 					<li class="answer-container">
 						<img src="move-icon.png" class="answer-image">
@@ -41,7 +45,7 @@
 					</li>
 				</ul>
 			</div>
-			<div class="contentDiv" style="width: 15%">
+			<div class="contentDiv" style="width: 18%">
 				<ul class="clean-list">
 					<li>
 						<div class="answer-container">

@@ -57,11 +57,18 @@
   font-size: inherit;
   width: 80%;
 }
+.category-edit-name-field {
+  font-size: inherit;
+  width: 80%;
+  height: 70%;
+  resize: none;
+}
 
 .answer-edit-field {
   font-size: inherit;
   width: 85%;
   height: 70%;
+  resize: none;
   vertical-align: middle;
   display: inline-block;
   margin-top: 9px;
@@ -73,8 +80,13 @@
   vertical-align: middle;
   display: inline-block;
 }
-.sortableDiv, .contentDiv {
+.sortableDiv {
     float: left;
+    width: 80%;
+}
+.contentDiv {
+  float: left;
+  width: 18%;
 }
 .clean-list {
   list-style: none;
