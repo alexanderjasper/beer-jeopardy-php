@@ -47,11 +47,9 @@
 			</div>
 			<div class="contentDiv" style="width: 18%">
 				<ul class="clean-list">
-					<li>
-						<div class="answer-container">
-							<div class="answer-value">
-								100
-							</div>
+					<li class="answer-container">
+						<div class="answer-value">
+							100
 						</div>
 					</li>
 					<li class="answer-container">
