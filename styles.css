@@ -135,7 +135,7 @@ body {
   border-width: 1px;
 }
 
-ul {
+.menubar-list {
     list-style-type: none;
     margin: 0 auto;
     padding: 0;
@@ -150,12 +150,12 @@ ul {
     border-bottom: none;
 }
 
-li {
+.menubar-listitem {
     float: center;
     display: inline;
 }
 
-li a {
+.menubar-listitem-a {
     display: inline-block;
     text-align: center;
     padding: 10px 10px;
