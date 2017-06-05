@@ -27,7 +27,7 @@
       </form>
     <?php } ?>
     <p>
-      <a href="nykategori.php?bruger=<?php echo $name ?>"><button class="menubutton">Opret ny kategori</button></a>
+      <a href="nykategori.php"><button class="menubutton">Opret ny kategori</button></a>
     </p>
   </div>
 </body>
