@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="sortable.js"></script>
+<script src="jquery.ui.touch-punch.js"></script>
 <html>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <head>
@@ -9,24 +13,69 @@
 <body>
 	<?php include 'menubar.php';?>
 	<div class="screen-text">
-		<p>
-			Her kan du oprette en ny kategori.
-		</p>
+		<h1>
+			Opret kategori
+		</h1>
 		<form action="kategorioprettet.php" method="post">
-			Kategoriens navn:<br>
-			<textarea name="kategorinavn" class="category-name-field"></textarea><br>
-			Svaret til 100 point:<br>
-			<textarea name="100pt" class="answer-edit-field"></textarea><br>
-			Svaret til 200 point:<br>
-			<textarea name="200pt" class="answer-edit-field"></textarea><br>
-			Svaret til 300 point:<br>
-			<textarea name="300pt" class="answer-edit-field"></textarea><br>
-			Svaret til 400 point:<br>
-			<textarea name="400pt" class="answer-edit-field"></textarea><br>
-			Svaret til 500 point:<br>
-			<textarea name="500pt" class="answer-edit-field"></textarea><br>
 			<div>
-				<input type="submit" value="Opret" class="menubutton">
+				Kategoriens navn:<br>
+				<textarea name="categoryname" class="category-edit-name-field"></textarea><br>
+			</div>
+			<div class="sortableDiv" style="width: 80%">
+				<ul id='sortable' class="clean-list">
+					<li class="answer-container">
+						<img src="move-icon.png" class="answer-image">
+						<textarea name="answers[]" class="answer-edit-field"></textarea>
+					</li>
+					<li class="answer-container">
+						<img src="move-icon.png" class="answer-image">
+						<textarea name="answers[]" class="answer-edit-field"></textarea>
+					</li>
+					<li class="answer-container">
+						<img src="move-icon.png" class="answer-image">
+						<textarea name="answers[]" class="answer-edit-field"></textarea>
+					</li>
+					<li class="answer-container">
+						<img src="move-icon.png" class="answer-image">
+						<textarea name="answers[]" class="answer-edit-field"></textarea>
+					</li>
+					<li class="answer-container">
+						<img src="move-icon.png" class="answer-image">
+						<textarea name="answers[]" class="answer-edit-field"></textarea>
+					</li>
+				</ul>
+			</div>
+			<div class="contentDiv" style="width: 18%">
+				<ul class="clean-list">
+					<li  class="answer-container">
+						<div class="answer-value">
+							100
+						</div>
+					</li>
+					<li class="answer-container">
+						<div class="answer-value">
+							200
+						</div>
+					</li>
+					<li class="answer-container">
+						<div class="answer-value">
+							300
+						</div>
+					</li>
+					<li class="answer-container">
+						<div class="answer-value">
+							400
+						</div>
+					</li>
+					<li class="answer-container">
+						<div class="answer-value">
+							500
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div>
+				<input type="submit" value="Gem" class="menubutton">
 			</div>
 		</form>
 	</div>

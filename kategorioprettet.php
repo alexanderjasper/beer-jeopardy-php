@@ -1,16 +1,12 @@
 <?php
 include('conn.php');
 
-$kategorinavn = mysqli_real_escape_string($link, $_POST['kategorinavn']);
-$svA = mysqli_real_escape_string($link, $_POST['100pt']);
-$svB = mysqli_real_escape_string($link, $_POST['200pt']);
-$svC = mysqli_real_escape_string($link, $_POST['300pt']);
-$svD = mysqli_real_escape_string($link, $_POST['400pt']);
-$svE = mysqli_real_escape_string($link, $_POST['500pt']);
+$answers = $_POST['answers'];
+$categoryname = mysqli_real_escape_string($link, $_POST['categoryname']);
 
 $name = $_SESSION['brugernavn'];
 $uid = $_SESSION['userid'];
-$sql = mysqli_query($link, "INSERT INTO kategori (navn,100point,200point,300point,400point,500point,brugerid) VALUES ('$kategorinavn','$svA','$svB','$svC','$svD','$svE','$uid')");
+$sql = mysqli_query($link, "INSERT INTO kategori (navn,100point,200point,300point,400point,500point,brugerid) VALUES ('$categoryname','$answers[0]','$answers[1]','$answers[2]','$answers[3]','$answers[4]','$uid')");
 
 if (isset($_SESSION['pagemem']))
 {
