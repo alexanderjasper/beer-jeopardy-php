@@ -2,7 +2,9 @@
 include('conn.php');
 
 $tur = mysqli_real_escape_string($link, $_SESSION['tur']);
-$count = mysqli_real_escape_string($link, $_SESSION['count']);
+if (isset($_SESSION['count'])) {
+  $count = mysqli_real_escape_string($link, $_SESSION['count']);
+}
 $delt = mysqli_real_escape_string($link, $_SESSION['deltager']);
 $sid = mysqli_real_escape_string($link, $_SESSION['spilid']);
 
