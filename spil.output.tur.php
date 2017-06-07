@@ -121,26 +121,34 @@
             </div>
             <div class="radio-toolbar">
               <?php if ($row1['vundet100'] == NULL) : ?>
-                  <input type="radio" name='pointchoice' value='<?php echo $cat[0]; ?>100' id='<?php echo $cat[0]; ?>radio1' name='selector'>
-                  <label for="<?php echo $cat[0]; ?>radio1">100</label>
+                  <input type="radio" name='choice' value='<?php echo $cat[1]; ?>100' id='<?php echo $cat[1]; ?>radio1' name='selector'>
+                  <label for="<?php echo $cat[1]; ?>radio1">100</label>
               <?php else : ?>
-                  <label for="<?php echo $cat[0]; ?>radio1" style="background: #ff0000; box-shadow: 0 2px #aa0000;">100</label>
+                  <label for="<?php echo $cat[1]; ?>radio1" style="background: #ff0000; box-shadow: 0 2px #aa0000;">100</label>
               <?php endif; ?>
               <?php if ($row2['vundet200'] == NULL) : ?>
-                  <input type="radio" name='pointchoice' value='<?php echo $cat[0]; ?>200' id='<?php echo $cat[0]; ?>radio2' name='selector'>
-                  <label for="<?php echo $cat[0]; ?>radio2">200</label>
+                  <input type="radio" name='choice' value='<?php echo $cat[1]; ?>200' id='<?php echo $cat[1]; ?>radio2' name='selector'>
+                  <label for="<?php echo $cat[1]; ?>radio2">200</label>
+              <?php else : ?>
+                  <label for="<?php echo $cat[1]; ?>radio2" style="background: #ff0000; box-shadow: 0 2px #aa0000;">200</label>
               <?php endif; ?>
               <?php if ($row3['vundet300'] == NULL) : ?>
-                  <input type="radio" name='pointchoice' value='<?php echo $cat[0]; ?>300' id='<?php echo $cat[0]; ?>radio3' name='selector'>
-                  <label for="<?php echo $cat[0]; ?>radio3">300</label>
+                  <input type="radio" name='choice' value='<?php echo $cat[1]; ?>300' id='<?php echo $cat[1]; ?>radio3' name='selector'>
+                  <label for="<?php echo $cat[1]; ?>radio3">300</label>
+              <?php else : ?>
+                  <label for="<?php echo $cat[1]; ?>radio3" style="background: #ff0000; box-shadow: 0 2px #aa0000;">300</label>
               <?php endif; ?>
               <?php if ($row4['vundet400'] == NULL) : ?>
-                  <input type="radio" name='pointchoice' value='<?php echo $cat[0]; ?>400' id='<?php echo $cat[0]; ?>radio4' name='selector'>
-                  <label for="<?php echo $cat[0]; ?>radio4">400</label>
+                  <input type="radio" name='choice' value='<?php echo $cat[1]; ?>400' id='<?php echo $cat[1]; ?>radio4' name='selector'>
+                  <label for="<?php echo $cat[1]; ?>radio4">400</label>
+              <?php else : ?>
+                  <label for="<?php echo $cat[1]; ?>radio4" style="background: #ff0000; box-shadow: 0 2px #aa0000;">400</label>
               <?php endif; ?>
               <?php if ($row5['vundet500'] == NULL) : ?>
-                  <input type="radio" name='pointchoice' value='<?php echo $cat[0]; ?>500' id='<?php echo $cat[0]; ?>radio5' name='selector'>
-                  <label for="<?php echo $cat[0]; ?>radio5">500</label>
+                  <input type="radio" name='choice' value='<?php echo $cat[1]; ?>500' id='<?php echo $cat[1]; ?>radio5' name='selector'>
+                  <label for="<?php echo $cat[1]; ?>radio5">500</label>
+              <?php else : ?>
+                  <label for="<?php echo $cat[1]; ?>radio5" style="background: #ff0000; box-shadow: 0 2px #aa0000;">500</label>
               <?php endif; ?>
             </div>            
             <input type='hidden' name='spilcatchoice' value=<?php echo htmlspecialchars($cat[1], ENT_QUOTES, 'UTF-8'); ?>>
