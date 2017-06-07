@@ -21,31 +21,7 @@
 				Kategoriens navn:<br>
 				<textarea name="categoryname" class="category-edit-name-field"><?php echo $category[0] ?></textarea><br>
 			</div>
-			<div class="sortableDiv" style="width: 80%">
-				<ul id='sortable' class="clean-list">
-					<li class="answer-container">
-						<img src="move-icon.png" class="answer-image">
-						<textarea name="answers[]" class="answer-edit-field"><?php echo $category[1] ?></textarea>
-					</li>
-					<li class="answer-container">
-						<img src="move-icon.png" class="answer-image">
-						<textarea name="answers[]" class="answer-edit-field"><?php echo $category[2] ?></textarea>
-					</li>
-					<li class="answer-container">
-						<img src="move-icon.png" class="answer-image">
-						<textarea name="answers[]" class="answer-edit-field"><?php echo $category[3] ?></textarea>
-					</li>
-					<li class="answer-container">
-						<img src="move-icon.png" class="answer-image">
-						<textarea name="answers[]" class="answer-edit-field"><?php echo $category[4] ?></textarea>
-					</li>
-					<li class="answer-container">
-						<img src="move-icon.png" class="answer-image">
-						<textarea name="answers[]" class="answer-edit-field"><?php echo $category[5] ?></textarea>
-					</li>
-				</ul>
-			</div>
-			<div class="contentDiv" style="width: 18%">
+			<div class="contentDiv" style="width: 15%; margin-left: 4%;">
 				<ul class="clean-list">
 					<li class="answer-container">
 						<div class="answer-value">
@@ -71,6 +47,30 @@
 						<div class="answer-value">
 							500
 						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="sortableDiv" style="width: 80%">
+				<ul id='sortable' class="clean-list">
+					<li class="answer-container">
+						<textarea name="answers[]" class="answer-edit-field"><?php echo $category[1] ?></textarea>
+						<img src="move-icon.png" class="answer-image">
+					</li>
+					<li class="answer-container">
+						<textarea name="answers[]" class="answer-edit-field"><?php echo $category[2] ?></textarea>
+						<img src="move-icon.png" class="answer-image">
+					</li>
+					<li class="answer-container">
+						<textarea name="answers[]" class="answer-edit-field"><?php echo $category[3] ?></textarea>
+						<img src="move-icon.png" class="answer-image">
+					</li>
+					<li class="answer-container">
+						<textarea name="answers[]" class="answer-edit-field"><?php echo $category[4] ?></textarea>
+						<img src="move-icon.png" class="answer-image">
+					</li>
+					<li class="answer-container">
+						<textarea name="answers[]" class="answer-edit-field"><?php echo $category[5] ?></textarea>
+						<img src="move-icon.png" class="answer-image">
 					</li>
 				</ul>
 			</div>

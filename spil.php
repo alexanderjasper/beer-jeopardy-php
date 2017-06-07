@@ -117,10 +117,12 @@ if(!$sql2)
 }
 
 
-if (isset($_POST['spilcatchoice']) and isset($_POST['pointchoice']))
+if (isset($_POST['choice']))
 {
-	$spilcatchoice = $_POST['spilcatchoice'];
-	$pointchoice = $_POST['pointchoice'];
+	$choice = $_POST['choice'];
+	$spilcatchoice = substr($choice, 0, -3);
+	$pointchoice = substr($choice, -3);
+
 	$catchoicesql = mysqli_query($link, "SELECT kategoriid FROM spilkategori WHERE spilkategoriid='$spilcatchoice'");
 	$catchoicerow = mysqli_fetch_assoc($catchoicesql);
 	$catchoice = $catchoicerow['kategoriid'];

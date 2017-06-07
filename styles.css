@@ -102,7 +102,7 @@
   transform: translateY(-50%);
   border: solid;
   border-width: 1px;
-  padding: 19px 5px 19px 5px;
+  padding: 19px 0px 19px 0px;
   background: wheat;
   border-radius: 5px;
 }
