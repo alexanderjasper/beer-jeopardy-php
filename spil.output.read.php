@@ -31,7 +31,7 @@
   <?php include 'menubar.php';?>
   <div class="screen-text">
     <p>
-      Point: <?php echo $userpoints ?>
+      Point: <?php echo $thisgame->user_points ?>
     </p>
     <p>
       Din kategori, <i><?php echo $jeopardycatname ?></i>, er blevet valgt til <?php echo $jeopardypoint ?> point. Svaret er:

@@ -10,7 +10,7 @@
   <?php include 'menubar.php';?>
   <div class="screen-text">
     <p>
-      Spillet er slut. Du fik <?php echo $userpoints ?> point.
+      Spillet er slut. Du fik <?php echo $thisgame->user_points ?> point.
     </p>
   </div>
 </body>

@@ -76,7 +76,7 @@
   <div class="screen-text">
     <?php if ($lastcatowner == true) { ?>
       <p>
-        Point: <?php echo $userpoints ?>
+        Point: <?php echo $thisgame->user_points ?>
       </p>
       <p>
         Det er din tur, og der er kun din egen kategori tilbage. Vælg et pointantal.
@@ -88,7 +88,7 @@
         </p>
       <?php } else { ?>
         <p>
-          Point: <?php echo $userpoints ?>
+          Point: <?php echo $thisgame->user_points ?>
         </p>
         <p>
           Det er din tur. Vælg en kategori og et pointtal.

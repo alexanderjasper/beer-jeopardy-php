@@ -20,7 +20,7 @@
   <?php include 'menubar.php';?>
   <div class="screen-text">
     <p>
-      Point: <?php echo $userpoints; ?>
+      Point: <?php echo $thisgame->user_points; ?>
     </p>
     <p>
       <?php if ($turntype == 1) { ?>

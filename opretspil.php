@@ -38,16 +38,4 @@ if ($catcount > 0)
 $_SESSION['pagemem']='opretspil';
 
 include 'opretspil.output.php';
-
-// Kode til at finde status:
-//
-// $sql3 = mysqli_query($link, "SELECT status FROM spil WHERE spilid='$sid'");
-// $row3 = mysqli_fetch_assoc($sql3);
-// $status = $row3['status'];
-// if(!$sql3)
-// {
-// 	$error = 'Kunne ikke finde status.' . mysqli_error($link);
-// 	include 'error.html.php';
-// 	exit();
-// }
 ?>
