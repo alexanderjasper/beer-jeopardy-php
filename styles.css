@@ -82,11 +82,12 @@
 }
 .sortableDiv {
     float: left;
-    width: 80%;
+    width: 85%;
 }
 .contentDiv {
   float: left;
-  width: 18%;
+  width: 10%;
+  margin-left: 4%;
 }
 .clean-list {
   list-style: none;
@@ -100,11 +101,6 @@
   position: relative;
   top: 50%;
   transform: translateY(-50%);
-  border: solid;
-  border-width: 1px;
-  padding: 19px 0px 19px 0px;
-  background: wheat;
-  border-radius: 5px;
 }
 
 html, body {

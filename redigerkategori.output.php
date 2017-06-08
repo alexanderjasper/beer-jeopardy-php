@@ -21,7 +21,7 @@
 				Kategoriens navn:<br>
 				<textarea name="categoryname" class="category-edit-name-field"><?php echo $category[0] ?></textarea><br>
 			</div>
-			<div class="contentDiv" style="width: 15%; margin-left: 4%;">
+			<div class="contentDiv">
 				<ul class="clean-list">
 					<li class="answer-container">
 						<div class="answer-value">
@@ -50,7 +50,7 @@
 					</li>
 				</ul>
 			</div>
-			<div class="sortableDiv" style="width: 80%">
+			<div class="sortableDiv">
 				<ul id='sortable' class="clean-list">
 					<li class="answer-container">
 						<textarea name="answers[]" class="answer-edit-field"><?php echo $category[1] ?></textarea>
