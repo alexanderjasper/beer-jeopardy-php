@@ -23,10 +23,10 @@
       Point: <?php echo $thisgame->user_points; ?>
     </p>
     <p>
-      <?php if ($turntype == 1) { ?>
-        Det er <?php echo $turnholder; if (substr($turnholder, -1)=='s') echo "'";?>s tur til at vælge kategori.
+      <?php if ($thisgame->turn_type == 1) { ?>
+        Det er <?php echo $thisgame->turn_holder; if (substr($thisgame->turn_holder, -1)=='s') echo "'";?>s tur til at vælge kategori.
       <?php } else { ?>
-        <?php echo $latestchooser; ?> har valgt <?php echo $selectedcategoryowner; if (substr($selectedcategoryowner, -1)=='s') echo "'";?>s kategori <?php echo $selectedcategory; ?> til <?php echo $selectedpoint; ?> point.
+        <?php echo $thisgame->latest_chooser; ?> har valgt <?php echo $thisgame->selected_category_owner; if (substr($thisgame->selected_category_owner, -1)=='s') echo "'";?>s kategori <?php echo $thisgame->selected_category; ?> til <?php echo $thisgame->selected_points; ?> point.
       <?php } ?>
     </p>
   </div>

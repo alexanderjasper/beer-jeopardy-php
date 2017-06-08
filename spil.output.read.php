@@ -34,10 +34,10 @@
       Point: <?php echo $thisgame->user_points ?>
     </p>
     <p>
-      Din kategori, <i><?php echo $jeopardycatname ?></i>, er blevet valgt til <?php echo $jeopardypoint ?> point. Svaret er:
+      Din kategori, <i><?php echo $thisgame->jeopardy_category_name ?></i>, er blevet valgt til <?php echo $thisgame->jeopardy_points ?> point. Svaret er:
     </p>
     <p>
-      <b><?php echo $jeopardyans ?></b>
+      <b><?php echo $thisgame->jeopardy_answer ?></b>
     </p>
     <p>
       <form action=spil.php method=post>
@@ -45,12 +45,12 @@
           Hvilken bruger vandt runden?
         </div>
         <select name="roundwinner" class="dropdown" id="selectform">
-          <?php foreach ($players as $player): ?>
+          <?php foreach ($thisgame->players as $player): ?>
             <option value='<?php echo $player[0] ?>'> <?php echo $player[1] ?> </option>
           <?php endforeach; ?>
         </select>
-        <input type="hidden" name="pointswon" value="<?php echo $jeopardypoint ?>">
-        <input type="hidden" name="categorywon" value="<?php echo $jeopardyspilcatid ?>">
+        <input type="hidden" name="pointswon" value="<?php echo $thisgame->jeopardy_points ?>">
+        <input type="hidden" name="categorywon" value="<?php echo $thisgame->jeopardy_game_category_id ?>">
         <div>
           <input type="submit" value="Vælg" class="menubutton" id="selectbutton">
         </div>
