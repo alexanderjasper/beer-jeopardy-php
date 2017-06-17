@@ -4,15 +4,15 @@ include('class_lib.php');
 
 $showgamelink = false;
 
-$thisgame = new game($link);
+$thisgame = new Game($link);
 
 if (isset($_POST['start_game']))
 {
-	$thisgame->get_game_from_post($_POST);
+	$thisgame->get_from_post($_POST);
 }
 else
 {
-	$thisgame->get_game_from_cookie();
+	$thisgame->get_from_cookie();
 
 	if (isset($_POST['choice'])) {
 		$thisgame->submit_choice($_POST['choice'], $link);

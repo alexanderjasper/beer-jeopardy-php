@@ -1,18 +1,115 @@
 <?php
-    class game {
-        public $link;
-        public $category_id;
-        public $username;
+    class User {
+        function __construct($link) {
+            $this->link = $link;
+        }
+
+        public $Id;
+        public $Name;
+        public $Password_hash;
+        public $Error;
+        
+        function get_by_id($id) {
+            $this->Id = $id;
+            $row = mysqli_fetch_assoc($this->link, mysqli_query($this->link, "SELECT * FROM bruger WHERE brugerid=$id"));
+            $this->Name = $row['navn'];
+            $this->Password_hash = $row['pwhash'];
+        }
+
+        function get_by_name($name) {
+            $this->Name = $name;
+            $row = mysqli_fetch_assoc($this->link, mysqli_query($this->link, "SELECT * FROM bruger WHERE navn=$name"));
+            $this->Id = $row['brugerid'];
+            $this->Password_hash = $row['pwhash'];
+        }
+
+        function create($name, $password) {
+            $this->Name = mysqli_real_escape_string($this->link, $name);
+            $password = mysqli_real_escape_string($this->link, $password);
+            if (strlen($password) > 3) {
+                $this->Password_hash = password_hash("$password", PASSWORD_DEFAULT);
+                $sql = mysqli_query($this->link, "INSERT INTO bruger (navn,pwhash) VALUES ('$this->Name', '$this->Password_hash')");
+                if (!$sql) {
+                    $this->Error = "Brugernavnet eksisterer allerede.";
+                } else {
+                    $_SESSION['brugernavn'] = $this->Name;
+                }
+            } else {
+                $this->Error = "Adgangskoden skal indeholde mindst 4 tegn.";
+            }
+        }
+    }
+
+
+    class Participant {
+        function __construct($link) {
+            $this->link = $link;
+        }
+
+        public $Id;
+        public $User_id;
+        public $Game_id;
+        public $points;
+        public $Turn;
+    }
+
+
+    class Category {
+        function __construct($link) {
+            $this->link = $link;
+        }
+
+        public $Id;
+        public $Name;
+        public $User_id;
+        public $Answer_100;
+        public $Answer_200;
+        public $Answer_300;
+        public $Answer_400;
+        public $Answer_500;
+    }
+
+
+    class Game_category {
+        function __construct($link) {
+            $this->link = $link;
+        }
+
+        public $Id;
+        public $Category_id;
+        public $Game_id;
+        public $Participant_id;
+        public $Won_100;
+        public $Won_200;
+        public $Won_300;
+        public $Won_400;
+        public $Won_500;
+    }
+
+
+    class Game {
+        function __construct($link) {
+            $this->link = $link;
+        }
+
         public $game_id;
+        public $user_id;
+        public $status;
+        public $active_time;
+        public $game_category_id;
+        public $category_id;
+        public $points;
+        public $name;
+        public $latest_chooser;
+
+        public $username;
         public $participant_id;
         public $is_new;
-        public $user_id;
         public $player_turn_type;
         public $game_categories;
         //Only for existing game:
         public $user_points;
         public $turn_holder;
-        public $latest_chooser;
         public $turn_type;
         public $selected_category;
         public $selected_category_owner;
@@ -24,11 +121,7 @@
         public $jeopardy_game_category_id;
         public $players;
 
-        function __construct($link) {
-            $this->link = $link;
-        }
-
-        function get_game_from_post($start_game_request) {
+        function get_from_post($start_game_request) {
             $this->category_id = $start_game_request['category_id'];
             $this->username = $start_game_request['username'];
             $this->game_id = $start_game_request['game_id'];
@@ -55,7 +148,7 @@
             $this->get_game_categories();
         }
 
-        function get_game_from_cookie() {
+        function get_from_cookie() {
             $this->category_id = $_SESSION['katid'];
 	        $this->username = $_SESSION['bruger'];
 	        $this->game_id = $_SESSION['spilid'];

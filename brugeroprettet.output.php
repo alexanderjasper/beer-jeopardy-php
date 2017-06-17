@@ -8,13 +8,13 @@
   </head>
 <body>
   <div class="screen-text">
-    <?php if(mysqli_query($link, $sql)) { ?>
+    <?php if(!isset($user->Error)) { ?>
       <p>
         Brugeren er oprettet.
       </p>
     <?php } else { ?>
       <p>
-        Fejl. Brugernavnet eksisterer allerede.
+        <?php echo $user->Error ?>
       </p>
       <div>
         <a href="nybruger.php"><button class="menubutton">Prøv igen</button></a>
