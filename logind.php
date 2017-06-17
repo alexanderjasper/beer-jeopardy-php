@@ -8,7 +8,7 @@
 </head>
 <body>
 	<div class="screen-text">
-		<form action="startside.php" method="post">
+		<form action="index.php" method="post">
 			<p>
 				<div>
 					Brugernavn:

@@ -11,7 +11,7 @@
   <div class="screen-text">
   	Kategorien er redigeret.
     <p>
-      <a href="startside.php"><button class="menubutton">Til startsiden</button></a>
+      <a href="index.php"><button class="menubutton">Til startsiden</button></a>
     </p>
   </div>
 </body>

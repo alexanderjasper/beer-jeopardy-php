@@ -16,7 +16,7 @@
       <?php } elseif ($pagemem == 'opretspil') { ?>
         <a href="opretspil.php"><button class="menubutton">Opret nyt spil</button></a>
       <?php } else { ?>
-        <a href="startside.php"><button class="menubutton">Til startsiden</button></a>
+        <a href="index.php"><button class="menubutton">Til startsiden</button></a>
       <?php } ?>
     </p>
   </div>
