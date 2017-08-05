@@ -138,8 +138,11 @@
 
             if ($start_game_request['start_type'] == 'new_game') {   
                 $this->player_turn_type = 1;
+                $_SESSION['tur'] = '1';
             } else if ($start_game_request['start_type'] == 'participate') {
                 $this->player_turn_type = 0;
+                $_SESSION['tur'] = '0';
+                mysqli_query($this->link, "UPDATE spil SET version=version+1 WHERE spilid='$this->game_id'");
             }
 
             $this->user_points = 0;
@@ -165,7 +168,7 @@
             $gamecategorychoice = substr($choice, 0, -3);
             $pointchoice = substr($choice, -3);
 
-            mysqli_query($this->link, "UPDATE spil SET spilkategoriid='$gamecategorychoice', latestchooser='$this->username', point='$pointchoice', aktivtidspunkt=NOW() WHERE spilid='$this->game_id'");
+            mysqli_query($this->link, "UPDATE spil SET spilkategoriid='$gamecategorychoice', latestchooser='$this->username', point='$pointchoice', aktivtidspunkt=NOW(), version=version+1 WHERE spilid='$this->game_id'");
             mysqli_query($this->link, "UPDATE deltager SET tur='0' WHERE deltagerid='$this->participant_id'");
             $sql = mysqli_query($this->link,
                 "SELECT deltagerid
@@ -247,6 +250,7 @@
             mysqli_query($this->link, "UPDATE spilkategori SET $sqlpoints='$roundwinner' WHERE spilkategoriid='$categorywon'");
             mysqli_query($this->link, "UPDATE deltager SET tur=1 WHERE deltagerid='$roundwinner'");
             mysqli_query($this->link, "UPDATE deltager SET tur=0 WHERE deltagerid='$this->participant_id'");
+            mysqli_query($this->link, "UPDATE spil SET version=version+1 WHERE spilid='$this->game_id'");
             $this->player_turn_type = 0;
         }
 

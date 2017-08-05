@@ -9,7 +9,7 @@ if (isset($_POST['gamename']))
 	$gamename = $_POST['gamename'];
 }
 
-$sql = mysqli_query($link, "INSERT INTO spil (brugerid,status,aktivtidspunkt,navn) VALUES ('$uid','aktiv',NOW(),'$gamename')");
+$sql = mysqli_query($link, "INSERT INTO spil (brugerid,status,aktivtidspunkt,navn,version) VALUES ('$uid','aktiv',NOW(),'$gamename','0')");
 
 if(!$sql)
 {

@@ -1,28 +1,15 @@
 <?php
 include('conn.php');
 
-$tur = mysqli_real_escape_string($link, $_SESSION['tur']);
-if (isset($_SESSION['count'])) {
-  $count = mysqli_real_escape_string($link, $_SESSION['count']);
-}
-$delt = mysqli_real_escape_string($link, $_SESSION['deltager']);
 $sid = mysqli_real_escape_string($link, $_SESSION['spilid']);
-
-$sql = mysqli_query($link, "SELECT tur FROM deltager WHERE deltagerid='$delt'");
+$sql = mysqli_query($link, "SELECT version FROM spil WHERE spilid='$sid'");
 $row = mysqli_fetch_assoc($sql);
-$dbtur = $row['tur'];
-$_SESSION['tur'] = $dbtur;
+$dbversion = $row['version'];
 
-$sql = mysqli_query($link, "SELECT count(*) as count FROM spilkategori WHERE spilid='$sid'");
-$row = mysqli_fetch_assoc($sql);
-$dbcount = $row['count'];
-$_SESSION['count'] = $dbcount;
-
-if ($tur == $dbtur && $count == $dbcount)
-{
+if (isset($_SESSION['version']) && $dbversion == $_SESSION['version']) {
   $data = false;
-}
-else {
+} else {
+  $_SESSION['version'] = $dbversion;
   $data = true;
 }
 
