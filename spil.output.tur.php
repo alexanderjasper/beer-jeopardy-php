@@ -58,17 +58,6 @@
         }
       })
     }, 1000);
-
-    $(document).ready(function()
-    {
-      $('#selectbutton').click(function()
-      {
-        var e = document.getElementById("selectform");
-        var value = e.options[e.selectedIndex].value;
-        var text = e.options[e.selectedIndex].text;
-        confirm('Er du sikker på, at du vil vælge '.concat("<?php if (isset($cat)) {echo htmlspecialchars($cat[2], ENT_QUOTES, 'UTF-8'); } ?>").concat(' til ').concat(value).concat(' point?'));
-        });
-      })
 	</script>
 </head>
 <body>
@@ -96,7 +85,7 @@
       <?php } ?>
     <?php } ?>
     <?php if ($thisgame->new_category_count != 1) { ?>
-      <form action="spil.php" method="post">
+      <form action="spil.php" method="post" onsubmit="return confirm('Er du sikker?')">
         <?php foreach ($thisgame->game_categories as $cat): ?>
           <div>
             <?php

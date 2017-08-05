@@ -14,17 +14,6 @@
         }
       })
     }, 1000);
-
-    $(document).ready(function()
-    {
-      $('#selectbutton').click(function()
-      {
-        var e = document.getElementById("selectform");
-        var value = e.options[e.selectedIndex].text;
-        var text = e.options[e.selectedIndex].text;
-        confirm('Er du sikker på, at '.concat(value).concat(' vandt runden?'));
-        });
-      })
 	</script>
 </head>
 <body>
@@ -40,7 +29,7 @@
       <b><?php echo $thisgame->jeopardy_answer ?></b>
     </p>
     <p>
-      <form action=spil.php method=post>
+      <form action=spil.php method=post onsubmit="return confirm('Er du sikker?')">
         <div>
           Hvilken bruger vandt runden?
         </div>
