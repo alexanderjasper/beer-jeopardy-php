@@ -115,7 +115,6 @@
               $sql500 = mysqli_query($link, "SELECT vundet500 FROM spilkategori WHERE spilkategoriid='$cat[1]'");
               $row5 = mysqli_fetch_array($sql500);
             ?>
-            <?php if ($row1['vundet100'] == NULL or $row2['vundet200'] == NULL or $row3['vundet300'] == NULL or $row4['vundet400'] == NULL or $row5['vundet500'] == NULL) : ?>
             <p>
               <div>
                 <b><?php echo htmlspecialchars($cat[2].':', ENT_QUOTES, 'UTF-8'); ?></b>
@@ -154,7 +153,6 @@
               </div>            
               <input type='hidden' name='spilcatchoice' value=<?php echo htmlspecialchars($cat[1], ENT_QUOTES, 'UTF-8'); ?>>
             </p>
-          <?php endif; ?>
           </div>
         <?php endforeach; ?>
         <div>
