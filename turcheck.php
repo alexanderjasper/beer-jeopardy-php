@@ -14,4 +14,5 @@ if (isset($_SESSION['version']) && $dbversion == $_SESSION['version']) {
 }
 
 echo json_encode($data);
+exit();
 ?>
