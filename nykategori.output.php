@@ -21,33 +21,9 @@
 				Kategoriens navn:<br>
 				<textarea name="categoryname" class="category-edit-name-field"></textarea><br>
 			</div>
-			<div class="sortableDiv" style="width: 80%">
-				<ul id='sortable' class="clean-list">
-					<li class="answer-container">
-						<img src="move-icon.png" class="answer-image">
-						<textarea name="answers[]" class="answer-edit-field"></textarea>
-					</li>
-					<li class="answer-container">
-						<img src="move-icon.png" class="answer-image">
-						<textarea name="answers[]" class="answer-edit-field"></textarea>
-					</li>
-					<li class="answer-container">
-						<img src="move-icon.png" class="answer-image">
-						<textarea name="answers[]" class="answer-edit-field"></textarea>
-					</li>
-					<li class="answer-container">
-						<img src="move-icon.png" class="answer-image">
-						<textarea name="answers[]" class="answer-edit-field"></textarea>
-					</li>
-					<li class="answer-container">
-						<img src="move-icon.png" class="answer-image">
-						<textarea name="answers[]" class="answer-edit-field"></textarea>
-					</li>
-				</ul>
-			</div>
-			<div class="contentDiv" style="width: 18%">
+			<div class="contentDiv">
 				<ul class="clean-list">
-					<li  class="answer-container">
+					<li class="answer-container">
 						<div class="answer-value">
 							100
 						</div>
@@ -71,6 +47,30 @@
 						<div class="answer-value">
 							500
 						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="sortableDiv">
+				<ul id='sortable' class="clean-list">
+					<li class="answer-container">
+						<textarea name="answers[]" class="answer-edit-field"></textarea>
+						<img src="move-icon.png" class="answer-image">
+					</li>
+					<li class="answer-container">
+						<textarea name="answers[]" class="answer-edit-field"></textarea>
+						<img src="move-icon.png" class="answer-image">
+					</li>
+					<li class="answer-container">
+						<textarea name="answers[]" class="answer-edit-field"></textarea>
+						<img src="move-icon.png" class="answer-image">
+					</li>
+					<li class="answer-container">
+						<textarea name="answers[]" class="answer-edit-field"></textarea>
+						<img src="move-icon.png" class="answer-image">
+					</li>
+					<li class="answer-container">
+						<textarea name="answers[]" class="answer-edit-field"></textarea>
+						<img src="move-icon.png" class="answer-image">
 					</li>
 				</ul>
 			</div>
