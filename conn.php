@@ -4,7 +4,7 @@ if(!isset($_SESSION))
     session_start(); 
 }
 
-$link = mysqli_connect('localhost:1864', 'bruger', 'jeopardy');
+$link = mysqli_connect('localhost', 'root', 'mysql');
 
 if (!$link)
 {
@@ -20,7 +20,7 @@ if (!mysqli_set_charset($link, 'utf8'))
   exit();
 }
 
-if (!mysqli_select_db($link, 'jeopardy'))
+if (!mysqli_select_db($link, 'copalex_com'))
 {
   $error = 'Unable to locate the database.';
   include 'error.html.php';
