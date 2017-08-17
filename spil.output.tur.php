@@ -42,63 +42,45 @@
     <?php } ?>
     <?php if ($thisgame->new_category_count != 1) { ?>
       <form action="spil.php" method="post" onsubmit="return confirm('Er du sikker?')">
-        <?php foreach ($thisgame->game_categories as $cat): ?>
-          <div>
-            <?php
-              $sql100 = mysqli_query($link, "SELECT vundet100 FROM spilkategori WHERE spilkategoriid='$cat[1]'");
-              $row1 = mysqli_fetch_array($sql100);
-
-              $sql200 = mysqli_query($link, "SELECT vundet200 FROM spilkategori WHERE spilkategoriid='$cat[1]'");
-              $row2 = mysqli_fetch_array($sql200);
-
-              $sql300 = mysqli_query($link, "SELECT vundet300 FROM spilkategori WHERE spilkategoriid='$cat[1]'");
-              $row3 = mysqli_fetch_array($sql300);
-
-              $sql400 = mysqli_query($link, "SELECT vundet400 FROM spilkategori WHERE spilkategoriid='$cat[1]'");
-              $row4 = mysqli_fetch_array($sql400);
-
-              $sql500 = mysqli_query($link, "SELECT vundet500 FROM spilkategori WHERE spilkategoriid='$cat[1]'");
-              $row5 = mysqli_fetch_array($sql500);
-            ?>
-            <p>
-              <div>
-                <b><?php echo htmlspecialchars($cat[2].':', ENT_QUOTES, 'UTF-8'); ?></b>
-              </div>
-              <div class="radio-toolbar">
-                <?php if ($row1['vundet100'] == NULL) : ?>
-                    <input type="radio" name='choice' value='<?php echo $cat[1]; ?>100' id='<?php echo $cat[1]; ?>radio1' name='selector'>
-                    <label for="<?php echo $cat[1]; ?>radio1">100</label>
-                <?php else : ?>
-                    <label for="<?php echo $cat[1]; ?>radio1" style="background: #ff0000; box-shadow: 0 2px #aa0000;">100</label>
-                <?php endif; ?>
-                <?php if ($row2['vundet200'] == NULL) : ?>
-                    <input type="radio" name='choice' value='<?php echo $cat[1]; ?>200' id='<?php echo $cat[1]; ?>radio2' name='selector'>
-                    <label for="<?php echo $cat[1]; ?>radio2">200</label>
-                <?php else : ?>
-                    <label for="<?php echo $cat[1]; ?>radio2" style="background: #ff0000; box-shadow: 0 2px #aa0000;">200</label>
-                <?php endif; ?>
-                <?php if ($row3['vundet300'] == NULL) : ?>
-                    <input type="radio" name='choice' value='<?php echo $cat[1]; ?>300' id='<?php echo $cat[1]; ?>radio3' name='selector'>
-                    <label for="<?php echo $cat[1]; ?>radio3">300</label>
-                <?php else : ?>
-                    <label for="<?php echo $cat[1]; ?>radio3" style="background: #ff0000; box-shadow: 0 2px #aa0000;">300</label>
-                <?php endif; ?>
-                <?php if ($row4['vundet400'] == NULL) : ?>
-                    <input type="radio" name='choice' value='<?php echo $cat[1]; ?>400' id='<?php echo $cat[1]; ?>radio4' name='selector'>
-                    <label for="<?php echo $cat[1]; ?>radio4">400</label>
-                <?php else : ?>
-                    <label for="<?php echo $cat[1]; ?>radio4" style="background: #ff0000; box-shadow: 0 2px #aa0000;">400</label>
-                <?php endif; ?>
-                <?php if ($row5['vundet500'] == NULL) : ?>
-                    <input type="radio" name='choice' value='<?php echo $cat[1]; ?>500' id='<?php echo $cat[1]; ?>radio5' name='selector'>
-                    <label for="<?php echo $cat[1]; ?>radio5">500</label>
-                <?php else : ?>
-                    <label for="<?php echo $cat[1]; ?>radio5" style="background: #ff0000; box-shadow: 0 2px #aa0000;">500</label>
-                <?php endif; ?>
-              </div>            
-              <input type='hidden' name='spilcatchoice' value=<?php echo htmlspecialchars($cat[1], ENT_QUOTES, 'UTF-8'); ?>>
-            </p>
-          </div>
+        <?php foreach ($thisgame->displayCategories as $cat): ?>
+          <p>
+            <div>
+              <b><?php echo htmlspecialchars($cat->CategoryName.':', ENT_QUOTES, 'UTF-8'); ?></b>
+            </div>
+            <div>
+            <?php if ($cat->active100) : ?>
+              <input type="radio" name='choice' class='category-radio-button' value='<?php echo $cat->CategoryId; ?>100' id='<?php echo $cat->CategoryId; ?>radio1'>
+              <label class="category-radio-button-label active" for="<?php echo $cat->CategoryId; ?>radio1">100</label>
+            <?php else : ?>
+              <div class="category-radio-button-label inactive">100</div>
+            <?php endif; ?>
+            <?php if ($cat->active200) : ?>
+              <input type="radio" name='choice' class='category-radio-button' value='<?php echo $cat->CategoryId; ?>200' id='<?php echo $cat->CategoryId; ?>radio2'>
+              <label class="category-radio-button-label active" for="<?php echo $cat->CategoryId; ?>radio2">200</label>
+            <?php else : ?>
+              <div class="category-radio-button-label inactive">200</div>
+            <?php endif; ?>
+            <?php if ($cat->active300) : ?>
+              <input type="radio" name='choice' class='category-radio-button' value='<?php echo $cat->CategoryId; ?>300' id='<?php echo $cat->CategoryId; ?>radio3'>
+              <label class="category-radio-button-label active" for="<?php echo $cat->CategoryId; ?>radio3">300</label>
+            <?php else : ?>
+              <div class="category-radio-button-label inactive">300</div>
+            <?php endif; ?>
+            <?php if ($cat->active400) : ?>
+              <input type="radio" name='choice' class='category-radio-button' value='<?php echo $cat->CategoryId; ?>400' id='<?php echo $cat->CategoryId; ?>radio4'>
+              <label class="category-radio-button-label active" for="<?php echo $cat->CategoryId; ?>radio4">400</label>
+            <?php else : ?>
+              <div class="category-radio-button-label inactive">400</div>
+            <?php endif; ?>
+            <?php if ($cat->active500) : ?>
+              <input type="radio" name='choice' class='category-radio-button' value='<?php echo $cat->CategoryId; ?>500' id='<?php echo $cat->CategoryId; ?>radio5'>
+              <label class="category-radio-button-label active" for="<?php echo $cat->CategoryId; ?>radio5">500</label>
+            <?php else : ?>
+              <div class="category-radio-button-label inactive">500</div>
+            <?php endif; ?>  
+            </div>            
+            <input type='hidden' name='spilcatchoice' value=<?php echo htmlspecialchars($cat->CategoryId, ENT_QUOTES, 'UTF-8'); ?>>
+          </p>
         <?php endforeach; ?>
         <div>
           <input type="submit" value="Vælg" class="menubutton" id="selectbutton">

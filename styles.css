@@ -158,7 +158,6 @@ body {
 }
 
 .menubar-listitem {
-    float: center;
     display: inline;
 }
 
@@ -170,11 +169,11 @@ body {
     color: black;
 }
 
-.radio-toolbar input[type="radio"] {
+.category-radio-button {
   display: none;
 }
 
-.radio-toolbar label {
+.category-radio-button-label {
   display: inline-block;
   border: none;
 	font-family: inherit;
@@ -189,7 +188,6 @@ body {
 	position: relative;
 	transition: all 0.3s;
 
-  background: #368015;
 	color: #fff;
 
 
@@ -199,8 +197,21 @@ body {
   padding: 10px 10px 0px 10px;
   height: 30px;
   vertical-align: top;
-	box-shadow: 0 2px #553F00;
   border-radius: 5px;
+}
+
+.category-radio-button-label.active {
+  background: #368015;
+	box-shadow: 0 2px #553F00;
+}
+
+.category-radio-button-label.inactive {
+  background: #ff0000;
+	box-shadow: 0 2px #aa0000;
+}
+
+input[type="radio"]:checked+label {
+  background-color: #bbb;
 }
 
 .inactive-button {
@@ -209,6 +220,3 @@ body {
 	box-shadow: 0 6px #0D3E0F;
 }
 
-.radio-toolbar input[type="radio"]:checked+label {
-  background-color: #bbb;
-}

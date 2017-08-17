@@ -120,6 +120,7 @@
         public $jeopardy_answer;
         public $jeopardy_game_category_id;
         public $players;
+        public $displayCategories;
 
         function get_from_post($start_game_request) {
             $this->category_id = $start_game_request['category_id'];
@@ -160,7 +161,6 @@
             $this->user_id = $_SESSION['userid'];
             $this->get_points();
             $this->get_turn();
-            $this->get_game_categories();
             $this->get_category_count();
         }
 
@@ -240,6 +240,25 @@
             $this->game_categories = $categories;
         }
 
+        private function get_all_game_categories() {
+            $sql = mysqli_query($this->link,
+                "SELECT spilkategori.kategoriid,spilkategori.spilkategoriid,kategori.navn
+                FROM spilkategori
+                INNER JOIN kategori
+                ON spilkategori.kategoriid=kategori.kategoriid
+                WHERE spilkategori.spilid='$this->game_id'");
+            if(!$sql) {
+                $error = 'Kunne ikke finde spilkategorier.' . mysqli_error($this->link);
+                include 'error.html.php';
+                exit();
+            }
+            $categories = array();
+            while ($row = mysqli_fetch_array($sql, MYSQLI_ASSOC)) {
+                $categories[] = array($row['kategoriid'],$row['spilkategoriid'],$row['navn']);
+            }
+            $this->game_categories = $categories;
+        }
+
         function submit_round_winner($round_winner_request) {
             $roundwinner = $round_winner_request['roundwinner'];
             $pointswon = $round_winner_request['pointswon'];
@@ -294,6 +313,9 @@
         }
 
         function category_chooser() {
+            $this->get_game_categories();
+            $this->getDisplayCategories();
+            
             $sql = mysqli_query($this->link, "SELECT count(*) as count FROM spilkategori WHERE spilid='$this->game_id'");
             $row = mysqli_fetch_array($sql);
             $this->new_category_count = $row['count'];
@@ -307,9 +329,6 @@
                 if ($row['deltagerid'] == $this->participant_id)
                 {
                     $this->last_category_owner = true;
-                }
-                if ($this->last_category_owner == true)
-                {
                     $sql = mysqli_query($this->link,
                         "SELECT spilkategori.kategoriid,spilkategori.spilkategoriid,kategori.navn
                         FROM spilkategori
@@ -353,5 +372,56 @@
                 $this->players[] =  array($row['deltagerid'],$row['navn']);
             }
         }
+        
+        function guesser() {
+            $this->get_all_game_categories();
+            $this->getDisplayCategories();
+        }
+
+        function getDisplayCategories() {
+            $this->displayCategories = [];
+            foreach ($this->game_categories as $cat) {
+                $sql100 = mysqli_query($this->link, "SELECT vundet100 FROM spilkategori WHERE spilkategoriid='$cat[1]'");
+                $row1 = mysqli_fetch_array($sql100);
+                $sql200 = mysqli_query($this->link, "SELECT vundet200 FROM spilkategori WHERE spilkategoriid='$cat[1]'");
+                $row2 = mysqli_fetch_array($sql200);
+                $sql300 = mysqli_query($this->link, "SELECT vundet300 FROM spilkategori WHERE spilkategoriid='$cat[1]'");
+                $row3 = mysqli_fetch_array($sql300);
+                $sql400 = mysqli_query($this->link, "SELECT vundet400 FROM spilkategori WHERE spilkategoriid='$cat[1]'");
+                $row4 = mysqli_fetch_array($sql400);
+                $sql500 = mysqli_query($this->link, "SELECT vundet500 FROM spilkategori WHERE spilkategoriid='$cat[1]'");
+                $row5 = mysqli_fetch_array($sql500);
+                $displayCategory = new DisplayCategory (
+                    $cat[2],
+                    $cat[1],
+                    $row1['vundet100'], 
+                    $row2['vundet200'], 
+                    $row3['vundet300'], 
+                    $row4['vundet400'], 
+                    $row5['vundet500']
+                );
+                array_push($this->displayCategories, $displayCategory);
+            }
+        }
+    }
+
+    class DisplayCategory {
+        public function __construct($name, $id, $active100, $active200, $active300, $active400, $active500) {
+            $this->CategoryName = $name;
+            $this->CategoryId = $id;
+            $this->active100 = ($active100 == NULL) ? true : false;
+            $this->active200 = ($active200 == NULL) ? true : false;
+            $this->active300 = ($active300 == NULL) ? true : false;
+            $this->active400 = ($active400 == NULL) ? true : false;
+            $this->active500 = ($active500 == NULL) ? true : false;
+        }
+        
+        public $CategoryName;
+        public $CategoryId;
+        public $active100;
+        public $active200;
+        public $active300;
+        public $active400;
+        public $active500;
     }
 ?>

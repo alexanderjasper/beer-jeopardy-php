@@ -33,6 +33,7 @@ if ($thisgame->category_count == 0) {
 	exit();
 }
 if($thisgame->player_turn_type == 0) {
+	$thisgame->guesser();
 	include 'spil.output.ntur.php';
 	exit();
 }
