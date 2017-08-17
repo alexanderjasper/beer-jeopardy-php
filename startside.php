@@ -57,4 +57,5 @@ while ($row = mysqli_fetch_array($result))
 include 'startside.output.php';
 
 $_SESSION['pagemem'] = 'front';
+exit();
 ?>

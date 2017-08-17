@@ -8,4 +8,5 @@
 	{
 		include 'forside.php';
 	}
+	exit();
 ?>
