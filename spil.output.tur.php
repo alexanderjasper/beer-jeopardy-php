@@ -1,48 +1,4 @@
 <!DOCTYPE html>
-<style>
-.radio-toolbar input[type="radio"] {
-  display: none;
-}
-
-.radio-toolbar label {
-  display: inline-block;
-  border: none;
-	font-family: inherit;
-	font-size: inherit;
-	color: inherit;
-	background: none;
-	cursor: pointer;
-	text-transform: uppercase;
-	letter-spacing: 1px;
-	font-weight: 700;
-	outline: none;
-	position: relative;
-	transition: all 0.3s;
-
-  background: #368015;
-	color: #fff;
-
-
-  -webkit-appearance: none;
-
-  font-size: 15px;
-  padding: 10px 10px 0px 10px;
-  height: 30px;
-  vertical-align: top;
-	box-shadow: 0 2px #553F00;
-  border-radius: 5px;
-}
-
-.inactive-button {
-  background: #ff0000;
-	color: #fff;
-	box-shadow: 0 6px #0D3E0F;
-}
-
-.radio-toolbar input[type="radio"]:checked+label {
-  background-color: #bbb;
-}
-</style>
 <html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <head>
