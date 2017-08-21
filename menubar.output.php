@@ -12,7 +12,7 @@
   <?php if (isset($gamecount)) { ?>
     <li class="menubar-listitem">
       <a class="menubar-listitem-a" href="kategorier.php">
-        <i class="fa fa-envelope" aria-hidden="true"></i>
+        <i class="fa fa-comments" aria-hidden="true"></i>
       </a>
     </li>
   <?php } ?>
