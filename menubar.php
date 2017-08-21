@@ -1,4 +1,8 @@
 <?php
+if(!isset($_SESSION))
+{
+    include 'conn.php';
+}
 
 if(isset($_SESSION['userid']))
 {

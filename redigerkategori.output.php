@@ -7,12 +7,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <head>
 	<link rel="stylesheet" type="text/css" href="styles.css">
+	<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
 	<title>Øljeopardy</title>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
 </head>
 <body>
-	<?php include 'menubar.php';?>
 	<div class="screen-text">
+		<?php include 'menubar.php';?>
 		<h1>
 			Rediger kategori
 		</h1>
@@ -54,23 +55,23 @@
 				<ul id='sortable' class="clean-list">
 					<li class="answer-container">
 						<textarea name="answers[]" class="answer-edit-field"><?php echo $category[1] ?></textarea>
-						<img src="move-icon.png" class="answer-image">
+						<i class="fa fa-bars fa-fw answer-image"></i>
 					</li>
 					<li class="answer-container">
 						<textarea name="answers[]" class="answer-edit-field"><?php echo $category[2] ?></textarea>
-						<img src="move-icon.png" class="answer-image">
+						<i class="fa fa-bars fa-fw answer-image"></i>
 					</li>
 					<li class="answer-container">
 						<textarea name="answers[]" class="answer-edit-field"><?php echo $category[3] ?></textarea>
-						<img src="move-icon.png" class="answer-image">
+						<i class="fa fa-bars fa-fw answer-image"></i>
 					</li>
 					<li class="answer-container">
 						<textarea name="answers[]" class="answer-edit-field"><?php echo $category[4] ?></textarea>
-						<img src="move-icon.png" class="answer-image">
+						<i class="fa fa-bars fa-fw answer-image"></i>
 					</li>
 					<li class="answer-container">
 						<textarea name="answers[]" class="answer-edit-field"><?php echo $category[5] ?></textarea>
-						<img src="move-icon.png" class="answer-image">
+						<i class="fa fa-bars fa-fw answer-image"></i>
 					</li>
 				</ul>
 			</div>

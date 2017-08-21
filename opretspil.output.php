@@ -3,16 +3,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <head>
 	<link rel="stylesheet" type="text/css" href="styles.css">
+	<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
 	<title>Øljeopardy</title>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
 </head>
 <body>
-	<?php include 'menubar.php';?>
 	<div class="screen-text">
+		<?php include 'menubar.php';?>
 		<p>
 			<?php if ($gamecount > 0) { ?>
 				<p>
-					Du deltager allerede i et spil.
+					Du deltager allerede i spillet <b><?php echo $gamename ?></b>.
 					<div>
 						<a href="spil.php"><button class="menubutton">Gå til spillet</button></a>
 					</div>
