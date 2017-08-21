@@ -118,6 +118,7 @@
         public $jeopardy_category_name;
         public $jeopardy_points;
         public $jeopardy_answer;
+        public $jeopardy_question;
         public $jeopardy_game_category_id;
         public $players;
         public $displayCategories;
@@ -348,9 +349,10 @@
             $row = mysqli_fetch_assoc($sql);
             $this->jeopardy_points = $row['point'];
             $answer_string = "kategori." . $this->jeopardy_points . "point";
+            $question_string = "kategori.spm" . $this->jeopardy_points;
 
             $sql = mysqli_query($this->link,
-            "SELECT $answer_string as answer, kategori.navn as name, spilkategori.spilkategoriid as spilcatid
+            "SELECT $answer_string as answer, $question_string as question, kategori.navn as name, spilkategori.spilkategoriid as spilcatid
             FROM kategori
                 JOIN spilkategori ON kategori.kategoriid=spilkategori.kategoriid
                 JOIN spil ON spilkategori.spilkategoriid=spil.spilkategoriid
@@ -358,6 +360,7 @@
             
             $row = mysqli_fetch_assoc($sql);
             $this->jeopardy_answer = $row['answer'];
+            $this->jeopardy_question = $row['question'];
             $this->jeopardy_category_name = $row['name'];
             $this->jeopardy_game_category_id = $row['spilcatid'];
 

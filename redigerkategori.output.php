@@ -23,58 +23,113 @@
 				<textarea name="categoryname" class="category-edit-name-field"><?php echo $category[0] ?></textarea><br>
 			</div>
 			<div class="contentDiv">
-				<ul class="clean-list">
-					<li class="answer-container">
-						<div class="answer-value">
-							100
+			<ul class="clean-list">
+				<li class="answer-container">
+					<div class="answer-value">
+						<i class="fa fa-exclamation exclamation-mark"></i>
+						100
+						<i class="fa fa-question question-mark"></i>
+					</div>
+				</li>
+				<li class="answer-container">
+					<div class="answer-value">
+						<i class="fa fa-exclamation exclamation-mark"></i>
+						200
+						<i class="fa fa-question question-mark"></i>
+					</div>
+				</li>
+				<li class="answer-container">
+					<div class="answer-value">
+						<i class="fa fa-exclamation exclamation-mark"></i>
+						300
+						<i class="fa fa-question question-mark"></i>
+					</div>
+				</li>
+				<li class="answer-container">
+					<div class="answer-value">
+						<i class="fa fa-exclamation exclamation-mark"></i>
+						<span class="point-value">400</span>
+						<i class="fa fa-question question-mark"></i>
+					</div>
+				</li>
+				<li class="answer-container">
+					<div class="answer-value">
+						<i class="fa fa-exclamation exclamation-mark"></i>
+						500
+						<i class="fa fa-question question-mark"></i>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div class="sortableDiv">
+			<ul id='sortable' class="clean-list">
+				<li class="answer-container">
+					<div class="answer-textarea-container">
+						<div>
+							<textarea name="answers[]" class="answer-edit-field top"><?php echo $category[1] ?></textarea>
 						</div>
-					</li>
-					<li class="answer-container">
-						<div class="answer-value">
-							200
+						<div>
+							<textarea name="answers[]" class="answer-edit-field bottom"><?php echo $category[2] ?></textarea>
 						</div>
-					</li>
-					<li class="answer-container">
-						<div class="answer-value">
-							300
+					</div>
+					<div class="answer-image-container">
+						<i class="fa fa-bars fa-fw answer-image"></i>
+					</div>
+				</li>
+				<li class="answer-container">
+					<div class="answer-textarea-container">
+						<div>
+							<textarea name="answers[]" class="answer-edit-field top"><?php echo $category[3] ?></textarea>
 						</div>
-					</li>
-					<li class="answer-container">
-						<div class="answer-value">
-							400
+						<div>
+							<textarea name="answers[]" class="answer-edit-field bottom"><?php echo $category[4] ?></textarea>
 						</div>
-					</li>
-					<li class="answer-container">
-						<div class="answer-value">
-							500
+					</div>
+					<div class="answer-image-container">
+						<i class="fa fa-bars fa-fw answer-image"></i>
+					</div>
+				</li>
+				<li class="answer-container">
+					<div class="answer-textarea-container">
+						<div>
+							<textarea name="answers[]" class="answer-edit-field top"><?php echo $category[5] ?></textarea>
 						</div>
-					</li>
-				</ul>
-			</div>
-			<div class="sortableDiv">
-				<ul id='sortable' class="clean-list">
-					<li class="answer-container">
-						<textarea name="answers[]" class="answer-edit-field"><?php echo $category[1] ?></textarea>
+						<div>
+							<textarea name="answers[]" class="answer-edit-field bottom"><?php echo $category[6] ?></textarea>
+						</div>
+					</div>
+					<div class="answer-image-container">
 						<i class="fa fa-bars fa-fw answer-image"></i>
-					</li>
-					<li class="answer-container">
-						<textarea name="answers[]" class="answer-edit-field"><?php echo $category[2] ?></textarea>
+					</div>
+				</li>
+				<li class="answer-container">
+					<div class="answer-textarea-container">
+						<div>
+							<textarea name="answers[]" class="answer-edit-field top"><?php echo $category[7] ?></textarea>
+						</div>
+						<div>
+							<textarea name="answers[]" class="answer-edit-field bottom"><?php echo $category[8] ?></textarea>
+						</div>
+					</div>
+					<div class="answer-image-container">
 						<i class="fa fa-bars fa-fw answer-image"></i>
-					</li>
-					<li class="answer-container">
-						<textarea name="answers[]" class="answer-edit-field"><?php echo $category[3] ?></textarea>
+					</div>
+				</li>
+				<li class="answer-container">
+					<div class="answer-textarea-container">
+						<div>
+							<textarea name="answers[]" class="answer-edit-field top"><?php echo $category[9] ?></textarea>
+						</div>
+						<div>
+							<textarea name="answers[]" class="answer-edit-field bottom"><?php echo $category[10] ?></textarea>
+						</div>
+					</div>
+					<div class="answer-image-container">
 						<i class="fa fa-bars fa-fw answer-image"></i>
-					</li>
-					<li class="answer-container">
-						<textarea name="answers[]" class="answer-edit-field"><?php echo $category[4] ?></textarea>
-						<i class="fa fa-bars fa-fw answer-image"></i>
-					</li>
-					<li class="answer-container">
-						<textarea name="answers[]" class="answer-edit-field"><?php echo $category[5] ?></textarea>
-						<i class="fa fa-bars fa-fw answer-image"></i>
-					</li>
-				</ul>
-			</div>
+					</div>
+				</li>
+			</ul>
+		</div>
 			<div>
 				<input type="submit" value="Gem" class="menubutton">
 			</div>

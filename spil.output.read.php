@@ -21,13 +21,19 @@
   <div class="screen-text">
     <?php include 'menubar.php';?>
     <p>
-      Point: <?php echo $thisgame->user_points ?>
+      Point: <?php echo $thisgame->user_points; ?>
     </p>
     <p>
-      Din kategori, <i><?php echo $thisgame->jeopardy_category_name ?></i>, er blevet valgt til <?php echo $thisgame->jeopardy_points ?> point. Svaret er:
+      Din kategori, <i><?php echo $thisgame->jeopardy_category_name; ?></i>, er blevet valgt til <?php echo $thisgame->jeopardy_points; ?> point. Svaret er:
     </p>
     <p>
       <b><?php echo $thisgame->jeopardy_answer ?></b>
+    </p>
+    <p>
+      Spørgsmålet er:
+    </p>
+      <b><?php echo $thisgame->jeopardy_question ?></b>
+    <p>
     </p>
     <p>
       <form action=spil.php method=post onsubmit="return confirm('Er du sikker?')">

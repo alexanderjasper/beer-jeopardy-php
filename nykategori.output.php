@@ -26,27 +26,37 @@
 				<ul class="clean-list">
 					<li class="answer-container">
 						<div class="answer-value">
+							<i class="fa fa-exclamation exclamation-mark"></i>
 							100
+							<i class="fa fa-question question-mark"></i>
 						</div>
 					</li>
 					<li class="answer-container">
 						<div class="answer-value">
+							<i class="fa fa-exclamation exclamation-mark"></i>
 							200
+							<i class="fa fa-question question-mark"></i>
 						</div>
 					</li>
 					<li class="answer-container">
 						<div class="answer-value">
+							<i class="fa fa-exclamation exclamation-mark"></i>
 							300
+							<i class="fa fa-question question-mark"></i>
 						</div>
 					</li>
 					<li class="answer-container">
 						<div class="answer-value">
+							<i class="fa fa-exclamation exclamation-mark"></i>
 							400
+							<i class="fa fa-question question-mark"></i>
 						</div>
 					</li>
 					<li class="answer-container">
 						<div class="answer-value">
+							<i class="fa fa-exclamation exclamation-mark"></i>
 							500
+							<i class="fa fa-question question-mark"></i>
 						</div>
 					</li>
 				</ul>
@@ -54,24 +64,69 @@
 			<div class="sortableDiv">
 				<ul id='sortable' class="clean-list">
 					<li class="answer-container">
-						<textarea name="answers[]" class="answer-edit-field"></textarea>
-						<img src="move-icon.png" class="answer-image">
+						<div class="answer-textarea-container">
+							<div>
+								<textarea name="answers[]" class="answer-edit-field top"></textarea>
+							</div>
+							<div>
+								<textarea name="answers[]" class="answer-edit-field bottom"></textarea>
+							</div>
+						</div>
+						<div class="answer-image-container">
+							<i class="fa fa-bars fa-fw answer-image"></i>
+						</div>
 					</li>
 					<li class="answer-container">
-						<textarea name="answers[]" class="answer-edit-field"></textarea>
-						<img src="move-icon.png" class="answer-image">
+						<div class="answer-textarea-container">
+							<div>
+								<textarea name="answers[]" class="answer-edit-field top"></textarea>
+							</div>
+							<div>
+								<textarea name="answers[]" class="answer-edit-field bottom"></textarea>
+							</div>
+						</div>
+						<div class="answer-image-container">
+							<i class="fa fa-bars fa-fw answer-image"></i>
+						</div>
 					</li>
 					<li class="answer-container">
-						<textarea name="answers[]" class="answer-edit-field"></textarea>
-						<img src="move-icon.png" class="answer-image">
+						<div class="answer-textarea-container">
+							<div>
+								<textarea name="answers[]" class="answer-edit-field top"></textarea>
+							</div>
+							<div>
+								<textarea name="answers[]" class="answer-edit-field bottom"></textarea>
+							</div>
+						</div>
+						<div class="answer-image-container">
+							<i class="fa fa-bars fa-fw answer-image"></i>
+						</div>
 					</li>
 					<li class="answer-container">
-						<textarea name="answers[]" class="answer-edit-field"></textarea>
-						<img src="move-icon.png" class="answer-image">
+						<div class="answer-textarea-container">
+							<div>
+								<textarea name="answers[]" class="answer-edit-field top"></textarea>
+							</div>
+							<div>
+								<textarea name="answers[]" class="answer-edit-field bottom"></textarea>
+							</div>
+						</div>
+						<div class="answer-image-container">
+							<i class="fa fa-bars fa-fw answer-image"></i>
+						</div>
 					</li>
 					<li class="answer-container">
-						<textarea name="answers[]" class="answer-edit-field"></textarea>
-						<img src="move-icon.png" class="answer-image">
+						<div class="answer-textarea-container">
+							<div>
+								<textarea name="answers[]" class="answer-edit-field top"></textarea>
+							</div>
+							<div>
+								<textarea name="answers[]" class="answer-edit-field bottom"></textarea>
+							</div>
+						</div>
+						<div class="answer-image-container">
+							<i class="fa fa-bars fa-fw answer-image"></i>
+						</div>
 					</li>
 				</ul>
 			</div>
