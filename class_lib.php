@@ -122,6 +122,7 @@
         public $jeopardy_game_category_id;
         public $players;
         public $displayCategories;
+        public $scoreboard;
 
         function get_from_post($start_game_request) {
             $this->category_id = $start_game_request['category_id'];
@@ -182,24 +183,38 @@
         }
 
         private function get_points() {
-            $sql100points = mysqli_query($this->link, "SELECT COUNT(*) as count FROM spilkategori WHERE spilid='$this->game_id' AND vundet100='$this->participant_id'");
-            $sql200points = mysqli_query($this->link, "SELECT COUNT(*) as count FROM spilkategori WHERE spilid='$this->game_id' AND vundet200='$this->participant_id'");
-            $sql300points = mysqli_query($this->link, "SELECT COUNT(*) as count FROM spilkategori WHERE spilid='$this->game_id' AND vundet300='$this->participant_id'");
-            $sql400points = mysqli_query($this->link, "SELECT COUNT(*) as count FROM spilkategori WHERE spilid='$this->game_id' AND vundet400='$this->participant_id'");
-            $sql500points = mysqli_query($this->link, "SELECT COUNT(*) as count FROM spilkategori WHERE spilid='$this->game_id' AND vundet500='$this->participant_id'");
-            if($sql100points and $sql200points and $sql300points and $sql400points and $sql500points)
+            $sql = mysqli_query($this->link, "SELECT deltagerid, navn FROM deltager JOIN bruger on deltager.brugerid=bruger.brugerid WHERE deltager.spilid='$this->game_id'");
+            $participants = array();
+            while($row = mysqli_fetch_assoc($sql))
             {
-                $row100p = mysqli_fetch_assoc($sql100points);
-                $row200p = mysqli_fetch_assoc($sql200points);
-                $row300p = mysqli_fetch_assoc($sql300points);
-                $row400p = mysqli_fetch_assoc($sql400points);
-                $row500p = mysqli_fetch_assoc($sql500points);
-            } else {
-                $error = 'Kunne ikke finde point.' . mysqli_error($this->link);
-                include 'error.html.php';
-                exit();
+                $participants[] = $row;
             }
-            $this->user_points = 100*$row100p['count']+200*$row200p['count']+300*$row300p['count']+400*$row400p['count']+500*$row500p['count'];
+            $this->scoreboard = array();
+
+            foreach ($participants as $part) {
+                $name = $part['navn'];
+                $partId = $part['deltagerid'];
+                $sql100points = mysqli_query($this->link, "SELECT COUNT(*) as count FROM spilkategori WHERE spilid='$this->game_id' AND vundet100='$partId'");
+                $sql200points = mysqli_query($this->link, "SELECT COUNT(*) as count FROM spilkategori WHERE spilid='$this->game_id' AND vundet200='$partId'");
+                $sql300points = mysqli_query($this->link, "SELECT COUNT(*) as count FROM spilkategori WHERE spilid='$this->game_id' AND vundet300='$partId'");
+                $sql400points = mysqli_query($this->link, "SELECT COUNT(*) as count FROM spilkategori WHERE spilid='$this->game_id' AND vundet400='$partId'");
+                $sql500points = mysqli_query($this->link, "SELECT COUNT(*) as count FROM spilkategori WHERE spilid='$this->game_id' AND vundet500='$partId'");
+                if ($sql100points and $sql200points and $sql300points and $sql400points and $sql500points)
+                {
+                    $row100p = mysqli_fetch_assoc($sql100points);
+                    $row200p = mysqli_fetch_assoc($sql200points);
+                    $row300p = mysqli_fetch_assoc($sql300points);
+                    $row400p = mysqli_fetch_assoc($sql400points);
+                    $row500p = mysqli_fetch_assoc($sql500points);
+                } else {
+                    $error = 'Kunne ikke finde point.' . mysqli_error($this->link);
+                    include 'error.html.php';
+                    exit();
+                }
+                $points = 100*$row100p['count']+200*$row200p['count']+300*$row300p['count']+400*$row400p['count']+500*$row500p['count'];
+                $scoreboardEntry = new ScoreBoardEntry($name,$points);
+                array_push($this->scoreboard, $scoreboardEntry);
+            }
         }
 
         private function get_turn() {
@@ -406,6 +421,16 @@
                 array_push($this->displayCategories, $displayCategory);
             }
         }
+    }
+
+    class ScoreBoardEntry {
+        public function __construct($name, $points) {
+            $this->name = $name;
+            $this->points = $points;
+        }
+
+        public $name;
+        public $points;
     }
 
     class DisplayCategory {

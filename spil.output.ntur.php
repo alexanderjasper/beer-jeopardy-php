@@ -20,9 +20,11 @@
 <body>
   <div class="screen-text">
     <?php include 'menubar.php';?>
-    <p>
-      Point: <?php echo $thisgame->user_points; ?>
-    </p>
+    <?php foreach ($thisgame->scoreboard as $score) { ?>
+      <div>
+        Navn: <?php echo $score->name; ?>, Score: <?php echo $score->points; ?>
+      </div>
+    <?php } ?>
     <p>
       <?php if ($thisgame->turn_type == 1) { ?>
         Det er <?php echo $thisgame->turn_holder; if (substr($thisgame->turn_holder, -1)=='s') echo "'";?>s tur til at vælge kategori.
