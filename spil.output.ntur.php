@@ -20,11 +20,20 @@
 <body>
   <div class="screen-text">
     <?php include 'menubar.php';?>
-    <?php foreach ($thisgame->scoreboard as $score) { ?>
-      <div>
-        Navn: <?php echo $score->name; ?>, Score: <?php echo $score->points; ?>
-      </div>
-    <?php } ?>
+    <h2>Gæt</h2>
+    <table style="border: 1px solid black; border-radius: 4px; padding: 10px; width: 50%;" align="center">
+      <tr><td style="border-bottom: 1px solid black;" colspan="2">Point</td></tr>
+      <?php foreach ($thisgame->scoreboard as $score) { ?>
+        <tr>
+          <td style="width:60%">
+            <?php echo $score->name; ?>
+          </td>
+          <td style="width:40%">
+            <?php echo $score->points; ?>
+          </td>
+        </tr>
+      <?php } ?>
+    </table>
     <p>
       <?php if ($thisgame->turn_type == 1) { ?>
         Det er <?php echo $thisgame->turn_holder; if (substr($thisgame->turn_holder, -1)=='s') echo "'";?>s tur til at vælge kategori.

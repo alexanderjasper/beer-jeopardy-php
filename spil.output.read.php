@@ -20,21 +20,29 @@
 <body>
   <div class="screen-text">
     <?php include 'menubar.php';?>
+    <h2>Læs op</h2>
+    <table style="border: 1px solid black; padding: 10px; width: 50%;" align="center">
+      <?php foreach ($thisgame->scoreboard as $score) { ?>
+        <tr>
+          <td style="width:60%">
+            <?php echo $score->name; ?>
+          </td>
+          <td style="width:40%">
+            <?php echo $score->points; ?>
+          </td>
+        </tr>
+      <?php } ?>
+    </table>
     <p>
-      Point: <?php echo $thisgame->user_points; ?>
+      Din kategori, <i><?php echo $thisgame->jeopardy_category_name; ?></i>, er blevet valgt til <?php echo $thisgame->jeopardy_points; ?> point.
     </p>
-    <p>
-      Din kategori, <i><?php echo $thisgame->jeopardy_category_name; ?></i>, er blevet valgt til <?php echo $thisgame->jeopardy_points; ?> point. Svaret er:
-    </p>
-    <p>
-      <b><?php echo $thisgame->jeopardy_answer ?></b>
-    </p>
-    <p>
-      Spørgsmålet er:
-    </p>
-      <b><?php echo $thisgame->jeopardy_question ?></b>
-    <p>
-    </p>
+    <table align="center" style="width:80%;">
+      <tr><th>Svar</th><th>Spørgsmål</th></tr>
+      <tr>
+        <td><?php echo $thisgame->jeopardy_answer ?></td>
+        <td><?php echo $thisgame->jeopardy_question ?></td>
+      </tr>
+    </table>
     <p>
       <form action=spil.php method=post onsubmit="return confirm('Er du sikker?')">
         <div>

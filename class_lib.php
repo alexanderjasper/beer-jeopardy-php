@@ -148,7 +148,7 @@
                 mysqli_query($this->link, "UPDATE spil SET version=version+1 WHERE spilid='$this->game_id'");
             }
 
-            $this->user_points = 0;
+            $this->get_points();            
 
             $this->add_game_category();
             $this->get_game_categories();
@@ -214,6 +214,10 @@
                 $points = 100*$row100p['count']+200*$row200p['count']+300*$row300p['count']+400*$row400p['count']+500*$row500p['count'];
                 $scoreboardEntry = new ScoreBoardEntry($name,$points);
                 array_push($this->scoreboard, $scoreboardEntry);
+                usort($this->scoreboard, function($a, $b)
+                {
+                    return -1 * strcmp($a->points, $b->points);
+                });
             }
         }
 
@@ -244,6 +248,26 @@
                 ON spilkategori.kategoriid=kategori.kategoriid
                 WHERE spilkategori.spilid='$this->game_id'
                 AND deltagerid!=$this->participant_id");
+            if(!$sql) {
+                $error = 'Kunne ikke finde spilkategorier.' . mysqli_error($this->link);
+                include 'error.html.php';
+                exit();
+            }
+            $categories = array();
+            while ($row = mysqli_fetch_array($sql, MYSQLI_ASSOC)) {
+                $categories[] = array($row['kategoriid'],$row['spilkategoriid'],$row['navn']);
+            }
+            $this->game_categories = $categories;
+        }
+
+        private function get_own_game_category() {
+            $sql = mysqli_query($this->link,
+                "SELECT spilkategori.kategoriid,spilkategori.spilkategoriid,kategori.navn
+                FROM spilkategori
+                INNER JOIN kategori
+                ON spilkategori.kategoriid=kategori.kategoriid
+                WHERE spilkategori.spilid='$this->game_id'
+                AND deltagerid=$this->participant_id");
             if(!$sql) {
                 $error = 'Kunne ikke finde spilkategorier.' . mysqli_error($this->link);
                 include 'error.html.php';
@@ -345,16 +369,8 @@
                 if ($row['deltagerid'] == $this->participant_id)
                 {
                     $this->last_category_owner = true;
-                    $sql = mysqli_query($this->link,
-                        "SELECT spilkategori.kategoriid,spilkategori.spilkategoriid,kategori.navn
-                        FROM spilkategori
-                        INNER JOIN kategori
-                        ON spilkategori.kategoriid=kategori.kategoriid
-                        WHERE spilkategori.spilid='$this->game_id'
-                        AND deltagerid=$this->participant_id");
-                    $row = mysqli_fetch_assoc($sql);
-                    $this->game_categories = array();
-                    $this->game_categories[0] = array($row['kategoriid'],$row['spilkategoriid'],$row['navn']);
+                    $this->get_own_game_category();
+                    $this->getDisplayCategories();       
                 }
             }
         }

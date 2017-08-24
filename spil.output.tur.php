@@ -20,7 +20,8 @@
 <body>
   <div class="screen-text">
   <?php include 'menubar.php';?>
-    <?php if ($thisgame->last_category_owner == true) { ?>
+  <h2>Vælg kategori</h2>
+  <?php if ($thisgame->last_category_owner == true) { ?>
       <p>
         Point: <?php echo $thisgame->user_points ?>
       </p>
@@ -33,9 +34,19 @@
           Du er i øjeblikket den eneste deltager i spillet. Vent, indtil nogen tilmelder sig.
         </p>
       <?php } else { ?>
-        <p>
-          Point: <?php echo $thisgame->user_points ?>
-        </p>
+        <table style="border: 1px solid black; border-radius: 4px; padding: 10px; width: 50%;" align="center">
+          <tr><td style="border-bottom: 1px solid black;" colspan="2">Point</td></tr>
+          <?php foreach ($thisgame->scoreboard as $score) { ?>
+            <tr>
+              <td style="width:60%">
+                <?php echo $score->name; ?>
+              </td>
+              <td style="width:40%">
+                <?php echo $score->points; ?>
+              </td>
+            </tr>
+          <?php } ?>
+        </table>
         <p>
           Det er din tur. Vælg en kategori og et pointtal.
         </p>

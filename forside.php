@@ -10,9 +10,6 @@
 <body>
 	<div class="screen-text">
 		<?php include 'menubar.php';?>
-		<h1>
-			Øljeopardy
-		</h1>
 		<p>
 			<div>
 				<a href="logind.php"><button class="menubutton">Log ind</button></a>

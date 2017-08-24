@@ -14,9 +14,9 @@
 <body>
 	<div class="screen-text">
 		<?php include 'menubar.php';?>
-		<h1>
+		<h2>
 			Rediger kategori
-		</h1>
+		</h2>
 		<form action="kategoriredigeret.php" method="post">
 			<div>
 				Kategoriens navn:<br>
