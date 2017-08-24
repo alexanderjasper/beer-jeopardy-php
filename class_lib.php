@@ -155,9 +155,13 @@
         }
 
         function get_from_cookie() {
+	        $this->game_id = $_SESSION['spilid'];
+            if ($this->game_id == null) {
+                include 'index.php';
+                exit();
+            }
             $this->category_id = $_SESSION['katid'];
 	        $this->username = $_SESSION['bruger'];
-	        $this->game_id = $_SESSION['spilid'];
 	        $this->participant_id = $_SESSION['deltager'];
             $this->is_new = false;
             $this->user_id = $_SESSION['userid'];
