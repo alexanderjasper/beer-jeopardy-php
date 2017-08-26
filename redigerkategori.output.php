@@ -17,6 +17,11 @@
 		<h2>
 			Rediger kategori
 		</h2>
+		<p><form action="kategorier.php" method="post" onsubmit="return confirm('Er du sikker på, at du vil slette kategorien?')">
+			<input type="hidden" name="deletecat" value="<?php echo $editcat ?>">
+			<input type="submit" value="Slet" class="menubutton smallbutton red">
+		</form></p>
+
 		<form action="kategoriredigeret.php" method="post">
 			<div>
 				Kategoriens navn:<br>

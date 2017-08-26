@@ -10,9 +10,12 @@
 <body>
   <div class="screen-text">
     <?php include 'menubar.php';?>
+    <h2>Kategorier</h2>
     <?php if (empty($categories)) { ?>
       <p>Du har endnu ikke oprettet nogen kategorier.</p>
-    <?php } else { ?>
+    <?php } else { if (isset($catid)) { ?>
+      <p><b>Kategorien er slettet</b></p>
+      <?php } ?>
       <p>Vælg en kategori, som du vil redigere.</p>
       <form action="redigerkategori.php" method=post>
         <select name="editcat" class="dropdown">

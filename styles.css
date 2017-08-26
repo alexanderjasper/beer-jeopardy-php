@@ -37,6 +37,10 @@
   border-radius: 5px;
 }
 
+.red {
+  background: #ff0000;
+}
+
 .center-div {
   margin: 0 auto;
   float: left;
