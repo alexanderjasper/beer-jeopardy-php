@@ -37,10 +37,13 @@
       Din kategori, <i><?php echo $thisgame->jeopardy_category_name; ?></i>, er blevet valgt til <?php echo $thisgame->jeopardy_points; ?> point.
     </p>
     <table align="center" style="width:80%;">
-      <tr><th>Svar</th><th>Spørgsmål</th></tr>
       <tr>
-        <td><?php echo $thisgame->jeopardy_answer ?></td>
-        <td><?php echo $thisgame->jeopardy_question ?></td>
+        <th width="50%">Svar</th>
+        <th width="50%">Spørgsmål</th>
+      </tr>
+      <tr>
+        <td><?php echo nl2br($thisgame->jeopardy_answer) ?></td>
+        <td><?php echo nl2br($thisgame->jeopardy_question) ?></td>
       </tr>
     </table>
     <p>
