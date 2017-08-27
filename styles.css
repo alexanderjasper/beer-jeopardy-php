@@ -159,16 +159,14 @@ body {
   color: black;
 	font-weight: normal;
 	line-height: 20px;
-  background: url(beer.jpg) no-repeat center center fixed;  
+  background: url(beer.jpg) no-repeat center center ;  
   background-attachment: fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  display: table-cell;
   vertical-align: middle;
   overflow: scroll;
-  padding: 0px;
 }
 
 h1, h2 {
