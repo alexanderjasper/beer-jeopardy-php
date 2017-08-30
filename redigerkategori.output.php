@@ -4,9 +4,9 @@
 <body>
 	<div class="screen-text">
 		<?php include 'menubar.php';?>
-		<h2>
+		<h4>
 			Rediger kategori
-		</h2>
+		</h4>
 		<p><form action="kategorier.php" method="post" onsubmit="return confirm('Er du sikker på, at du vil slette kategorien?')">
 			<input type="hidden" name="deletecat" value="<?php echo $editcat ?>">
 			<input type="submit" value="Slet" class="menubutton smallbutton red">

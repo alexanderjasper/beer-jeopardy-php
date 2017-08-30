@@ -4,7 +4,7 @@
 <body>
   <div class="screen-text">
     <?php include 'menubar.php';?>
-    <h2>Læs op</h2>
+    <h4>Læs op</h4>
     <table style="border: 1px solid black; padding: 10px; width: 50%;" align="center">
       <?php foreach ($thisgame->scoreboard as $score) { ?>
         <tr>

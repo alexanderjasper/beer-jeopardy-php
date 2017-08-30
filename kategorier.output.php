@@ -4,7 +4,7 @@
 <body>
   <div class="screen-text">
     <?php include 'menubar.php';?>
-    <h2>Kategorier</h2>
+    <h4>Kategorier</h4>
     <?php if (isset($categoryDeleted)) { ?>
       <div class="alert alert-danger alert-dismissable">
         Kategorien er slettet.

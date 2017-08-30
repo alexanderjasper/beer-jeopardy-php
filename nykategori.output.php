@@ -4,9 +4,9 @@
 <body>
 	<div class="screen-text">
 		<?php include 'menubar.php';?>
-		<h2>
+		<h4>
 			Opret kategori
-		</h2>
+		</h4>
 		<form action="kategorioprettet.php" method="post">
 			<div>
 				Kategoriens navn:<br>

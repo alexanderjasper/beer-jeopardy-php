@@ -4,7 +4,7 @@
 <body>
   <div class="screen-text">
   <?php include 'menubar.php';?>
-  <h2>Vælg kategori</h2>
+  <h4>Vælg kategori</h4>
   <?php if ($thisgame->last_category_owner == true) { ?>
       <p>
         Point: <?php echo $thisgame->user_points ?>
