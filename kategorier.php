@@ -7,6 +7,7 @@ $name = mysqli_real_escape_string($link, $_SESSION['brugernavn']);
 if (isset($_POST['deletecat'])) {
 	$catid = $_POST['deletecat'];
 	$sql = mysqli_query($link, "DELETE FROM kategori WHERE kategoriid='$catid'");
+	$categoryDeleted = true;
 }
 
 $sql = mysqli_query($link, "SELECT * FROM kategori WHERE brugerid='$uid'");

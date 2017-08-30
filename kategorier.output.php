@@ -5,14 +5,13 @@
   <div class="screen-text">
     <?php include 'menubar.php';?>
     <h2>Kategorier</h2>
-    <div class="alert alert-success alert-dismissable">
-      Kategorien er redigeret.
-    </div>
-    <?php if (empty($categories)) { ?>
+    <?php if (isset($categoryDeleted)) { ?>
+      <div class="alert alert-danger alert-dismissable">
+        Kategorien er slettet.
+      </div>
+    <?php } if (empty($categories)) { ?>
       <p>Du har endnu ikke oprettet nogen kategorier.</p>
-    <?php } else { if (isset($catid)) { ?>
-      <p><b>Kategorien er slettet</b></p>
-      <?php } ?>
+    <?php } else { ?>
       <p>Vælg en kategori, som du vil redigere.</p>
       <form action="redigerkategori.php" method=post>
         <select name="editcat" class="dropdown">
