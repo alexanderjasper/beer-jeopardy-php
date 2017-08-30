@@ -1,38 +1,20 @@
-<!DOCTYPE html>
-<html>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<head>
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
-	<title>Øljeopardy</title>
-	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-</head>
-<body>
-	<div class="screen-text">
-		<?php include 'menubar.php';?>
-		<form action="brugeroprettet.php" method="post">
-			<p>
-				<div>
-					<label for="brugernavn">Ønsket brugernavn:</label>
-				</div>
-				<div>
-					<input type="text" id="brugernavn" name="brugernavn" class="name-field">
-				</div>
-			</p>
-			<p>
-				<div>
-					<label for="brugernavn">Ønsket adgangskode:</label>
-				</div>
-				<div>
-					<input type="password" id="adgangskode" name="adgangskode" class="name-field">
-				</div>
-			</p>
-			<div>
-				<div>
-					<input type="submit" value="Opret" class="menubutton">
-				</div>
-			</div>
-		</form>
-	</div
-</body>
-</html>
+<?php
+include('conn.php');
+include('class_lib.php');
+
+if (isset($_POST['brugernavn'])) {
+	$user = new User($link);
+	$user->create($_POST['brugernavn'], $_POST['adgangskode']);
+	if (!isset($user->Error)) {
+		$newuser = true;
+		include 'index.php';
+	} else {
+		$error = $user->Error;
+		include 'nybruger.output.php';
+	}
+} else {
+	include 'nybruger.output.php';
+}
+// close connection
+mysqli_close($link);
+?>

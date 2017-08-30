@@ -1,21 +1,25 @@
 <!DOCTYPE html>
 <html>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<head>
-  <link rel="stylesheet" type="text/css" href="styles.css">
-  <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
-  <title>Øljeopardy</title>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-</head>
+<?php include 'preamble.html' ?>
 <body>
   <div class="screen-text">
     <?php include 'menubar.php';?>
-    <h2>Kategorier</h2>
-    <?php if (empty($categories)) { ?>
+    <h4>Kategorier</h4>
+    <?php if (isset($categoryDeleted)) { ?>
+      <div class="alert alert-success alert-dismissable">
+        Kategorien er slettet.
+      </div>
+    <?php } if (isset($categoryCreated)) { ?>
+      <div class="alert alert-success alert-dismissable">
+        Kategorien er oprettet.
+      </div>
+    <?php } if (isset($categoryEdited)) { ?>
+      <div class="alert alert-success alert-dismissable">
+        Kategorien er redigeret.
+      </div>
+    <?php } if (empty($categories)) { ?>
       <p>Du har endnu ikke oprettet nogen kategorier.</p>
-    <?php } else { if (isset($catid)) { ?>
-      <p><b>Kategorien er slettet</b></p>
-      <?php } ?>
+    <?php } else { ?>
       <p>Vælg en kategori, som du vil redigere.</p>
       <form action="redigerkategori.php" method=post>
         <select name="editcat" class="dropdown">

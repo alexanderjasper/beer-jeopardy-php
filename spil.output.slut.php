@@ -1,18 +1,12 @@
 <!DOCTYPE html>
 <html>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<head>
-  <link rel="stylesheet" type="text/css" href="styles.css">
-  <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
-  <title>Øljeopardy</title>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-</head>
+<?php include 'preamble.html' ?>
 <body>
   <div class="screen-text">
     <?php include 'menubar.php';?>
-    <h2>
+    <h4>
       Spillet er slut.
-    </h2>
+    </h4>
     <table style="border: 1px solid black; padding: 10px; width: 50%;" align="center">
       <?php foreach ($thisgame->scoreboard as $score) { ?>
         <tr>
