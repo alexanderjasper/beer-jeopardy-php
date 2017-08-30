@@ -19,7 +19,7 @@
             <a href="opretspil.php"><button class="menubutton">Opret nyt spil</button></a>
           </p>
         <?php } else { ?>
-          <?php if ($gamecount > 0) { ?>
+          <?php if ($foundgame) { ?>
             <p>
               Du deltager allerede i spillet <b><?php echo $gamename ?></b>.
               <div>

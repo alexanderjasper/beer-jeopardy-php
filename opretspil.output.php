@@ -5,7 +5,7 @@
 	<div class="screen-text">
 		<?php include 'menubar.php';?>
 		<p>
-			<?php if ($gamecount > 0) { ?>
+			<?php if ($foundgame) { ?>
 				<p>
 					Du deltager allerede i spillet <b><?php echo $gamename ?></b>.
 					<div>
