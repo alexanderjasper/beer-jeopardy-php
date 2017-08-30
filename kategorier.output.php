@@ -6,8 +6,16 @@
     <?php include 'menubar.php';?>
     <h4>Kategorier</h4>
     <?php if (isset($categoryDeleted)) { ?>
-      <div class="alert alert-danger alert-dismissable">
+      <div class="alert alert-success alert-dismissable">
         Kategorien er slettet.
+      </div>
+    <?php } if (isset($categoryCreated)) { ?>
+      <div class="alert alert-success alert-dismissable">
+        Kategorien er oprettet.
+      </div>
+    <?php } if (isset($categoryEdited)) { ?>
+      <div class="alert alert-success alert-dismissable">
+        Kategorien er redigeret.
       </div>
     <?php } if (empty($categories)) { ?>
       <p>Du har endnu ikke oprettet nogen kategorier.</p>

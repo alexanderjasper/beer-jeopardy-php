@@ -66,6 +66,7 @@
   width: 80%;
   height: 70%;
   resize: none;
+  margin-bottom: 20px;
 }
 
 textarea {
@@ -246,6 +247,17 @@ h1, h2 {
 .category-radio-button-label.inactive {
   background: #ff0000;
 	box-shadow: 0 2px #aa0000;
+}
+
+.category-edit-submit-button {
+  float: left;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.category-edit-container {
+  float: left;
+  width: 100%;
 }
 
 input[type="radio"]:checked+label {
