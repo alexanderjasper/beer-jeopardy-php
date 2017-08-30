@@ -1,16 +1,6 @@
 <!DOCTYPE html>
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script src="sortable.js"></script>
-<script src="jquery.ui.touch-punch.js"></script>
 <html>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-<head>
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
-	<title>Øljeopardy</title>
-	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-</head>
+<?php include 'preamble.html' ?>
 <body>
 	<div class="screen-text">
 		<?php include 'menubar.php';?>
